@@ -675,10 +675,40 @@ searchBar.addEventListener('input', () => {
             item.style.display = 'none'; // Hide the grid item
         }
     });
-});
-
-        
+});        
     </script>
+
+    <script>
+        // Function to move grid items
+function moveGridItems() {
+  const gridContainer = document.querySelector('.grid-container');
+  const gridItems = Array.from(document.querySelectorAll('.grid-item'));
+  
+  // Define the animation duration and interval
+  const animationDuration = 10; // in seconds
+  const itemWidth = gridItems[0].offsetWidth;
+  const containerWidth = gridContainer.offsetWidth;
+  const animationInterval = (itemWidth + containerWidth) / containerWidth * animationDuration * 1000;
+  
+  let position = 0;
+  
+  // Set an interval to move the grid items
+  setInterval(() => {
+    position -= 1;
+    gridContainer.style.transform = `translateX(${position}px)`;
+    
+    // Wrap grid items when they go out of view
+    if (position <= -itemWidth) {
+      position += itemWidth;
+      const firstItem = gridItems.shift();
+      gridItems.push(firstItem);
+    }
+  }, animationInterval);
+}
+
+// Call the function to start the animation loop
+moveGridItems();
+    </script>        
         
     
 <script src="searchsystem.js"></script>
