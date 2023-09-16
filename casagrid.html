@@ -408,23 +408,29 @@
 }
 
 
-.top-left-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Style for the logo container */
+.logo-container {
+    position: fixed;
+    top: 20px;
+    left: 75px; /* Adjust the left position as needed */
     display: flex;
     align-items: center;
-    padding: 10px;
 }
 
-.cfor-logo {
-    width: 40px; /* Adjust the size as needed */
-    margin-right: 10px; /* Add some spacing between the logo and text */
+/* Style for casalogo.png */
+.casalogo {
+    width: 40px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add margin to separate from the navigation button */
+    animation: fadeInOut 2s infinite;
 }
 
-.casa-lettered {
-    width: auto; /* Automatically adjust the width based on the image size */
+/* Style for casalettered.png */
+.casalettered {
+    width: 35px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
+
 
         
 
@@ -432,11 +438,12 @@
 </head>
 <body>
 
-
-<div class="top-left-container">
-    <img src="cforlogo.png" alt="C For Logo" class="cfor-logo">
-    <img src="casalettered.png" alt="Casa Lettered" class="casa-lettered">
+<div class="logo-container">
+    <img src="casalogo.png" class="casalogo">
+    <img src="casalettered.png" class="casalettered">
 </div>
+
+
 
     
     <img src="casalogo.png" class="logo">
