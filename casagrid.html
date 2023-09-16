@@ -358,6 +358,34 @@
 }
 
 
+/* Add or modify the styles for the featured items */
+.featured-items-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.featured-items-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Display 2 grids side by side */
+  grid-gap: 20px; /* Add grid gap between grids */
+  overflow: hidden; /* Hide overflowing items */
+  max-width: 100%; /* Ensure the grids don't exceed the container width */
+  transition: transform 0.5s; /* Add a smooth transition effect */
+}
+
+/* Style for each featured grid item */
+.featured-items-wrapper .grid-item {
+  width: 100%; /* Ensure each grid item takes up the full width of its cell */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* When hovering over a featured grid item, scale it slightly */
+.featured-items-wrapper .grid-item:hover {
+  transform: scale(1.05);
+}
+
+        
         
 
     </style>
