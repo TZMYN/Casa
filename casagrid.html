@@ -322,6 +322,9 @@
     <img src="casalogo.png" class="logo">
     
 <h1>Today's Features</h1>
+
+    <div class="featured-items"></div>
+
     
     <h1>Ladies' Profiles</h1>
 
@@ -693,44 +696,43 @@ searchBar.addEventListener('input', () => {
 
     <script>(function(){var js,fs,d=document,id="tars-widget-script",b="https://tars-file-upload.s3.amazonaws.com/bulb/";if(!d.getElementById(id)){js=d.createElement("script");js.id=id;js.type="text/javascript";js.src=b+"js/widget.js";fs=d.getElementsByTagName("script")[0];fs.parentNode.insertBefore(js,fs)}})();window.tarsSettings = {"convid": "fEJ061", "href": "https://chatbot.hellotars.com/conv/fEJ061"};</script>
 
-
-<script>
-    // Function to move random grid items under "Today's Features"
+    <script>
+// Function to move random grid items under "Today's Features"
 function moveRandomGridItems() {
   const gridContainer = document.querySelector('.grid-container');
   const gridItems = Array.from(document.querySelectorAll('.grid-item'));
   const featuredContainer = document.querySelector('.featured-items');
-  
+
   // Create a container for featured items
   const featuredItems = document.createElement('div');
   featuredItems.classList.add('featured-items');
   featuredContainer.appendChild(featuredItems);
-  
+
   // Function to display a random grid item
   function displayRandomGridItem() {
     // Clear the featured items container
     featuredItems.innerHTML = '';
-    
+
     // Get a random grid item
     const randomIndex = Math.floor(Math.random() * gridItems.length);
     const randomItem = gridItems[randomIndex].cloneNode(true);
     featuredItems.appendChild(randomItem);
   }
-  
+
   // Set an interval to display random grid items
   setInterval(() => {
     displayRandomGridItem();
   }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
-  
+
   // Display the initial random grid item
   displayRandomGridItem();
 }
 
 // Call the function to start displaying random grid items
 moveRandomGridItems();
-
-
 </script>
+
+
 
     
 </body>
