@@ -316,6 +316,37 @@
   }
 }
 
+        
+
+/* Add or modify the styles for the featured items */
+.featured-items {
+  display: flex;
+  flex-direction: row; /* Display items horizontally */
+  overflow: hidden; /* Hide overflowing items */
+  height: 200px; /* Set the desired height */
+}
+
+/* Adjust the styles for each featured item */
+.featured-items .grid-item {
+  width: 400px; /* Set the desired width */
+  margin-right: 20px; /* Add some spacing between items */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.5s; /* Add a smooth transition effect */
+}
+
+/* Style for the last featured item (no margin-right) */
+.featured-items .grid-item:last-child {
+  margin-right: 0;
+}
+
+/* When hovering over a featured item, scale it slightly */
+.featured-items .grid-item:hover {
+  transform: scale(1.05);
+}
+
+        
+
     </style>
 </head>
 <body>
