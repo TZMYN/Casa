@@ -201,23 +201,25 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1000px; /* Doubled width */
-    padding: 40px; /* Doubled padding */
-    background-color: #ff4d4d; /* Pinkish-red background color */
-    border-radius: 20px; /* Doubled border radius */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+    max-width: 90%; /* Set a maximum width for responsiveness */
+    width: auto; /* Allow the content to dictate the width */
+    padding: 40px;
+    background-color: #ff4d4d;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    color: white; /* White text color */
-    font-size: 28px; /* Doubled font size */
-    line-height: 1.5; /* Adjusted line height for better readability */
+    color: white;
+    font-size: 20px; /* Adjust font size as needed */
+    line-height: 1.5;
 }
-        
+
 .popup-close {
     float: right;
     cursor: pointer;
-    font-size: 64px; /* Set the font size to adjust the button size */
-    line-height: 1; /* Prevent additional vertical spacing */
+    font-size: 24px;
+    line-height: 1;
 }
+
 
   /* Styles for the floating emojis container */
 .floating-emojis {
