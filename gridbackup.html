@@ -408,11 +408,47 @@
 }
 
 
+/* Style for the logo container */
+.logo-container {
+    
+    top: 20px;
+    left: 75px; /* Adjust the left position as needed */
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+     margin-bottom: 200px;
+}
+
+/* Style for casalogo.png */
+.casalogo {
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add margin to separate from the navigation button */
+    animation: fadeInOut 2s infinite;
+}
+
+/* Style for casalettered.png */
+.casalettered {
+    width: 700px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+        
 
     </style>
 </head>
 <body>
-    <img src="casalogo.png" class="logo">
+
+<div class="logo-container">
+    <img src="casalogo.png" class="casalogo">
+    <img src="casalettered.png" class="casalettered">
+</div>
+
+
+
+    
+<!--    <img src="casalogo.png" class="logo"> -->
     
 <div class="featured-items-container">
   <h1>Today's Featureds</h1>
