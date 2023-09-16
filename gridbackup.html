@@ -23,14 +23,22 @@
 
 
         h1 {
+        background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     color: #ffb6c1; /* Red color */
-    margin-top: - 30px;
-    font-size: 100px;
+    margin-top: 80px;
+    margin-bottom: 200px;
+    font-size: 60px;
     font-family: 'Cursive', cursive; /* Font that conveys romance, pleasure, and passion */
 }
 
+    #headertwo {
+        margin-top:200px;
+        margin-bottom: 200px;
+    }
+        
 
+        
 /* Style the navigation button */
 .menu-button {
     position: fixed;
@@ -59,13 +67,20 @@
         
 
 /* Style the sidebar pop-out box */
-.sidebar {
+
+        .sidebar {
     position: fixed;
     top: 0;
     left: -600px; /* Initially hide the sidebar off-screen to the left */
     width: 600px; /* Adjust the width to 600px */
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Black background color with 70% transparency */
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Use the same gradient as grid parameters */
+        
+        
+        
+    
+      /*  rgba(0, 0, 0, 0.7); */
+    
     z-index: 999;
     overflow-y: auto; /* Enable vertical scrolling if the content overflows */
     transition: left 0.4s;
@@ -193,23 +208,31 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1000px; /* Doubled width */
-    padding: 40px; /* Doubled padding */
-    background-color: #ff4d4d; /* Pinkish-red background color */
-    border-radius: 20px; /* Doubled border radius */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+    max-width: 500%;
+    width: 900px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #ff4d4d;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    color: white; /* White text color */
-    font-size: 28px; /* Doubled font size */
-    line-height: 1.5; /* Adjusted line height for better readability */
+    color: white;
+    font-size: 25px;
+    line-height: 1.5;
+    overflow: auto;
+    word-wrap: break-word;
+    white-space: normal; /* Allow text to wrap */
 }
-        
+
+
+
 .popup-close {
     float: right;
     cursor: pointer;
-    font-size: 64px; /* Set the font size to adjust the button size */
-    line-height: 1; /* Prevent additional vertical spacing */
+    font-size: 50px;
+    line-height: 1;
 }
+
 
   /* Styles for the floating emojis container */
 .floating-emojis {
@@ -358,19 +381,50 @@
 }
 
 
-        
+/* Add or modify the styles for the featured items */
+.featured-items-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.featured-items-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Display 2 grids side by side */
+  grid-gap: 20px; /* Add grid gap between grids */
+  overflow: hidden; /* Hide overflowing items */
+  max-width: 100%; /* Ensure the grids don't exceed the container width */
+  transition: transform 0.5s; /* Add a smooth transition effect */
+}
+
+/* Style for each featured grid item */
+.featured-items-wrapper .grid-item {
+  width: 100%; /* Ensure each grid item takes up the full width of its cell */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* When hovering over a featured grid item, scale it slightly */
+.featured-items-wrapper .grid-item:hover {
+  transform: scale(1.05);
+}
+
+
 
     </style>
 </head>
 <body>
     <img src="casalogo.png" class="logo">
     
-<h1>Today's Featured</h1>
+<div class="featured-items-container">
+  <h1>Today's Featureds</h1>
+  <div class="featured-items-wrapper">
+    <!-- The featured items will be added dynamically here -->
+  </div>
+</div>
 
-    <div class="featured-items"></div>
-<div class="featured-items"></div>
+
     
-    <h1>Ladies' Profiles</h1>
+    <h1 id="headertwo">Ladies' Profiles</h1>
 
     
     <!-- New section label for the search form -->
@@ -741,39 +795,59 @@ searchBar.addEventListener('input', () => {
     <script>(function(){var js,fs,d=document,id="tars-widget-script",b="https://tars-file-upload.s3.amazonaws.com/bulb/";if(!d.getElementById(id)){js=d.createElement("script");js.id=id;js.type="text/javascript";js.src=b+"js/widget.js";fs=d.getElementsByTagName("script")[0];fs.parentNode.insertBefore(js,fs)}})();window.tarsSettings = {"convid": "fEJ061", "href": "https://chatbot.hellotars.com/conv/fEJ061"};</script>
 
     <script>
-// Function to move random grid items under "Today's Features"
-function moveRandomGridItems() {
+        
+// Function to move multiple grids side by side like a conveyor belt
+function moveGrids() {
   const gridContainer = document.querySelector('.grid-container');
   const gridItems = Array.from(document.querySelectorAll('.grid-item'));
-  const featuredContainer = document.querySelector('.featured-items');
+  const featuredContainer = document.querySelector('.featured-items-wrapper');
 
-  // Create a container for featured items
-  const featuredItems = document.createElement('div');
-  featuredItems.classList.add('featured-items');
-  featuredContainer.appendChild(featuredItems);
+  // Number of grids to display side by side
+  const numGridsToShow = 2;
+  let currentIndex = 0;
 
-  // Function to display a random grid item
-  function displayRandomGridItem() {
-    // Clear the featured items container
-    featuredItems.innerHTML = '';
+  // Function to display the next set of grid items
+  function displayNextGridItems() {
+    // Clear the featured items wrapper
+    featuredContainer.innerHTML = '';
 
-    // Get a random grid item
-    const randomIndex = Math.floor(Math.random() * gridItems.length);
-    const randomItem = gridItems[randomIndex].cloneNode(true);
-    featuredItems.appendChild(randomItem);
+    for (let i = 0; i < numGridsToShow; i++) {
+      // Get the next grid item
+      const currentItem = gridItems[currentIndex].cloneNode(true);
+      featuredContainer.appendChild(currentItem);
+
+      // Increment the current index or reset to 0 if reached the end
+      currentIndex = (currentIndex + 1) % gridItems.length;
+    }
   }
 
-  // Set an interval to display random grid items
-  setInterval(() => {
-    displayRandomGridItem();
+  // Display the initial set of grid items
+  displayNextGridItems();
+
+  // Set an interval to display grid items continuously
+  const interval = setInterval(() => {
+    // Create a sliding effect by moving the featured items wrapper to the left
+    featuredContainer.style.transition = 'transform 0.5s';
+    featuredContainer.style.transform = 'translateX(-100%)';
+
+    // After the transition, reset the position and display the next set of grid items
+    setTimeout(() => {
+      featuredContainer.style.transition = 'none';
+      featuredContainer.style.transform = 'translateX(0)';
+      displayNextGridItems();
+    }, 500); // Adjust the timing as needed
+
   }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
 
-  // Display the initial random grid item
-  displayRandomGridItem();
+  // Stop the interval when the page is unloaded (optional)
+  window.addEventListener('beforeunload', () => {
+    clearInterval(interval);
+  });
 }
 
-// Call the function to start displaying random grid items
-moveRandomGridItems();
+// Call the function to start moving grids side by side
+moveGrids();
+
 </script>
 
 
