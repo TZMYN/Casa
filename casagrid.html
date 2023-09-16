@@ -744,8 +744,9 @@ searchBar.addEventListener('input', () => {
     <script>(function(){var js,fs,d=document,id="tars-widget-script",b="https://tars-file-upload.s3.amazonaws.com/bulb/";if(!d.getElementById(id)){js=d.createElement("script");js.id=id;js.type="text/javascript";js.src=b+"js/widget.js";fs=d.getElementsByTagName("script")[0];fs.parentNode.insertBefore(js,fs)}})();window.tarsSettings = {"convid": "fEJ061", "href": "https://chatbot.hellotars.com/conv/fEJ061"};</script>
 
     <script>
-// Function to move random grid items under "Today's Features"
-function moveRandomGridItems() {
+        
+// Function to move grids like a conveyor belt
+function moveGrids() {
   const gridContainer = document.querySelector('.grid-container');
   const gridItems = Array.from(document.querySelectorAll('.grid-item'));
   const featuredContainer = document.querySelector('.featured-items');
@@ -758,37 +759,47 @@ function moveRandomGridItems() {
   const featuredItemsContainer = document.querySelector('.featured-items-container');
   featuredItemsContainer.appendChild(featuredItems);
 
-  // Function to display a random grid item
-  function displayRandomGridItem() {
+  let currentIndex = 0;
+
+  // Function to display the next grid item
+  function displayNextGridItem() {
     // Clear the featured items container
     featuredItems.innerHTML = '';
 
-    // Get a random grid item
-    const randomIndex = Math.floor(Math.random() * gridItems.length);
-    const randomItem = gridItems[randomIndex].cloneNode(true);
-    featuredItems.appendChild(randomItem);
+    // Get the next grid item
+    const currentItem = gridItems[currentIndex].cloneNode(true);
+    featuredItems.appendChild(currentItem);
+
+    // Increment the current index or reset to 0 if reached the end
+    currentIndex = (currentIndex + 1) % gridItems.length;
   }
 
-  // Display the initial random grid item
-  displayRandomGridItem();
+  // Display the initial grid item
+  displayNextGridItem();
 
-  // Set an interval to display random grid items
-  setInterval(() => {
+  // Set an interval to display grid items continuously
+  const interval = setInterval(() => {
     // Create a sliding effect by moving the featured items container to the left
     featuredItemsContainer.style.transition = 'transform 0.5s';
     featuredItemsContainer.style.transform = 'translateX(-100%)';
 
-    // After the transition, reset the position and display a new random item
+    // After the transition, reset the position and display the next grid item
     setTimeout(() => {
       featuredItemsContainer.style.transition = 'none';
       featuredItemsContainer.style.transform = 'translateX(0)';
-      displayRandomGridItem();
+      displayNextGridItem();
     }, 500); // Adjust the timing as needed
+
   }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
+
+  // Stop the interval when the page is unloaded (optional)
+  window.addEventListener('beforeunload', () => {
+    clearInterval(interval);
+  });
 }
 
-// Call the function to start displaying random grid items
-moveRandomGridItems();
+// Call the function to start moving grids like a conveyor belt
+moveGrids();
 
 </script>
 
