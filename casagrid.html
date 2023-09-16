@@ -701,15 +701,6 @@ function moveRandomGridItems() {
   const gridItems = Array.from(document.querySelectorAll('.grid-item'));
   const featuredContainer = document.querySelector('.featured-items');
   
-  // Define the animation duration and interval
-  const animationDuration = 10; // in seconds
-  const itemWidth = gridItems[0].offsetWidth;
-  const containerWidth = gridContainer.offsetWidth;
-  const animationInterval = (itemWidth + containerWidth) / containerWidth * animationDuration * 1000;
-  
-  let position = 0;
-  let currentRandomIndex = Math.floor(Math.random() * gridItems.length);
-  
   // Create a container for featured items
   const featuredItems = document.createElement('div');
   featuredItems.classList.add('featured-items');
@@ -721,31 +712,23 @@ function moveRandomGridItems() {
     featuredItems.innerHTML = '';
     
     // Get a random grid item
-    const randomItem = gridItems[currentRandomIndex].cloneNode(true);
+    const randomIndex = Math.floor(Math.random() * gridItems.length);
+    const randomItem = gridItems[randomIndex].cloneNode(true);
     featuredItems.appendChild(randomItem);
-    
-    // Increment the random index or reset it if needed
-    currentRandomIndex = (currentRandomIndex + 1) % gridItems.length;
   }
   
-  // Set an interval to move the grid items
+  // Set an interval to display random grid items
   setInterval(() => {
-    position -= 1;
-    gridContainer.style.transform = `translateX(${position}px)`;
-    
-    // Wrap grid items when they go out of view
-    if (position <= -itemWidth) {
-      position += itemWidth;
-      displayRandomGridItem();
-    }
-  }, animationInterval);
+    displayRandomGridItem();
+  }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
   
   // Display the initial random grid item
   displayRandomGridItem();
 }
 
-// Call the function to start the animation loop
+// Call the function to start displaying random grid items
 moveRandomGridItems();
+
 
 </script>
 
