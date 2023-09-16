@@ -28,8 +28,11 @@
     color: #ffb6c1; /* Red color */
     margin-top: 80px;
     margin-bottom: 200px;
-    font-size: 60px;
+    font-size: 75px;
     font-family: 'Cursive', cursive; /* Font that conveys romance, pleasure, and passion */
+    padding-top: 35px;
+    padding-bottom: 35px;
+              
 }
 
     #headertwo {
@@ -415,8 +418,9 @@
     left: 75px; /* Adjust the left position as needed */
     display: flex;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 150px;
      margin-bottom: 200px;
+    margin-left: 70px;
 }
 
 /* Style for casalogo.png */
@@ -434,20 +438,52 @@
 }
 
 
-        
+/* Add some basic styles for the button container */
+        .button-container {
+            position: absolute;
+            top: 15px; /* Adjust the top position as needed */
+            right: 10px; /* Adjust the right position as needed */
+            display: flex;
+            background-color: #ff4d4d;
+            width:200px;
+            border-radius:100px;
+            
+        }
+
+        /* Style for individual button icons */
+        .button-icon {
+            width: 80px; /* Adjust the width as needed */
+            height: 80px; /* Adjust the height as needed */
+            margin-left: 10px; /* Adjust the margin between icons as needed */
+            cursor: pointer;
+            border-radius: 60px;
+        }
+        #questionbutton {
+            margin-right:-3px;
+            margin-left: 80px 
+        } 
 
     </style>
 </head>
 <body>
 
+    <!-- Button Container for Icons -->
+    <div class="button-container">
+        <!-- Icon for PERSON.png (Replace with your actual image path) -->
+        <img src="PERSON.png" alt="Person Icon" class="button-icon">
+        
+        <!-- Icon for QUESTION.png (Replace with your actual image path) -->
+        <img src="QUESTION.png" alt="Question Icon" class="button-icon" id="question-button">
+    </div>
+    
+
+    
 <div class="logo-container">
     <img src="casalogo.png" class="casalogo">
     <img src="casalettered.png" class="casalettered">
 </div>
 
 
-
-    
 <!--    <img src="casalogo.png" class="logo"> -->
     
 <div class="featured-items-container">
