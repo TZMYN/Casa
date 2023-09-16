@@ -366,11 +366,12 @@
     <img src="casalogo.png" class="logo">
     
 <div class="featured-items-container">
-  <h1>Today's Features</h1>
-  <div class="featured-items">
+  <h2>Today's Features</h2>
+  <div class="featured-items-wrapper">
     <!-- The featured items will be added dynamically here -->
   </div>
 </div>
+
 
     
     <h1>Ladies' Profiles</h1>
@@ -745,49 +746,45 @@ searchBar.addEventListener('input', () => {
 
     <script>
         
-// Function to move grids like a conveyor belt
+// Function to move multiple grids side by side like a conveyor belt
 function moveGrids() {
   const gridContainer = document.querySelector('.grid-container');
   const gridItems = Array.from(document.querySelectorAll('.grid-item'));
-  const featuredContainer = document.querySelector('.featured-items');
+  const featuredContainer = document.querySelector('.featured-items-wrapper');
 
-  // Create a container for featured items
-  const featuredItems = document.createElement('div');
-  featuredItems.classList.add('featured-items');
-
-  // Add the featured items container inside the featured-items-container
-  const featuredItemsContainer = document.querySelector('.featured-items-container');
-  featuredItemsContainer.appendChild(featuredItems);
-
+  // Number of grids to display side by side
+  const numGridsToShow = 2;
   let currentIndex = 0;
 
-  // Function to display the next grid item
-  function displayNextGridItem() {
-    // Clear the featured items container
-    featuredItems.innerHTML = '';
+  // Function to display the next set of grid items
+  function displayNextGridItems() {
+    // Clear the featured items wrapper
+    featuredContainer.innerHTML = '';
 
-    // Get the next grid item
-    const currentItem = gridItems[currentIndex].cloneNode(true);
-    featuredItems.appendChild(currentItem);
+    for (let i = 0; i < numGridsToShow; i++) {
+      // Get the next grid item
+      const currentItem = gridItems[currentIndex].cloneNode(true);
+      featuredContainer.appendChild(currentItem);
 
-    // Increment the current index or reset to 0 if reached the end
-    currentIndex = (currentIndex + 1) % gridItems.length;
+      // Increment the current index or reset to 0 if reached the end
+      currentIndex = (currentIndex + 1) % gridItems.length;
+    }
   }
 
-  // Display the initial grid item
-  displayNextGridItem();
+  // Display the initial set of grid items
+  displayNextGridItems();
 
   // Set an interval to display grid items continuously
   const interval = setInterval(() => {
-    // Create a sliding effect by moving the featured items container to the left
-    featuredItemsContainer.style.transition = 'transform 0.5s';
-    featuredItemsContainer.style.transform = 'translateX(-100%)';
+    // Create a sliding effect by moving the featured items wrapper to the left
+    featuredContainer.style.transition = 'transform 0.5s';
+    featuredContainer.style.transform = 'translateX(-100%)';
 
-    // After the transition, reset the position and display the next grid item
+    // After the transition, reset the position and display the next set of grid items
     setTimeout(() => {
-      featuredItemsContainer.style.transition = 'none';
-      featuredItemsContainer.style.transform = 'translateX(0)';
-      displayNextGridItem();
+      featuredContainer.style.transition = 'none';
+      featuredContainer.style.transform = 'translateX(0)';
+      displayNextGridItems();
     }, 500); // Adjust the timing as needed
 
   }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
@@ -798,7 +795,7 @@ function moveGrids() {
   });
 }
 
-// Call the function to start moving grids like a conveyor belt
+// Call the function to start moving grids side by side
 moveGrids();
 
 </script>
