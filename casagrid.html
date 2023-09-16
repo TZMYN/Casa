@@ -686,40 +686,35 @@ searchBar.addEventListener('input', () => {
 
 
 <script>
-  // Function to shuffle an array randomly
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    // Function to move grid items
+    function moveGridItems() {
+        const gridContainer = document.querySelector('.grid-container');
+        const gridItems = Array.from(document.querySelectorAll('.grid-item'));
+
+        // Define the animation duration and interval
+        const animationDuration = 10; // in seconds
+        const itemWidth = gridItems[0].offsetWidth;
+        const containerWidth = gridContainer.offsetWidth;
+        const animationInterval = (itemWidth + containerWidth) / containerWidth * animationDuration * 1000;
+
+        let position = 0;
+
+        // Set an interval to move the grid items
+        setInterval(() => {
+            position -= 1;
+            gridContainer.style.transform = `translateX(${position}px)`;
+
+            // Wrap grid items when they go out of view
+            if (position <= -itemWidth) {
+                position += itemWidth;
+                const firstItem = gridItems.shift();
+                gridItems.push(firstItem);
+            }
+        }, animationInterval);
     }
-  }
 
-  // Get all the grid items
-  const gridItems = Array.from(document.querySelectorAll('.grid-item'));
-
-  // Shuffle the grid items randomly
-  shuffleArray(gridItems);
-
-  // Define the animation duration and interval
-  const animationDuration = 10; // in seconds
-  const itemWidth = gridItems[0].offsetWidth;
-  const containerWidth = document.querySelector('.grid-container').offsetWidth;
-  const animationInterval = (itemWidth + containerWidth) / containerWidth * animationDuration * 1000;
-
-  let position = 0;
-
-  // Set an interval to move the grid items
-  setInterval(() => {
-    position -= 1;
-    document.querySelector('.grid-container').style.transform = `translateX(${position}px)`;
-
-    // Wrap grid items when they go out of view
-    if (position <= -itemWidth) {
-      position += itemWidth;
-      const firstItem = gridItems.pop();
-      gridItems.unshift(firstItem);
-    }
-  }, animationInterval);
+    // Call the function to start the animation loop
+    moveGridItems();
 </script>
 
     
