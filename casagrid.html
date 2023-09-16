@@ -317,19 +317,18 @@
 }
 
         
-
-/* Add or modify the styles for the featured items */
 /* Add or modify the styles for the featured items */
 .featured-items {
   display: flex;
   flex-direction: row; /* Display items horizontally */
   overflow: hidden; /* Hide overflowing items */
-  height: 488px; /* Set the desired height based on the aspect ratio (16:9) */
+  max-width: 850px; /* Set the maximum width */
+  height: auto; /* Let the height adjust automatically based on content */
 }
 
 /* Adjust the styles for each featured item */
 .featured-items .grid-item {
-  width: 850px; /* Set the desired width */
+  max-width: 100%; /* Set the maximum width to allow responsiveness */
   margin-right: 20px; /* Add some spacing between items */
   border-radius: 10px; /* Add rounded corners */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
@@ -348,12 +347,14 @@
   transform: scale(1.05);
 }
 
-/* Style the GIF images to fit perfectly within the container */
+/* Style the GIF images to fit within their container, maintaining aspect ratio */
 .featured-items .grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%; /* Set the maximum width for responsiveness */
+  max-height: 100%; /* Set the maximum height for responsiveness */
+  width: auto; /* Ensure the width adjusts automatically based on max-width */
+  height: auto; /* Ensure the height adjusts automatically based on max-height */
 }
+
 
         
 
