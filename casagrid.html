@@ -365,10 +365,13 @@
 <body>
     <img src="casalogo.png" class="logo">
     
-<h1>Today's Featured</h1>
+<div class="featured-items-container">
+  <h1>Today's Features</h1>
+  <div class="featured-items">
+    <!-- The featured items will be added dynamically here -->
+  </div>
+</div>
 
-    <div class="featured-items"></div>
-<div class="featured-items"></div>
     
     <h1>Ladies' Profiles</h1>
 
@@ -750,7 +753,10 @@ function moveRandomGridItems() {
   // Create a container for featured items
   const featuredItems = document.createElement('div');
   featuredItems.classList.add('featured-items');
-  featuredContainer.appendChild(featuredItems);
+
+  // Add the featured items container inside the featured-items-container
+  const featuredItemsContainer = document.querySelector('.featured-items-container');
+  featuredItemsContainer.appendChild(featuredItems);
 
   // Function to display a random grid item
   function displayRandomGridItem() {
@@ -763,17 +769,27 @@ function moveRandomGridItems() {
     featuredItems.appendChild(randomItem);
   }
 
-  // Set an interval to display random grid items
-  setInterval(() => {
-    displayRandomGridItem();
-  }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
-
   // Display the initial random grid item
   displayRandomGridItem();
+
+  // Set an interval to display random grid items
+  setInterval(() => {
+    // Create a sliding effect by moving the featured items container to the left
+    featuredItemsContainer.style.transition = 'transform 0.5s';
+    featuredItemsContainer.style.transform = 'translateX(-100%)';
+
+    // After the transition, reset the position and display a new random item
+    setTimeout(() => {
+      featuredItemsContainer.style.transition = 'none';
+      featuredItemsContainer.style.transform = 'translateX(0)';
+      displayRandomGridItem();
+    }, 500); // Adjust the timing as needed
+  }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
 }
 
 // Call the function to start displaying random grid items
 moveRandomGridItems();
+
 </script>
 
 
