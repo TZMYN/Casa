@@ -229,7 +229,7 @@
 .popup-close {
     float: right;
     cursor: pointer;
-    font-size: 50px;
+    font-size: 60px;
     line-height: 1;
 }
 
@@ -285,32 +285,31 @@
     margin-bottom: 10px;
     margin-right: 40px;
     margin-left: 25px;
+    position: relative; /* Add relative positioning to the container */
 }
 
 .section-label-icon {
-    margin-right: 5px;
-    font-size: 50px; /* Adjust the font size for the icon */
+    position: absolute; /* Position the icon absolutely within the container */
+    left: 164px; /* Adjust the left position as needed */
+    font-size: 60px; /* Adjust the font size for the icon */
     color: #ff4d4d;
-}
-
-.section-label-text {
-    font-size: 50px; /* Adjust the font size for the text */
-    color: black;
-    font-family: 'Cursive', cursive; 
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
 }
 
 .search-bar {
-    width: 900px; /* Adjust the width as needed */
+    width: 950px; /* Adjust the width as needed */
     height: 90px;
-    padding: 5px;
-    border: 7px solid #ff4d4d; 
+    padding: 5px 5px 5px 75px; /* Adjust the left padding to make space for the icon */
+    border: 7px solid #ff4d4d;
     border-radius: 100px;
-    margin-left: 10px; /* Add spacing between the text and the search bar */
+    margin-left: -10px; /* Add spacing between the text and the search bar */
     font-size: 40px; /* Adjust font size */
     outline: none; /* Remove the outline */
     color: #ff4d4d; /* Placeholder text color */
     font-style: italic; /* Set the font style to italic */
-} 
+}
+
         
 #username-search::placeholder {
     color: #ff4d4d; /* Placeholder text color */
@@ -430,12 +429,10 @@
     <!-- New section label for the search form -->
 
 
-
 <div class="section-label">
     <span class="section-label-icon">
         <i class="fas fa-search"></i>
     </span>
-    <span class="section-label-text">SEARCH</span>
     <input type="text" class="search-bar" id="username-search" placeholder="Search for a username, location, size etc...">
 </div>
 
