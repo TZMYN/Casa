@@ -134,10 +134,13 @@ h1 {
     animation: moveHeader 10s linear infinite; /* Adjust the duration as needed */
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflowing text */
-
-    padding-left: 200px;
-    padding-right: 200px;
+    
+    position: absolute; /* Position the headers absolutely */
+  top: 0;
+  left: 100%; /* Start off-screen to the right */
 }
+
+    
 
     #headertwo {
         margin-top:200px;
