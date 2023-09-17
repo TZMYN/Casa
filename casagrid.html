@@ -108,29 +108,37 @@
 }
 
 /* Keyframes for horizontal movement */
-@keyframes moveText {
-    0% {
-        transform: translateX(0); /* Start at the initial position */
-    }
-    100% {
-        transform: translateX(100%); /* Move text 100% to the right */
-    }
+@keyfr.header-container {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
-        
+
 h1 {
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
     text-align: center;
-    margin-top: 80px;
-    margin-bottom: 200px;
+    color: #ffb6c1;
     font-size: 75px;
     font-family: 'Cursive', cursive;
     padding-top: 35px;
     padding-bottom: 35px;
-    animation: disco 1s linear infinite; /* Apply the animation */
-    animation: fadeInOut 2s infinite;
-    background-clip: text; /* Clip the background to the text */
-    -webkit-background-clip: text; /* For Safari/Chrome */
-    animation: moveText 10s linear infinite; /* Apply the horizontal movement animation */
+}
+
+/* Animation for moving the text */
+@keyframes moveText {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move off-screen to the left */
+    }
+}
+
+h1 {
+    animation: moveText 10s linear infinite; /* Adjust the animation duration as needed */
+    display: inline-block; /* Make the text behave like an inline-block element */
+    position: relative; /* Position relative for z-index */
+    z-index: 1; /* Ensure the text is above the background */
 }
 
     #headertwo {
