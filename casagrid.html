@@ -981,6 +981,13 @@ moveGrids();
             }
         }
     });
+
+    // Add a click event listener to the menu button to toggle the sidebar
+    menuButton.addEventListener("click", function(event) {
+        // Toggle the "open" class on the sidebar to open/close it
+        sidebar.classList.toggle("open");
+        event.stopPropagation(); // Prevent the click event from reaching the document click listener
+    });
 </script>
 
     
