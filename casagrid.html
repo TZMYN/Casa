@@ -107,18 +107,17 @@
   }
 }
 
-        
-        /* Define the animation */
+        /* Keyframes for the horizontal movement */
 @keyframes moveHeader {
-  0% {
-    transform: translateX(0%); /* Start off-screen to the right */
-  }
-  100% {
-    transform: translateX(-100%); /* End off-screen to the left */
-  }
+    0% {
+        transform: translateX(0); /* Start from the initial position */
+    }
+    100% {
+        transform: translateX(100%); /* Move to the right by 100% of the container width */
+    }
 }
-        
-        
+
+/* Apply the animation to the headers */
 h1 {
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
     text-align: center;
@@ -129,6 +128,16 @@ h1 {
     font-family: 'Cursive', cursive;
     padding-top: 35px;
     padding-bottom: 35px;
+    position: relative; /* Position relative for animation */
+    overflow: hidden; /* Hide the overflowing text during animation */
+
+    animation: moveHeader 10s linear infinite; /* Apply the horizontal movement animation */
+    background-attachment: fixed; /* Keep the background fixed */
+
+
+        
+        
+
     animation: disco 1s linear infinite; /* Apply the animation */
     animation: fadeInOut 2s infinite;
     animation: moveHeader 10s linear infinite; /* Adjust the duration as needed */
