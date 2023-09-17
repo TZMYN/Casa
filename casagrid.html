@@ -29,6 +29,18 @@
     100% { background-color: rgba(255, 0, 0, 0.5); color: #ffb6c1; }
 }
 
+@keyframes fadeInOut2 {
+  0% {
+    opacity: 0.7;   
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+        
 h1 {
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
     text-align: center;
@@ -39,7 +51,7 @@ h1 {
     font-family: 'Cursive', cursive;
     padding-top: 35px;
     padding-bottom: 35px;
-    animation: disco 2s linear infinite; /* Apply the animation */
+    animation: disco 1s linear infinite; /* Apply the animation */
 }
 
     #headertwo {
@@ -342,13 +354,25 @@ h1 {
 
 @keyframes fadeInOut {
   0% {
-    opacity: 0;
+    opacity: 0.5;     
   }
   50% {
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 0.5;
+  }
+}
+
+        @keyframes fadeInOut2 {
+  0% {
+    opacity: 0.7;   
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
   }
 }
 
