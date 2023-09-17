@@ -964,7 +964,22 @@ moveGrids();
             headerTwo.scrollIntoView({ behavior: "smooth" });
         });         
     </script>
- 
+
+    <script>
+const sidebar = document.getElementById("sidebar");
+
+        // Function to close the sidebar
+        function closeSidebar() {
+            sidebar.classList.remove("open");
+        }
+        
+        // Event listener to close the sidebar when clicking outside of it
+        document.addEventListener("click", function (event) {
+            if (!sidebar.contains(event.target) && !openSidebarButton.contains(event.target)) {
+                closeSidebar();
+            }
+        });
+    </script>
 
     
 </body>
