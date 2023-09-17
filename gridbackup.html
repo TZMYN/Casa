@@ -958,7 +958,14 @@ moveGrids();
 </script>
 
 
-
+<script>
+        document.getElementById("menu-button").addEventListener("click", function() {
+            const headerTwo = document.getElementById("headertwo");
+            
+            // Scroll to the "Ladies' Profiles" section smoothly
+            headerTwo.scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
     
 </body>
 </html>
