@@ -139,7 +139,7 @@ h1 {
 /* Animation for moving the text */
 @keyframes moveText {
     0% {
-        transform: translateX(100%); /* Start off-screen to the right */
+        transform: translateX(50%); /* Start off-screen to the right */
     }
     100% {
         transform: translateX(-100%); /* Move off-screen to the left */
@@ -152,7 +152,7 @@ h1:nth-child(1) {
 }
 
 h1:nth-child(2) {
-    animation: moveText 10s linear infinite 0s; /* Adjust delay as needed */
+    animation: moveText 10s linear infinite - 1s; /* Adjust delay as needed */
 }
         
 h1 {
