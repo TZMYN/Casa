@@ -108,17 +108,15 @@
 }
 
         /* Keyframes for the horizontal movement */
-@keyframes moveHeader {
-    0% {
-        transform: translateX(0); /* Start from the initial position */
-    }
-    100% {
-        transform: translateX(10%); /* Move to the right by 100% of the container width */
-    }
-}
-
-/* Apply the animation to the headers */
-h1 {
+/* Create a static background */
+h1::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5); /* Background color of the text */
+  position: absolute;
+  
+  width: 100%;
+  height: 100%;
+  z-index: -1;
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
     text-align: center;
     color: #ffb6c1;
@@ -128,28 +126,50 @@ h1 {
     font-family: 'Cursive', cursive;
     padding-top: 35px;
     padding-bottom: 35px;
-    position: relative; /* Position relative for animation */
-    overflow: hidden; /* Hide the overflowing text during animation */
-
-    animation: moveHeader 10s linear infinite; /* Apply the horizontal movement animation */
-    background-attachment: fixed; /* Keep the background fixed */
-
-
-        
-        
-
     animation: disco 1s linear infinite; /* Apply the animation */
     animation: fadeInOut 2s infinite;
-    animation: moveHeader 10s linear infinite; /* Adjust the duration as needed */
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflowing text */
-    
-  
-  padding-left: 700px;
-    padding-right: 700px;
 }
 
+/* Define the animation */
+@keyframes moveHeader {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  100% {
+    transform: translateX(-100%); /* End off-screen to the left */
+  }
+}
 
+/* Apply the animation to the headers */
+h1 {
+  position: relative; /* Position the headers relative to their container */
+  animation: moveHeader 10s linear infinite; /* Adjust the duration as needed */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    text-align: center;
+    color: #ffb6c1;
+    margin-top: 80px;
+    margin-bottom: 200px;
+    font-size: 75px;
+    font-family: 'Cursive', cursive;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    animation: disco 1s linear infinite; /* Apply the animation */
+    animation: fadeInOut 2s infinite;
+}
+        
+</style>
+</head>
+<body>
+<h1>Today's Featureds</h1>
+<h1 id="headertwo">Ladies' Profiles</h1>
+</body>
+</html>
+In this modified example, we've added a ::before pseudo-element to create a static background for the text. The pseudo-element covers the entire container with the specified background color. By setting its z-index to -1, it stays behind the text.
+
+The @keyframes animation and other styles for the headers remain the same as in the previous example. This creates the effect of the text moving across a static background, similar to a byline. Adjust the animation duration and styles to suit your design preferences.
     
 
     #headertwo {
