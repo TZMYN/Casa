@@ -966,26 +966,19 @@ moveGrids();
     </script>
 
         <script>
+        // Get references to the sidebar and menu button
         const sidebar = document.getElementById("sidebar");
-        const body = document.body;
+        const menuButton = document.getElementById("menu-button");
 
-        // Function to close the sidebar
-        function closeSidebar() {
-            sidebar.classList.remove("open");
-        }
-
-        // Toggle the sidebar when the sidebar button is clicked
-        document.getElementById("sidebar-button").addEventListener("click", function () {
-            sidebar.classList.toggle("open");
-        });
-
-        // Close the sidebar when clicking outside of it
-        body.addEventListener("click", function (event) {
-            if (sidebar.classList.contains("open") && !sidebar.contains(event.target)) {
-                closeSidebar();
+        // Add a click event listener to the document
+        document.addEventListener("click", function(event) {
+            // Check if the clicked element is not the sidebar or the menu button
+            if (event.target !== sidebar && event.target !== menuButton) {
+                // Close the sidebar by removing the "open" class
+                sidebar.classList.remove("open");
             }
         });
-        </script>
+    </script>
     
 </body>
 </html>
