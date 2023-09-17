@@ -868,8 +868,18 @@ h1 {
     menuButton.addEventListener("click", function () {
         sidebar.classList.toggle("open");
     });
+
+    // Add a click event listener to the document body
+    document.body.addEventListener("click", function (event) {
+        // Check if the clicked element is not inside the sidebar
+        if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+            // If the click occurred outside the sidebar and menu button, close the sidebar
+            sidebar.classList.remove("open");
+        }
+    });
 });
 
+        
 // Get the search bar element
 const searchBar = document.getElementById('username-search');
 
@@ -965,31 +975,7 @@ moveGrids();
         });         
     </script>
 
-        <script>
-    // Get references to the sidebar and menu button
-    const sidebar = document.getElementById("sidebar");
-    const menuButton = document.getElementById("menu-button");
-
-    // Add a click event listener to the document
-    document.addEventListener("click", function(event) {
-        // Check if the clicked element is not the sidebar or the menu button
-        if (event.target !== sidebar && event.target !== menuButton) {
-            // Check if the sidebar is currently open
-            if (sidebar.classList.contains("open")) {
-                // Close the sidebar by removing the "open" class
-                sidebar.classList.remove("open");
-            }
-        }
-    });
-
-    // Add a click event listener to the menu button to toggle the sidebar
-    menuButton.addEventListener("click", function(event) {
-        // Toggle the "open" class on the sidebar to open/close it
-        sidebar.classList.toggle("open");
-        event.stopPropagation(); // Prevent the click event from reaching the document click listener
-    });
-</script>
-
+        
     
 </body>
 </html>
