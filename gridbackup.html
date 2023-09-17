@@ -63,7 +63,7 @@
 .bar {
     width: 60px;
     height: 10px;
-    background-color: #ff4d4d;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
     margin: 3px 0; /* Adjust spacing between the bars */
     transition: 0.4s;
 }
@@ -281,40 +281,31 @@
   /* Add any other styles you want to apply to the playing GIF */
 }
 
- .section-label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-    margin-right: 40px;
-    margin-left: 25px;
-    position: relative; /* Add relative positioning to the container */
-}
+ 
 
 .section-label-icon {
     position: absolute; /* Position the icon absolutely within the container */
-    left: 164px; /* Adjust the left position as needed */
-    font-size: 60px; /* Adjust the font size for the icon */
+    left: 125px; /* Adjust the left position as needed */
+    font-size: 50px; /* Adjust the font size for the icon */
     color: #ff4d4d;
-    top: 50%;
+    top: 4.3%;
     transform: translateY(-50%); /* Center the icon vertically */
 }
 
 .search-bar {
-    width: 950px; /* Adjust the width as needed */
-    height: 90px;
+    width: 800px; /* Adjust the width as needed */
+    height: 100px;
     padding: 5px 5px 5px 75px; /* Adjust the left padding to make space for the icon */
-    border: 9px solid transparent; /* Make the border transparent */
+    border: 12px solid #ffb6c1;
     border-radius: 100px;
-    margin-left: -10px; /* Add spacing between the text and the search bar */
+    margin-left: 90px; /* Add spacing between the text and the search bar */
     font-size: 40px; /* Adjust font size */
     outline: none; /* Remove the outline */
     color: #ff4d4d; /* Placeholder text color */
     font-style: italic; /* Set the font style to italic */
-    
-    /* Apply the linear gradient as the border color */
-    border-image: linear-gradient(45deg, #ff4d4d, #ffb6c1) 1;
 }
+
+
 
         
 #username-search::placeholder {
@@ -418,7 +409,7 @@
 .logo-container {
     
     top: 20px;
-    left: 75px; /* Adjust the left position as needed */
+    left: 20px; /* Adjust the left position as needed */
     display: flex;
     align-items: center;
     margin-top: 150px;
@@ -428,7 +419,7 @@
 
 /* Style for casalogo.png */
 .casalogo {
-    width: 300px; /* Adjust the width as needed */
+    width: 400px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     margin-right: 10px; /* Add margin to separate from the navigation button */
     animation: fadeInOut 2s infinite;
@@ -469,6 +460,14 @@
     </style>
 </head>
 <body>
+    
+<div class="section-label">
+    <span class="section-label-icon">
+        <i class="fas fa-search"></i>
+    </span>
+    <input type="text" class="search-bar" id="username-search" placeholder="Search for a username, location, size etc...">
+</div>
+    
 
     <!-- Button Container for Icons -->
     <div class="button-container">
@@ -504,12 +503,7 @@
     <!-- New section label for the search form -->
 
 
-<div class="section-label">
-    <span class="section-label-icon">
-        <i class="fas fa-search"></i>
-    </span>
-    <input type="text" class="search-bar" id="username-search" placeholder="Search for a username, location, size etc...">
-</div>
+
 
 
 
@@ -812,7 +806,7 @@
         <span class="popup-close" onclick="closePopup()">&times;</span>
         <h2>HOW TO USE THE SEARCH INTERFACE</h2>
         <ol>
-            <li>For an EASY, QUALITY and PRECISE SEARCH, use <strong>NovaSeek™</strong>.<br><br> Tap on THE RED NAVIGATION BUTTON in the TOP LEFT CORNER of the page and select your criteria in any or all of the boxes and the search results grid will fetch profiles that match your selection to the top of the results Immediately. <br><br> So just go back to Profiles once you're done selecting.</li>
+            <li>For an EASY, QUALITY and PRECISE SEARCH, use <strong>NovaSeek™</strong>.<br><br> Scroll down to "Ladies' Profiles", then tap on THE RED NAVIGATION BUTTON in the TOP LEFT CORNER of the page and select your criteria in any or all of the boxes and the search results grid will fetch profiles that match your selection to the top of the results Immediately. <br><br> So just go back to Profiles once you're done selecting.</li>
             <p></p>
             <li>Profiles that match 4 of your WANTS will be listed first before profiles that match 3 are. And then 2, 1, and 0.</li>
             <p></p>
