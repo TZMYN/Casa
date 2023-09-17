@@ -66,7 +66,7 @@ h1 {
 .menu-button {
     position: fixed;
     top: 40px;
-    left: 20px;
+    left: 30px;
     cursor: pointer;
     z-index: 1000;
     width: 45px;
@@ -501,6 +501,14 @@ h1 {
     </style>
 </head>
 <body>
+
+<!-- Navigation button -->
+<div id="menu-button" class="menu-button">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+    
     
 <div class="section-label">
     <span class="section-label-icon">
@@ -545,15 +553,6 @@ h1 {
 
 
 
-
-
-
-    <!-- Navigation button -->
-<div id="menu-button" class="menu-button">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-</div>
     
 <!-- Sidebar pop-out box -->
 <div id="sidebar" class="sidebar">
@@ -957,8 +956,7 @@ moveGrids();
 
 </script>
 
-
-<script>
+    <script>
         document.getElementById("menu-button").addEventListener("click", function() {
             const headerTwo = document.getElementById("headertwo");
             
@@ -966,6 +964,7 @@ moveGrids();
             headerTwo.scrollIntoView({ behavior: "smooth" });
         });
     </script>
+
     
 </body>
 </html>
