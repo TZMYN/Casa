@@ -109,6 +109,7 @@
        .byline-container {
     display: flex; /* Display bylines in a row */
     overflow: hidden;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
 }
 
 /* Keyframes for horizontal movement */
@@ -117,7 +118,7 @@
     overflow: hidden;
     white-space: nowrap; /* Prevent text from wrapping */
     width: 100%; /* Ensure each byline takes up the full width */
-    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    
 }
 
 h1 {
@@ -159,14 +160,13 @@ h1 {
     display: inline-block;
     position: relative;
     z-index: 1;
-    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    
 }
 
 /* Style adjustments for additional bylines */
 .header-container + .header-container {
     margin-left: 20px; /* Adjust spacing between bylines */
-    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
-}
+} 
 
 .byline-container:before {
     content: ''; /* Create a separator between bylines */
