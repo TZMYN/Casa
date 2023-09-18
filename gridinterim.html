@@ -106,12 +106,27 @@
     opacity: 0.95;
   }
 }
+       .byline-container {
+    display: flex; /* Display bylines in a row */
+    overflow: hidden;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    padding: 0; /* Remove padding to make it as tall as its contents */
+    align-items: flex-start; /* Align contents to the top */
+}
+        
+#ladiesbyline {
+    margin-top:200px;
+    margin-bottom: 200px;
+}
+    
 
 /* Keyframes for horizontal movement */
 .header-container {
     position: relative;
     overflow: hidden;
     white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%; /* Ensure each byline takes up the full width */
+    
 }
 
 h1 {
@@ -122,8 +137,7 @@ h1 {
     font-family: 'Cursive', cursive;
     padding-top: 35px;
     padding-bottom: 35px;
-    padding-right: 100%;
-    padding-left:100%;
+    
 }
 
 /* Animation for moving the text */
@@ -141,14 +155,34 @@ h1 {
     display: inline-block; /* Make the text behave like an inline-block element */
     position: relative; /* Position relative for z-index */
     z-index: 1; /* Ensure the text is above the background */
+    
 }
 
     #headertwo {
-        margin-top:200px;
-        margin-bottom: 200px;
+        margin-top:10px;
+        margin-bottom: 10px;
     }
         
+.header-container h1 {
+    animation: moveText 10s linear infinite;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    
+}
 
+/* Style adjustments for additional bylines */
+.header-container + .header-container {
+    margin-left: 20px; /* Adjust spacing between bylines */
+} 
+
+.byline-container:before {
+    content: ''; /* Create a separator between bylines */
+    display: inline-block;
+    width: 10px; /* Adjust the separator width as needed */
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+}
+        
         
 /* Style the navigation button */
 .menu-button {
@@ -582,11 +616,22 @@ h1 {
 <!--    <img src="casalogo.png" class="logo"> -->
     
 <div class="featured-items-container">
-    
+
+    <div class="byline-container">
+        
   <div class="header-container">
     <h1>Today's Featureds</h1>
-   . 
+  </div>    
+    <div class="header-container">
+        <h1>Today's Featureds</h1>    
+    </div>
+    <div class="header-container">
+        <h1>Today's Featureds</h1>    
+    </div>
+    
+        
 </div>
+
 
   <div class="featured-items-wrapper">
     <!-- The featured items will be added dynamically here -->
@@ -594,10 +639,20 @@ h1 {
 
 
 
-    
-    <div class="header-container">
-    
-    <h1 id="headertwo">Ladies' Profiles</h1>
+    <div class="byline-container" id="ladiesbyline">
+        
+    <div class="header-container"> 
+        <h1 id="headertwo">Ladies' Profiles</h1>
+    </div>
+        
+    <div class="header-container">      
+        <h1 id="headertwo">Ladies' Profiles</h1>
+    </div>
+
+        <div class="header-container">        
+        <h1 id="headertwo">Ladies' Profiles</h1>
+    </div>
+        
 </div>
 
 
