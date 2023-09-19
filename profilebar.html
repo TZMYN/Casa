@@ -88,32 +88,21 @@
         }
         
 /* Define animations for each button */
-@keyframes playful-animation-1 {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.8);
-    }
-}
+.popout-button {
+            animation: popoutAnimation 2s infinite alternate; /* Adjust animation duration and other properties as needed */
+        }
 
-@keyframes playful-animation-2 {
-    0%, 100% {
-        transform: scale(1);
-    }
-    30% {
-        transform: scale(0.9);
-    }
-}
-
-@keyframes playful-animation-3 {
-    0%, 100% {
-        transform: scale(1);
-    }
-    70% {
-        transform: scale(0.95);
-    }
-}
+        @keyframes popoutAnimation {
+            0% {
+                transform: scale(1); /* Start at normal size */
+            }
+            50% {
+                transform: scale(0.8); /* Shrink to 80% of normal size at 50% of the animation */
+            }
+            100% {
+                transform: scale(1); /* Back to normal size at the end */
+            }
+        }
 
 
         
@@ -171,9 +160,6 @@ function createPopoutButtons() {
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
         popoutButtonContainer.appendChild(button);
-        
-        // Add CSS animations to the buttons
-        button.style.animation = `playful-animation-${i + 1} 2s ${i}s infinite ease-in-out alternate`;
     }
 
     // Set a high z-index for the popout button container
