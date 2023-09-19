@@ -119,25 +119,21 @@
             }
         }
 
-        // Create and append popout buttons in an arc
+        // Create and append popout buttons in a semi-circle
         function createPopoutButtons() {
             const popoutButtonContainer = document.getElementById('popoutButtonContainer');
-            
-            const buttonImages = ['POPOUT.png', 'POPOUT2.png', 'POPOUT3.png'];
-            
-            const numButtons = buttonImages.length;
-            const radius = 360; // Adjust the radius as needed
-            const angleIncrement = Math.PI / 18; // Adjust the angle between buttons
-            
+            const numButtons = 3; // Number of buttons
+            const radius = 50; // Radius of the semi-circle
+
             for (let i = 0; i < numButtons; i++) {
-                const angle = angleIncrement * (i - (numButtons - 1) / 2); // Calculate the angle for the current button
-                const x = radius * Math.cos(angle); // Calculate the x position
-                const y = radius * Math.sin(angle); // Calculate the y position
-                
+                const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
+                const x = radius * Math.cos(angle); // X-coordinate
+                const y = radius * Math.sin(angle); // Y-coordinate
+
                 const button = document.createElement('div');
                 button.className = 'popout-button';
-                button.style.transform = `translate(${x}px, ${y}px)`; // Position buttons in an arc
-                button.innerHTML = `<img src="${buttonImages[i]}" alt="Popout Button ${i + 1}">`;
+                button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
+                button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
                 popoutButtonContainer.appendChild(button);
             }
         }
