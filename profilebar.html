@@ -6,7 +6,7 @@
     <title>Brand Profile</title>
 
     <style>
-        body {
+       body {
             font-family: 'Cursive', sans-serif;
             font-size: 16px;
             color: white;
@@ -48,6 +48,7 @@
             z-index: 3;
         }
 
+
         #whiteBox {
             display: none;
             position: fixed;
@@ -74,7 +75,7 @@
             position: absolute;
             top: 50%;
             z-index: 9999;
-            transform: translate(-50%, -50%) scale(1); /* Initial scale set to 1 */
+            transform: translateY(-50%);
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
@@ -85,17 +86,7 @@
             object-fit: contain;
             z-index: 9999;
         }
-
-        /* Animation for popout buttons */
-        @keyframes pulse-animation {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1); /* Start and end state */
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(0.8); /* Middle state, slightly smaller */
-            }
-        }
-
+        
     </style>
 </head>
 <body>
@@ -131,16 +122,14 @@
                 popoutButtonsVisible = true;
             }
         }
-// Create and append popout buttons in a semi-circle
+
+        // Create and append popout buttons in a semi-circle
 function createPopoutButtons() {
     const popoutButtonContainer = document.getElementById('popoutButtonContainer');
     const numButtons = 3; // Number of buttons
     const radius = 90; // Radius of the semi-circle
     const xOffset = 55; // Adjust this value to control horizontal spacing
     const yOffset = -135; // Adjust this value to shift the buttons upwards
-
-    // Create an array to store animation frames for each button
-    const animationFrames = [];
 
     for (let i = 0; i < numButtons; i++) {
         const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
@@ -152,39 +141,13 @@ function createPopoutButtons() {
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
         popoutButtonContainer.appendChild(button);
-
-        // Define animation properties for each button
-        const animationProps = {
-            element: button,
-            scaleFactor: 1.1, // Scale factor for animation
-            animationSpeed: 2000 + Math.random() * 1000, // Vary animation speed
-        };
-
-        // Create an animation frame for each button's animation
-        const frame = () => {
-            animateButton(animationProps);
-            animationFrames[i] = requestAnimationFrame(frame);
-        };
-
-        animationFrames.push(frame);
-        frame();
     }
 
     // Set a high z-index for the popout button container
     popoutButtonContainer.style.zIndex = '9999';
-
-    // Function to animate a button
-    function animateButton({ element, scaleFactor }) {
-        const currentScale = parseFloat(getComputedStyle(element).transform.split(',')[3]);
-
-        // Scale the button with respect to its original position
-        element.style.transform = `translate(${x}px, ${y}px) scale(${currentScale * scaleFactor})`;
-    }
 }
 
 createPopoutButtons();
-
-
 
     </script>
 </body>
