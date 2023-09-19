@@ -48,7 +48,6 @@
             z-index: 3;
         }
 
-
         #whiteBox {
             display: none;
             position: fixed;
@@ -78,6 +77,7 @@
             transform: translateY(-50%);
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+            animation: pulse-animation var(--animation-duration) var(--animation-delay) infinite alternate;
         }
 
         .popout-button img {
@@ -87,38 +87,19 @@
             z-index: 9999;
         }
 
-        
-    /* ... (previous styles) */
-
-    .popout-button {
-        /* ... (previous styles) */
-        animation-duration: 3s; /* Adjust the duration for the first button */
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-    }
-
-    .popout-button:nth-child(2) {
-        animation-duration: 4s; /* Adjust the duration for the second button */
-    }
-
-    .popout-button:nth-child(3) {
-        animation-duration: 5s; /* Adjust the duration for the third button */
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
         }
-        50% {
-            transform: scale(0.9); /* Adjust the scale factor for the shrink effect */
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
 
-
-        
+        :root {
+            --animation-duration: 1s, 1.5s, 2s;
+            --animation-delay: 0s, 0.2s, 0.4s;
+        }
     </style>
 </head>
 <body>
@@ -156,36 +137,30 @@
         }
 
         // Create and append popout buttons in a semi-circle
-function createPopoutButtons() {
-    const popoutButtonContainer = document.getElementById('popoutButtonContainer');
-    const numButtons = 3; // Number of buttons
-    const radius = 90; // Radius of the semi-circle
-    const xOffset = 55; // Adjust this value to control horizontal spacing
-    const yOffset = -135; // Adjust this value to shift the buttons upwards
+        function createPopoutButtons() {
+            const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+            const numButtons = 3; // Number of buttons
+            const radius = 90; // Radius of the semi-circle
+            const xOffset = 55; // Adjust this value to control horizontal spacing
+            const yOffset = -135; // Adjust this value to shift the buttons upwards
 
-    for (let i = 0; i < numButtons; i++) {
-        const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
-        const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
-        const y = yOffset + radius * Math.sin(angle); // Y-coordinate (adjusted to shift upwards)
+            for (let i = 0; i < numButtons; i++) {
+                const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
+                const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
+                const y = yOffset + radius * Math.sin(angle); // Y-coordinate (adjusted to shift upwards)
 
-        const button = document.createElement('div');
-        button.className = 'popout-button';
-        button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
-        button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
-        popoutButtonContainer.appendChild(button);
-    }
+                const button = document.createElement('div');
+                button.className = 'popout-button';
+                button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
+                button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
+                popoutButtonContainer.appendChild(button);
+            }
 
-    const popoutButtons = document.querySelectorAll('.popout-button');
-popoutButtons.forEach((button, index) => {
-    button.style.animationName = 'pulse';
-});
+            // Set a high z-index for the popout button container
+            popoutButtonContainer.style.zIndex = '9999';
+        }
 
-
-    // Set a high z-index for the popout button container
-    popoutButtonContainer.style.zIndex = '9999';
-}
-
-createPopoutButtons();
+        createPopoutButtons();
 
     </script>
 </body>
