@@ -87,9 +87,10 @@
             z-index: 9999;
         }
         
-/* Define animations for each button */
-.popout-button {
+/* Add this CSS for popout button animation */
+        .popout-button {
             animation: popoutAnimation 2s infinite alternate; /* Adjust animation duration and other properties as needed */
+            position: absolute; /* Ensure absolute positioning for the buttons */
         }
 
         @keyframes popoutAnimation {
