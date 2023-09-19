@@ -88,20 +88,24 @@
         }
         
 /* Add this CSS for popout button animation */
-        .popout-button {
-            animation: popoutAnimation 2s infinite alternate; /* Adjust animation duration and other properties as needed */
-            position: absolute; /* Ensure absolute positioning for the buttons */
+        .popout-button-container {
+            position: absolute;
+            animation: popoutAnimation infinite alternate; /* Adjust animation duration and other properties as needed */
+        }
+
+        .popout-button img {
+            width: 50px; /* Adjust button size as needed */
         }
 
         @keyframes popoutAnimation {
             0% {
-                transform: scale(1) translate(0, 0); /* Start at normal size and original position */
+                transform: scale(1); /* Start at normal size */
             }
             50% {
-                transform: scale(0.8) translate(0, 0); /* Shrink to 80% of normal size at 50% of the animation, no translation */
+                transform: scale(0.8); /* Shrink to 80% of normal size at 50% of the animation */
             }
             100% {
-                transform: scale(1) translate(0, 0); /* Back to normal size and original position at the end */
+                transform: scale(1); /* Back to normal size */
             }
         }
 
