@@ -131,8 +131,7 @@
                 popoutButtonsVisible = true;
             }
         }
-
-        // Create and append popout buttons in a semi-circle
+// Create and append popout buttons in a semi-circle
 function createPopoutButtons() {
     const popoutButtonContainer = document.getElementById('popoutButtonContainer');
     const numButtons = 3; // Number of buttons
@@ -140,8 +139,8 @@ function createPopoutButtons() {
     const xOffset = 55; // Adjust this value to control horizontal spacing
     const yOffset = -135; // Adjust this value to shift the buttons upwards
 
-    // Create an array to store animation intervals for each button
-    const animationIntervals = [];
+    // Create an array to store animation frames for each button
+    const animationFrames = [];
 
     for (let i = 0; i < numButtons; i++) {
         const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
@@ -161,12 +160,14 @@ function createPopoutButtons() {
             animationSpeed: 2000 + Math.random() * 1000, // Vary animation speed
         };
 
-        // Create an interval for each button's animation
-        const interval = setInterval(() => {
+        // Create an animation frame for each button's animation
+        const frame = () => {
             animateButton(animationProps);
-        }, animationProps.animationSpeed);
+            animationFrames[i] = requestAnimationFrame(frame);
+        };
 
-        animationIntervals.push(interval);
+        animationFrames.push(frame);
+        frame();
     }
 
     // Set a high z-index for the popout button container
@@ -182,6 +183,7 @@ function createPopoutButtons() {
 }
 
 createPopoutButtons();
+
 
 
     </script>
