@@ -95,13 +95,13 @@
 
         @keyframes popoutAnimation {
             0% {
-                transform: scale(1); /* Start at normal size */
+                transform: scale(1) translate(0, 0); /* Start at normal size and original position */
             }
             50% {
-                transform: scale(0.8); /* Shrink to 80% of normal size at 50% of the animation */
+                transform: scale(0.8) translate(0, 0); /* Shrink to 80% of normal size at 50% of the animation, no translation */
             }
             100% {
-                transform: scale(1); /* Back to normal size at the end */
+                transform: scale(1) translate(0, 0); /* Back to normal size and original position at the end */
             }
         }
 
