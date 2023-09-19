@@ -1,4 +1,4 @@
-           <!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -59,9 +59,25 @@
             background-color: white;
             z-index: 9999;
         }
-              .username {
-                         top: 205%;
-                         z-index:10;
+            
+                  .pop-out-buttons {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: -30px; /* Adjust the distance from the profile picture */
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.pop-out-button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+    /* Add styling for your buttons as needed */
+}
+       
+    
     </style>
 
 </head>
@@ -70,7 +86,11 @@
     
     <div class="top-container">
         <div class="profile-picture-container">
-            <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture">
+        <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture" onclick="toggleButtons()">
+        <div class="pop-out-buttons">
+            <img class="pop-out-button" src="POPOUT.png" alt="Pop Out 1">
+            <img class="pop-out-button" src="POPOUT2.png" alt="Pop Out 2">
+            <img class="pop-out-button" src="POPOUT3.png" alt="Pop Out 3">
         </div>
         <div class="video-container" onclick="playVideo()">
             <video id="video" style="width: 100%; height: 100%; object-fit: cover;" controls>
@@ -93,6 +113,12 @@
             document.body.removeChild(textArea);
             alert('Profile ID copied to clipboard: ' + profileIDElement.innerText);
         }
+              
+               function toggleButtons() {
+    const popOutButtons = document.querySelector('.pop-out-buttons');
+    popOutButtons.classList.toggle('show');
+}
+
     </script>
 
 </body>
