@@ -138,14 +138,15 @@ function createPopoutButtons() {
         const button = document.createElement('div');
         button.className = 'popout-button';
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
-        button.style.zIndex = '9999'; // Set a high z-index value to ensure it's above other elements
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
         popoutButtonContainer.appendChild(button);
     }
+
+    // Set a high z-index for the popout button container
+    popoutButtonContainer.style.zIndex = '9999';
 }
 
 createPopoutButtons();
-
 
     </script>
 </body>
