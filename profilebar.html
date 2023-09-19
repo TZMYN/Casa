@@ -125,11 +125,12 @@ function createPopoutButtons() {
     const numButtons = 3; // Number of buttons
     const radius = 50; // Radius of the semi-circle
     const xOffset = 70; // Adjust this value to control horizontal spacing
+    const yOffset = -30; // Adjust this value to shift the buttons upwards
 
     for (let i = 0; i < numButtons; i++) {
         const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
         const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
-        const y = radius * Math.sin(angle); // Y-coordinate
+        const y = yOffset + radius * Math.sin(angle); // Y-coordinate (adjusted to shift upwards)
 
         const button = document.createElement('div');
         button.className = 'popout-button';
@@ -142,7 +143,6 @@ function createPopoutButtons() {
 createPopoutButtons();
 
 
-        createPopoutButtons();
     </script>
 </body>
 </html>
