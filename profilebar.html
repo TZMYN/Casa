@@ -87,17 +87,34 @@
             z-index: 9999;
         }
         
-@keyframes popoutAnimation {
-    0% {
+/* Define animations for each button */
+@keyframes playful-animation-1 {
+    0%, 100% {
         transform: scale(1);
     }
     50% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1);
+        transform: scale(0.8);
     }
 }
+
+@keyframes playful-animation-2 {
+    0%, 100% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes playful-animation-3 {
+    0%, 100% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(0.95);
+    }
+}
+
 
         
     </style>
@@ -136,7 +153,7 @@
             }
         }
 
-        // Create and append popout buttons in a semi-circle with animations
+        // Create and append popout buttons in a semi-circle
 function createPopoutButtons() {
     const popoutButtonContainer = document.getElementById('popoutButtonContainer');
     const numButtons = 3; // Number of buttons
@@ -153,13 +170,10 @@ function createPopoutButtons() {
         button.className = 'popout-button';
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
-
-        // Add animation classes with different durations and delays
-        const animationDuration = Math.random() * 2 + 1; // Random duration between 1 and 3 seconds
-        const animationDelay = Math.random() * 2; // Random delay between 0 and 2 seconds
-        button.style.animation = `popoutAnimation ${animationDuration}s ${animationDelay}s infinite alternate`;
-
         popoutButtonContainer.appendChild(button);
+        
+        // Add CSS animations to the buttons
+        button.style.animation = `playful-animation-${i + 1} 2s ${i}s infinite ease-in-out alternate`;
     }
 
     // Set a high z-index for the popout button container
@@ -167,7 +181,6 @@ function createPopoutButtons() {
 }
 
 createPopoutButtons();
-
 
     </script>
 </body>
