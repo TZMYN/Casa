@@ -74,7 +74,7 @@
             position: absolute;
             top: 50%;
             z-index: 9999;
-            transform: translateY(-50%);
+            transform: translate(-50%, -50%) scale(0); /* Initial scale set to 0 */
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
             animation: pulse-animation var(--animation-duration) var(--animation-delay) infinite alternate;
@@ -86,20 +86,7 @@
             object-fit: contain;
             z-index: 9999;
         }
-
-        @keyframes pulse-animation {
-            0% {
-                transform: scale(0.7);
-            }
-            100% {
-                transform: scale(1.0);
-            }
-        }
-
-        :root {
-            --animation-duration: 1s, 1.5s, 2s;
-            --animation-delay: 0s, 0.2s, 0.4s;
-        }
+        
     </style>
 </head>
 <body>
