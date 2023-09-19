@@ -122,14 +122,16 @@
                 popoutButtonsVisible = true;
             }
         }
-
-        // Create and append popout buttons in a semi-circle
+// Create and append popout buttons in a semi-circle
 function createPopoutButtons() {
     const popoutButtonContainer = document.getElementById('popoutButtonContainer');
     const numButtons = 3; // Number of buttons
     const radius = 90; // Radius of the semi-circle
     const xOffset = 55; // Adjust this value to control horizontal spacing
     const yOffset = -135; // Adjust this value to shift the buttons upwards
+
+    // An array to store references to the button elements
+    const buttons = [];
 
     for (let i = 0; i < numButtons; i++) {
         const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
@@ -141,24 +143,31 @@ function createPopoutButtons() {
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
         popoutButtonContainer.appendChild(button);
+
+        // Store references to the button elements
+        buttons.push(button);
     }
 
     // Set a high z-index for the popout button container
     popoutButtonContainer.style.zIndex = '9999';
 
-    // Add an animation to the buttons
-    const buttons = document.querySelectorAll('.popout-button');
-    let scale = 1; // Initial scale
+    // Function to animate the buttons
+    function animateButtons() {
+        buttons.forEach((button, index) => {
+            // Calculate scale factor for the animation (between 0.9 and 1.1)
+            const scaleFactor = 0.9 + (0.2 * Math.sin(Date.now() / 200 + index * (Math.PI / numButtons)));
 
-    setInterval(function () {
-        scale = scale === 1 ? 0.9 : 1; // Toggle between 1 and 0.9
-        buttons.forEach(function (button) {
-            button.style.transform = `scale(${scale})`;
+            // Apply the scale transform
+            button.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${scaleFactor})`;
         });
-    }, 500); // Adjust the interval for the desired animation speed
+    }
+
+    // Call the animateButtons function periodically to create animation
+    setInterval(animateButtons, 1000 / 30); // 30 frames per second
 }
 
 createPopoutButtons();
+
 
 
     </script>
