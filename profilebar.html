@@ -86,6 +86,38 @@
             object-fit: contain;
             z-index: 9999;
         }
+
+        
+    /* ... (previous styles) */
+
+    .popout-button {
+        /* ... (previous styles) */
+        animation-duration: 3s; /* Adjust the duration for the first button */
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    .popout-button:nth-child(2) {
+        animation-duration: 4s; /* Adjust the duration for the second button */
+    }
+
+    .popout-button:nth-child(3) {
+        animation-duration: 5s; /* Adjust the duration for the third button */
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(0.9); /* Adjust the scale factor for the shrink effect */
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+
         
     </style>
 </head>
@@ -142,6 +174,12 @@ function createPopoutButtons() {
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
         popoutButtonContainer.appendChild(button);
     }
+
+    const popoutButtons = document.querySelectorAll('.popout-button');
+popoutButtons.forEach((button, index) => {
+    button.style.animationName = 'pulse';
+});
+
 
     // Set a high z-index for the popout button container
     popoutButtonContainer.style.zIndex = '9999';
