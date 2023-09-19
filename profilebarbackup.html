@@ -1,14 +1,12 @@
-           <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand Profile</title>
 
-
-    
     <style>
-        body {
+       body {
             font-family: 'Cursive', sans-serif;
             font-size: 16px;
             color: white;
@@ -36,6 +34,7 @@
             margin-left: 0px;
             margin-bottom: 8px;
             object-position: top; /* Show the top of the image */
+            margin-right: 30px;
         }
 
         .video-container {
@@ -46,6 +45,7 @@
             margin-left: 30px;
             margin-bottom: 5px;
             border-radius: 1500px;
+            z-index: 3;
         }
 
 
@@ -57,43 +57,98 @@
             width: 100%;
             height: 7px;
             background-color: white;
+            z-index: 9;
+        }
+
+        .popout-button-container {
+            position: relative;
+        }
+
+        .popout-button {
+            width: 80px;
+            height: 80px;
+            background-color: #ff4D4D;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            z-index: 9999;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .popout-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             z-index: 9999;
         }
-              .username {
-                         top: 205%;
-                         z-index:10;
+        
     </style>
-
 </head>
 <body>
-<h1 class="username" id="profileUsername">FunkeOfLagos</h1>
+    <h1 class="username" id="profileUsername">FunkeOfLagos</h1>
     
     <div class="top-container">
         <div class="profile-picture-container">
-            <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture">
+            <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture" onclick="togglePopoutButtons()">
+            <div class="popout-button-container" id="popoutButtonContainer">
+                <!-- Popout buttons will be created here dynamically -->
+            </div>
         </div>
         <div class="video-container" onclick="playVideo()">
             <video id="video" style="width: 100%; height: 100%; object-fit: cover;" controls>
-            
-                <!-- Dummy Video Source (Replace with actual video file) -->
                 <source src="PTVID2.mp4" type="video/mp4">
             </video>
         </div>
     </div>
 
-    
     <script>
-        function copyProfileID() {
-            const profileIDElement = document.getElementById('profileid');
-            const textArea = document.createElement('textarea');
-            textArea.value = profileIDElement.innerText;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            alert('Profile ID copied to clipboard: ' + profileIDElement.innerText);
-        }
-    </script>
+        let popoutButtonsVisible = false;
 
+        function togglePopoutButtons() {
+            const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+
+            if (popoutButtonsVisible) {
+                // Hide the popout buttons
+                popoutButtonContainer.style.transform = 'scale(0)';
+                popoutButtonsVisible = false;
+            } else {
+                // Show the popout buttons
+                popoutButtonContainer.style.transform = 'scale(1)';
+                popoutButtonsVisible = true;
+            }
+        }
+
+        // Create and append popout buttons in a semi-circle
+function createPopoutButtons() {
+    const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+    const numButtons = 3; // Number of buttons
+    const radius = 90; // Radius of the semi-circle
+    const xOffset = 55; // Adjust this value to control horizontal spacing
+    const yOffset = -135; // Adjust this value to shift the buttons upwards
+
+    for (let i = 0; i < numButtons; i++) {
+        const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
+        const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
+        const y = yOffset + radius * Math.sin(angle); // Y-coordinate (adjusted to shift upwards)
+
+        const button = document.createElement('div');
+        button.className = 'popout-button';
+        button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
+        button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
+        popoutButtonContainer.appendChild(button);
+    }
+
+    // Set a high z-index for the popout button container
+    popoutButtonContainer.style.zIndex = '9999';
+}
+
+createPopoutButtons();
+
+    </script>
 </body>
-</html>          
+</html>
