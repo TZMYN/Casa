@@ -120,23 +120,27 @@
         }
 
         // Create and append popout buttons in a semi-circle
-        function createPopoutButtons() {
-            const popoutButtonContainer = document.getElementById('popoutButtonContainer');
-            const numButtons = 3; // Number of buttons
-            const radius = 50; // Radius of the semi-circle
+function createPopoutButtons() {
+    const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+    const numButtons = 3; // Number of buttons
+    const radius = 50; // Radius of the semi-circle
+    const xOffset = 70; // Adjust this value to control horizontal spacing
 
-            for (let i = 0; i < numButtons; i++) {
-                const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
-                const x = radius * Math.cos(angle); // X-coordinate
-                const y = radius * Math.sin(angle); // Y-coordinate
+    for (let i = 0; i < numButtons; i++) {
+        const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
+        const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
+        const y = radius * Math.sin(angle); // Y-coordinate
 
-                const button = document.createElement('div');
-                button.className = 'popout-button';
-                button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
-                button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
-                popoutButtonContainer.appendChild(button);
-            }
-        }
+        const button = document.createElement('div');
+        button.className = 'popout-button';
+        button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
+        button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
+        popoutButtonContainer.appendChild(button);
+    }
+}
+
+createPopoutButtons();
+
 
         createPopoutButtons();
     </script>
