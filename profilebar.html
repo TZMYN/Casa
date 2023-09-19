@@ -119,19 +119,27 @@
             }
         }
 
-        // Create and append popout buttons
+        // Create and append popout buttons in an arc
         function createPopoutButtons() {
             const popoutButtonContainer = document.getElementById('popoutButtonContainer');
             
             const buttonImages = ['POPOUT.png', 'POPOUT2.png', 'POPOUT3.png'];
             
-            buttonImages.forEach((imageName, index) => {
+            const numButtons = buttonImages.length;
+            const radius = 60; // Adjust the radius as needed
+            const angleIncrement = Math.PI / 6; // Adjust the angle between buttons
+            
+            for (let i = 0; i < numButtons; i++) {
+                const angle = angleIncrement * (i - (numButtons - 1) / 2); // Calculate the angle for the current button
+                const x = radius * Math.cos(angle); // Calculate the x position
+                const y = radius * Math.sin(angle); // Calculate the y position
+                
                 const button = document.createElement('div');
                 button.className = 'popout-button';
-                button.style.transform = `translateX(${40 * (index + 1)}px) translateY(-50%)`; // Shifted to the right
-                button.innerHTML = `<img src="${imageName}" alt="Popout Button ${index + 1}">`;
+                button.style.transform = `translate(${x}px, ${y}px)`; // Position buttons in an arc
+                button.innerHTML = `<img src="${buttonImages[i]}" alt="Popout Button ${i + 1}">`;
                 popoutButtonContainer.appendChild(button);
-            });
+            }
         }
 
         createPopoutButtons();
