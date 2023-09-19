@@ -86,6 +86,20 @@
             object-fit: contain;
             z-index: 9999;
         }
+        
+@keyframes popoutAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+        
     </style>
 </head>
 <body>
@@ -122,7 +136,7 @@
             }
         }
 
-        // Create and append popout buttons in a semi-circle
+        // Create and append popout buttons in a semi-circle with animations
 function createPopoutButtons() {
     const popoutButtonContainer = document.getElementById('popoutButtonContainer');
     const numButtons = 3; // Number of buttons
@@ -139,6 +153,12 @@ function createPopoutButtons() {
         button.className = 'popout-button';
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
+
+        // Add animation classes with different durations and delays
+        const animationDuration = Math.random() * 2 + 1; // Random duration between 1 and 3 seconds
+        const animationDelay = Math.random() * 2; // Random delay between 0 and 2 seconds
+        button.style.animation = `popoutAnimation ${animationDuration}s ${animationDelay}s infinite alternate`;
+
         popoutButtonContainer.appendChild(button);
     }
 
@@ -147,6 +167,7 @@ function createPopoutButtons() {
 }
 
 createPopoutButtons();
+
 
     </script>
 </body>
