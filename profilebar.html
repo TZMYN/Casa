@@ -72,7 +72,7 @@
             align-items: center;
             position: absolute;
             top: 50%;
-            left: 80%
+            
             transform: translateY(-50%);
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
@@ -128,7 +128,7 @@
             buttonImages.forEach((imageName, index) => {
                 const button = document.createElement('div');
                 button.className = 'popout-button';
-                button.style.transform = `translateX(-40px) rotate(${30 * (index - 1)}deg)`;
+                button.style.transform = `translateX(${40 * (index + 1)}px) translateY(-50%)`; // Shifted to the right
                 button.innerHTML = `<img src="${imageName}" alt="Popout Button ${index + 1}">`;
                 popoutButtonContainer.appendChild(button);
             });
