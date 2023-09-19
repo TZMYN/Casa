@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+           <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand Profile</title>
 
+
+    
     <style>
         body {
             font-family: 'Cursive', sans-serif;
@@ -19,7 +21,7 @@
         .top-container {
             margin-top: 15px;
             display: flex;
-            flex-direction: column; /* Stack children vertically */
+            justify-content: space-between;
             align-items: center;
             padding: 10px;
             background-color: white; /* Add white background color */
@@ -31,7 +33,8 @@
             width: 130px;
             height: 130px;
             object-fit: cover;
-            margin-bottom: 10px; /* Add margin below the profile picture */
+            margin-left: 0px;
+            margin-bottom: 8px;
             object-position: top; /* Show the top of the image */
         }
 
@@ -40,9 +43,11 @@
             height: 200px;
             position: relative;
             cursor: pointer;
-            margin-top: 5px; /* Add margin above the video container */
+            margin-left: 30px;
+            margin-bottom: 5px;
             border-radius: 1500px;
         }
+
 
         #whiteBox {
             display: none;
@@ -61,15 +66,21 @@
 
     <div class="top-container">
         <h1 class="username" id="profileUsername">FunkeOfLagos</h1>
-        <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture">
+    
+        <div class="profile-picture-container">
+            <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture">
+        </div>
         <div class="video-container" onclick="playVideo()">
             <video id="video" style="width: 100%; height: 100%; object-fit: cover;" controls>
+            
                 <!-- Dummy Video Source (Replace with actual video file) -->
                 <source src="PTVID2.mp4" type="video/mp4">
             </video>
         </div>
     </div>
 
+
+    
     <script>
         function copyProfileID() {
             const profileIDElement = document.getElementById('profileid');
@@ -84,4 +95,4 @@
     </script>
 
 </body>
-</html>
+</html>          
