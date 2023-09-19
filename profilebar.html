@@ -130,8 +130,7 @@ function createPopoutButtons() {
     const xOffset = 55; // Adjust this value to control horizontal spacing
     const yOffset = -135; // Adjust this value to shift the buttons upwards
 
-    // An array to store references to the button elements
-    const buttons = [];
+    const buttonElements = [];
 
     for (let i = 0; i < numButtons; i++) {
         const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
@@ -143,27 +142,23 @@ function createPopoutButtons() {
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
         popoutButtonContainer.appendChild(button);
-
-        // Store references to the button elements
-        buttons.push(button);
+        buttonElements.push(button);
     }
 
     // Set a high z-index for the popout button container
     popoutButtonContainer.style.zIndex = '9999';
 
-    // Function to animate the buttons
-    function animateButtons() {
-        buttons.forEach((button, index) => {
-            // Calculate scale factor for the animation (between 0.9 and 1.1)
-            const scaleFactor = 0.9 + (0.2 * Math.sin(Date.now() / 200 + index * (Math.PI / numButtons)));
-
-            // Apply the scale transform
-            button.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${scaleFactor})`;
+    // Function to apply the playful animation
+    function animatePopoutButtons() {
+        buttonElements.forEach((button, index) => {
+            // Apply a scale transformation to each button
+            const scale = 1 + Math.sin(Date.now() / 500 + index * 100) * 0.05; // Adjust the values for desired animation effect
+            button.style.transform = `scale(${scale})`;
         });
     }
 
-    // Call the animateButtons function periodically to create animation
-    setInterval(animateButtons, 1000 / 30); // 30 frames per second
+    // Apply the animation continuously using setInterval
+    setInterval(animatePopoutButtons, 1000 / 60); // Adjust the interval for desired animation speed
 }
 
 createPopoutButtons();
