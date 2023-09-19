@@ -145,9 +145,21 @@ function createPopoutButtons() {
 
     // Set a high z-index for the popout button container
     popoutButtonContainer.style.zIndex = '9999';
+
+    // Add an animation to the buttons
+    const buttons = document.querySelectorAll('.popout-button');
+    let scale = 1; // Initial scale
+
+    setInterval(function () {
+        scale = scale === 1 ? 0.9 : 1; // Toggle between 1 and 0.9
+        buttons.forEach(function (button) {
+            button.style.transform = `scale(${scale})`;
+        });
+    }, 500); // Adjust the interval for the desired animation speed
 }
 
 createPopoutButtons();
+
 
     </script>
 </body>
