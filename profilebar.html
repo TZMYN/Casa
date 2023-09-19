@@ -6,7 +6,7 @@
     <title>Brand Profile</title>
 
     <style>
-       body {
+        body {
             font-family: 'Cursive', sans-serif;
             font-size: 16px;
             color: white;
@@ -74,10 +74,9 @@
             position: absolute;
             top: 50%;
             z-index: 9999;
-            transform: translate(-50%, -50%) scale(0); /* Initial scale set to 0 */
+            transform: translate(-50%, -50%) scale(1); /* Initial scale set to 1 */
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
-            animation: pulse-animation var(--animation-duration) var(--animation-delay) infinite alternate;
         }
 
         .popout-button img {
@@ -86,7 +85,17 @@
             object-fit: contain;
             z-index: 9999;
         }
-        
+
+        /* Animation for popout buttons */
+        @keyframes pulse-animation {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1); /* Start and end state */
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(0.8); /* Middle state, slightly smaller */
+            }
+        }
+
     </style>
 </head>
 <body>
