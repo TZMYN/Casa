@@ -125,6 +125,7 @@
     <div class="top-container">
         <div class="profile-picture-container">
             <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture" onclick="togglePopoutButtons()">
+            <div id="clickMeBox">Click Me</div>
             <div class="popout-button-container" id="popoutButtonContainer">
                 <!-- Popout buttons will be created here dynamically -->
             </div>
@@ -207,17 +208,17 @@ function createPopoutButtons() {
 
 createPopoutButtons();
     </script>
-
-    <script>
+    
+<script>
         const profilePicture = document.querySelector('.profile-picture');
-        const clickMeBox = document.querySelector('.click-me-box');
+        const clickMeBox = document.getElementById('clickMeBox');
 
         profilePicture.addEventListener('touchstart', () => {
             clickMeBox.style.display = 'none';
         });
 
-        profilePicture.addEventListener('touchend', () => {
-            clickMeBox.style.display = 'block';
+        profilePicture.addEventListener('click', () => {
+            clickMeBox.style.display = 'none';
         });
     </script>
     
