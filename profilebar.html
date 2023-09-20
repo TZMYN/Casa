@@ -38,6 +38,7 @@
     object-fit: cover;
     object-position: top; /* Show the top of the image */
     margin-right: 30px;
+    transition: transform 0.3s ease; /* Add a transition for the transform property */
 }
 
 .profile-picture-container::before {
@@ -55,8 +56,12 @@
 
 .profile-picture-container:hover .profile-picture {
     transform: scale(1.1); /* Expand the profile picture on hover */
-    transition: transform 0.3s ease;
 }
+
+.profile-picture-container:hover::before {
+    border: 5px solid transparent; /* Reset the border to transparent on hover */
+}
+
 
 
 
