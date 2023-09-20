@@ -37,20 +37,26 @@
     object-position: top; /* Show the top of the image */
     margin-right: 30px;
     overflow: hidden; /* Hide any content outside the circular frame */
+    z-index: 1; /* Ensure the image is on top of the border */
 }
 
-.profile-picture::after {
+.profile-picture::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: -5px; /* Adjust this value for border width */
+    left: -5px; /* Adjust this value for border width */
+    right: -5px; /* Adjust this value for border width */
+    bottom: -5px; /* Adjust this value for border width */
     border: 5px solid transparent; /* Add a transparent solid border */
     border-radius: 50%; /* Create a circular border */
     border-image: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Set the border-image */
     border-image-slice: 1; /* Slice the border image */
     z-index: -1; /* Place the border behind the image */
+}
+
+.profile-picture:hover {
+    transform: scale(1.1); /* Expand the profile picture on hover */
+    transition: transform 0.3s ease;
 }
 
 .profile-picture:hover {
