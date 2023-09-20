@@ -134,13 +134,19 @@ function createPopoutButtons() {
     const yOffset = -135; // Adjust this value to shift the buttons upwards
 
 
+    // Create and append popout buttons in a semi-circle
+function createPopoutButtons() {
+    const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+    const numButtons = 3; // Number of buttons
+    const radius = 90; // Radius of the semi-circle
+
     // Function to apply the playful animation
     function animatePopoutButtons() {
         const buttons = popoutButtonContainer.querySelectorAll('.popout-button');
 
         buttons.forEach((button, index) => {
-            // Apply a scale transformation to each button
-            const scale = 1 + Math.sin(Date.now() / 500 + index * 100) * 0.05; // Adjust the values for desired animation effect
+            // Adjust the scale transformation for bigger and smaller size during animation
+            const scale = 1 + Math.sin(Date.now() / 500 + index * 100) * 0.2; // Adjust the value for the desired animation effect
             button.style.transform = `translate(${x}px, ${y}px) scale(${scale})`; // Maintain the position and animate scale
         });
     }
