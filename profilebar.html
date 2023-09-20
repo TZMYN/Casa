@@ -25,8 +25,10 @@
             background-color: white; /* Add white background color */
             border-radius: 15px; /* Add border radius for curved edges */
         }
-
+        
 .profile-picture {
+    position: relative; /* Position for pseudo-element */
+    border-radius: 50%;
     width: 130px;
     height: 130px;
     object-fit: cover;
@@ -35,10 +37,21 @@
     object-position: top; /* Show the top of the image */
     margin-right: 30px;
     transition: transform 0.3s ease; /* Add a transition for the transform property */
-    border: 5px solid transparent; /* Add a transparent solid border */
-    border-radius: 50%; /* Create a circular shape */
-    border-image: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Set the border-image */
-    border-image-slice: 1; /* Slice the border image */
+}
+
+/* Create the round border with gradient */
+.profile-picture::before {
+    content: "";
+    position: absolute;
+    top: -5px; /* Adjust this value for positioning */
+    left: -5px; /* Adjust this value for positioning */
+    right: -5px; /* Adjust this value for positioning */
+    bottom: -5px; /* Adjust this value for positioning */
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-image: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    border-image-slice: 1;
+    z-index: -1; /* Place the pseudo-element behind the profile picture */
 }
 
 
