@@ -61,13 +61,14 @@
             transform: scale(1.1); /* Enlarge the picture when expanded */
         }
 
-        @keyframes fadeInOut {
-            0%, 100% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
+        /* Style for the speech bubble */
+        .speech-bubble {
+            position: absolute;
+            bottom: 100%; /* Place it just above the profile picture */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            animation: fadeInOut 2s infinite; /* Add the fade-in-out animation */
+            display: none; /* Initially hide the speech bubble */
         }
 
         .video-container {
@@ -127,8 +128,8 @@
     
     <div class="top-container">
         <div class="profile-picture-container">
-            <div class="click-me-box">Click Me</div>
             <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture" onclick="togglePopoutButtons()">
+            <img class="speech-bubble" src="CLICKME.png" alt="Click Me">
             <div class="popout-button-container" id="popoutButtonContainer">
                 <!-- Popout buttons will be created here dynamically -->
             </div>
@@ -213,16 +214,26 @@ createPopoutButtons();
     
 <script>
         const profilePicture = document.querySelector('.profile-picture');
-        const clickMeBox = document.querySelector('.click-me-box');
 
         profilePicture.addEventListener('touchstart', () => {
             profilePicture.classList.add('expanded');
-            clickMeBox.style.display = 'none'; // Hide the click-me box when tapping the profile picture
         });
 
         profilePicture.addEventListener('touchend', () => {
             profilePicture.classList.remove('expanded');
         });
+    </script>
+
+    <script>
+        const profilePicture = document.querySelector('.profile-picture');
+        const speechBubble = document.querySelector('.speech-bubble');
+
+        profilePicture.addEventListener('touchstart', () => {
+            speechBubble.style.display = 'none'; // Hide the speech bubble on tap
+        });
+
+        // Ensure the speech bubble is visible by default
+        speechBubble.style.display = 'block';
     </script>
     
 </body>
