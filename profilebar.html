@@ -152,13 +152,13 @@ function createPopoutButtons() {
 
         buttons.forEach((button, index) => {
             // Apply a scale transformation to each button
-            const scale = 1 + Math.sin(Date.now() / 500 + index * 100) * 0.5; // Adjust the values for desired animation effect
+            const scale = 1 + Math.sin(Date.now() / 500 + index * 100) * 1; // Adjust the values for desired animation effect
             button.style.transform = `translate(${x}px, ${y}px) scale(${scale})`; // Maintain the position and animate scale
         });
     }
 
     // Apply the animation continuously using setInterval
-    setInterval(animatePopoutButtons, 1000 / 60); // Adjust the interval for desired animation speed
+    setInterval(animatePopoutButtons, 500 / 30); // Adjust the interval for desired animation speed
 }
 
 createPopoutButtons();
