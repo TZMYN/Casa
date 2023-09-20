@@ -133,27 +133,13 @@ function createPopoutButtons() {
     const xOffset = 55; // Adjust this value to control horizontal spacing
     const yOffset = -135; // Adjust this value to shift the buttons upwards
 
-    const buttonElements = [];
-
-    for (let i = 0; i < numButtons; i++) {
-        const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
-        const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
-        const y = yOffset + radius * Math.sin(angle); // Y-coordinate (adjusted to shift upwards)
-
-        const button = document.createElement('div');
-        button.className = 'popout-button';
-        button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
-        button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
-        popoutButtonContainer.appendChild(button);
-        buttonElements.push(button);
-    }
-
-    // Set a high z-index for the popout button container
-    popoutButtonContainer.style.zIndex = '9999';
+    
 
     // Function to apply the playful animation
     function animatePopoutButtons() {
-        buttonElements.forEach((button, index) => {
+        const buttons = popoutButtonContainer.querySelectorAll('.popout-button');
+
+        buttons.forEach((button, index) => {
             // Apply a scale transformation to each button
             const scale = 1 + Math.sin(Date.now() / 500 + index * 100) * 0.05; // Adjust the values for desired animation effect
             button.style.transform = `translate(${x}px, ${y}px) scale(${scale})`; // Maintain the position and animate scale
@@ -161,7 +147,22 @@ function createPopoutButtons() {
     }
 
     // Apply the animation continuously using setInterval
-    setInterval(animatePopoutButtons, 1000 / 60); // Adjust the interval for desired animation speed
+    setInterval(animatePopoutButtons, 1000 / 60); // Adjust the interval for the desired animation speed
+
+    for (let i = 0; i < numButtons; i++) {
+        const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
+        const x = radius * Math.cos(angle); // X-coordinate
+        const y = radius * Math.sin(angle); // Y-coordinate
+
+        const button = document.createElement('div');
+        button.className = 'popout-button';
+        button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
+        button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
+        popoutButtonContainer.appendChild(button);
+    }
+
+    // Set a high z-index for the popout button container
+    popoutButtonContainer.style.zIndex = '9999';
 }
 
 createPopoutButtons();
