@@ -27,15 +27,24 @@
         }
 
         .profile-picture {
-            border-radius: 50%;
-            width: 130px;
-            height: 130px;
-            object-fit: cover;
-            margin-left: 0px;
-            margin-bottom: 8px;
-            object-position: top; /* Show the top of the image */
-            margin-right: 30px;
-        }
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    object-position: top; /* Show the top of the image */
+    margin-right: 30px;
+    cursor: pointer; /* Add a pointer cursor to indicate interactivity */
+    transition: all 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Apply the scaling effect on hover or click */
+.profile-picture:hover,
+.profile-picture:active {
+    transform: scale(1.1); /* Scale up by 10% */
+}
+
 
         .video-container {
             width: 1500px;
