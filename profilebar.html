@@ -215,11 +215,20 @@ createPopoutButtons();
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
 
+        // Create the speech bubble element
+        const speechBubble = document.createElement('img');
+        speechBubble.src = 'CLICKME.png';
+        speechBubble.alt = 'Click Me';
+        speechBubble.classList.add('speech-bubble');
+        topContainer.appendChild(speechBubble);
+
+        let isSpeechBubbleVisible = true;
+
         profilePicture.addEventListener('touchstart', () => {
-            // When you tap on the profile picture, remove the speech bubble
-            const speechBubble = document.querySelector('.speech-bubble');
-            if (speechBubble) {
+            if (isSpeechBubbleVisible) {
+                // When you tap on the profile picture, remove the speech bubble
                 topContainer.removeChild(speechBubble);
+                isSpeechBubbleVisible = false;
             }
             profilePicture.classList.add('expanded');
         });
@@ -228,12 +237,13 @@ createPopoutButtons();
             profilePicture.classList.remove('expanded');
         });
 
-        // Create the speech bubble element
-        const speechBubble = document.createElement('img');
-        speechBubble.src = 'CLICKME.png';
-        speechBubble.alt = 'Click Me';
-        speechBubble.classList.add('speech-bubble');
-        topContainer.appendChild(speechBubble);
+        profilePicture.addEventListener('click', () => {
+            if (!isSpeechBubbleVisible) {
+                // When you click on the profile picture, re-add the speech bubble
+                topContainer.appendChild(speechBubble);
+                isSpeechBubbleVisible = true;
+            }
+        });
     </script>
     
 </body>
