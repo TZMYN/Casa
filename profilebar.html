@@ -64,13 +64,21 @@
         /* Style for the speech bubble */
         .speech-bubble {
             position: absolute;
-            bottom: 100%; /* Place it just above the profile picture */
-            left: 50%;
-            transform: translateX(-50%); /* Center horizontally */
-            animation: fadeInOut 2s infinite; /* Add the fade-in-out animation */
-            display: none; /* Initially hide the speech bubble */
+            top: -3px; /* 3px above the profile picture */
+            left: calc(100% + 10px); /* To the right of the profile picture with 10px spacing */
+            opacity: 0; /* Initially hidden */
+            animation: fade 2s infinite alternate; /* Fade in and out infinitely */
+            z-index: 99999; /* Layer above other elements */
         }
 
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
         .video-container {
             width: 1500px;
             height: 200px;
@@ -129,7 +137,6 @@
     <div class="top-container">
         <div class="profile-picture-container">
             <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture" onclick="togglePopoutButtons()">
-            <img class="speech-bubble" src="CLICKME.png" alt="Click Me">
             <div class="popout-button-container" id="popoutButtonContainer">
                 <!-- Popout buttons will be created here dynamically -->
             </div>
@@ -225,16 +232,21 @@ createPopoutButtons();
     </script>
 
     <script>
-        const profilePicture = document.querySelector('.profile-picture');
-        const speechBubble = document.querySelector('.speech-bubble');
+            const profilePicture = document.querySelector('.profile-picture');
+            const topContainer = document.querySelector('.top-container');
+            
+            // Create and append the speech bubble image
+            const speechBubble = document.createElement('img');
+            speechBubble.src = 'CLICKME.png';
+            speechBubble.alt = 'Click Me';
+            speechBubble.classList.add('speech-bubble');
+            topContainer.appendChild(speechBubble);
 
-        profilePicture.addEventListener('touchstart', () => {
-            speechBubble.style.display = 'none'; // Hide the speech bubble on tap
-        });
-
-        // Ensure the speech bubble is visible by default
-        speechBubble.style.display = 'block';
-    </script>
+            // Toggle the speech bubble on profile picture tap
+            profilePicture.addEventListener('click', () => {
+                speechBubble.style.display = 'none';
+            });
+        </script>
     
 </body>
 </html>
