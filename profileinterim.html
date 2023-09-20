@@ -37,6 +37,10 @@
             margin-right: 30px;
         }
 
+        .profile-picture.expanded {
+            transform: scale(1.3); /* Enlarge the picture when expanded */
+        }
+
         .video-container {
             width: 1500px;
             height: 200px;
@@ -175,10 +179,19 @@ function createPopoutButtons() {
 }
 
 createPopoutButtons();
-
-
-
-
     </script>
+
+<script>
+        const profilePicture = document.querySelector('.profile-picture');
+
+        profilePicture.addEventListener('touchstart', () => {
+            profilePicture.classList.add('expanded');
+        });
+
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
+        });
+    </script>
+    
 </body>
 </html>
