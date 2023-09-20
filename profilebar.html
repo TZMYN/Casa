@@ -26,21 +26,21 @@
             border-radius: 15px; /* Add border radius for curved edges */
         }
         
-.profile-picture {
+.profile-picture-container {
     position: relative;
+    display: inline-block;
+}
+
+.profile-picture {
     border-radius: 50%;
     width: 130px;
     height: 130px;
     object-fit: cover;
-    margin-left: 0px;
-    margin-bottom: 8px;
     object-position: top; /* Show the top of the image */
     margin-right: 30px;
-    overflow: hidden; /* Hide any content outside the circular frame */
-    z-index: 1; /* Ensure the image is on top of the border */
 }
 
-.profile-picture::before {
+.profile-picture-container::before {
     content: "";
     position: absolute;
     top: -5px; /* Adjust this value for border width */
@@ -51,18 +51,13 @@
     border-radius: 50%; /* Create a circular border */
     border-image: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Set the border-image */
     border-image-slice: 1; /* Slice the border image */
-    z-index: -1; /* Place the border behind the image */
 }
 
-.profile-picture:hover {
+.profile-picture-container:hover .profile-picture {
     transform: scale(1.1); /* Expand the profile picture on hover */
     transition: transform 0.3s ease;
 }
 
-.profile-picture:hover {
-    transform: scale(1.1); /* Expand the profile picture on hover */
-    transition: transform 0.3s ease;
-}
 
 
         .profile-picture.expanded {
