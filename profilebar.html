@@ -27,6 +27,7 @@
             border-radius: 15px; /* Add border radius for curved edges */
 
             position: relative; /* Set relative positioning for the container */
+           
         
         }
 
@@ -213,38 +214,30 @@ createPopoutButtons();
 <script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
-        let speechBubbleVisible = true;
+        let isSpeechBubbleVisible = true;
 
-        // Function to toggle speech bubble visibility
-        function toggleSpeechBubble() {
+        // Function to toggle the speech bubble visibility
+        function toggleSpeechBubbleVisibility() {
             const speechBubble = document.querySelector('.speech-bubble');
-
-            if (speechBubbleVisible) {
-                // Hide the speech bubble
-                topContainer.removeChild(speechBubble);
-                speechBubbleVisible = false;
-            } else {
-                // Show the speech bubble
-                speechBubble.src = 'CLICKME.png';
-                speechBubble.alt = 'Click Me';
-                speechBubble.classList.add('speech-bubble');
-                topContainer.appendChild(speechBubble);
-                speechBubbleVisible = true;
+            if (speechBubble) {
+                if (isSpeechBubbleVisible) {
+                    topContainer.removeChild(speechBubble);
+                } else {
+                    topContainer.appendChild(speechBubble);
+                }
+                isSpeechBubbleVisible = !isSpeechBubbleVisible;
             }
         }
 
-        profilePicture.addEventListener('touchstart', () => {
-            // Toggle the speech bubble when you tap on the profile picture
-            toggleSpeechBubble();
-            profilePicture.classList.add('expanded');
-        });
+        // Create the speech bubble element
+        const speechBubble = document.createElement('img');
+        speechBubble.src = 'CLICKME.png';
+        speechBubble.alt = 'Click Me';
+        speechBubble.classList.add('speech-bubble');
+        topContainer.appendChild(speechBubble);
 
-        profilePicture.addEventListener('touchend', () => {
-            profilePicture.classList.remove('expanded');
-        });
-
-        // Initially, show the speech bubble
-        toggleSpeechBubble();
+        // Add a click event listener to the profile picture to toggle speech bubble visibility
+        profilePicture.addEventListener('click', toggleSpeechBubbleVisibility);
     </script>
     
 </body>
