@@ -17,6 +17,7 @@
         }
 
         .top-container {
+        .top-container {
             margin-top: 15px;
             display: flex;
             justify-content: space-between;
@@ -24,6 +25,24 @@
             padding: 10px;
             background-color: white; /* Add white background color */
             border-radius: 15px; /* Add border radius for curved edges */
+        }
+
+        .profile-picture-container {
+            position: relative; /* Needed for absolute positioning */
+        }
+
+        .click-me-box {
+            position: absolute;
+            top: -40px; /* Adjust the top position as needed */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+            background-color: #ffb6c1;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+            animation: fadeInOut 2s infinite; /* Add fade-in and fade-out animation */
+            z-index: 99999; /* Set a high z-index */
         }
 
         .profile-picture {
@@ -35,27 +54,11 @@
             margin-bottom: 8px;
             object-position: top; /* Show the top of the image */
             margin-right: 30px;
-            transition: transform 0.3s ease, border 0.3s ease; /* Add transition for transform and border properties */
-            border: 8px solid #ffb6c1; /* Add a border with the specified color */
+            transition: transform 0.3s ease; /* Add a transition for the transform property */
         }
 
         .profile-picture.expanded {
-            transform: scale(1.3); /* Enlarge the picture when expanded */
-        }
-
-
-        .click-me-box {
-            background-color: #ffb6c1;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            position: absolute;
-            top: -40px; /* Position above the profile picture */
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0; /* Initially hidden */
-            animation: fadeInOut 2s infinite; /* Fade in and out infinitely */
-            z-index: 99999; /* Ensure it's above the profile picture */
+            transform: scale(1.1); /* Enlarge the picture when expanded */
         }
 
         @keyframes fadeInOut {
@@ -124,8 +127,8 @@
     
     <div class="top-container">
         <div class="profile-picture-container">
+            <div class="click-me-box">Click Me</div>
             <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture" onclick="togglePopoutButtons()">
-            <div id="clickMeBox">Click Me</div>
             <div class="popout-button-container" id="popoutButtonContainer">
                 <!-- Popout buttons will be created here dynamically -->
             </div>
@@ -135,7 +138,6 @@
                 <source src="PTVID2.mp4" type="video/mp4">
             </video>
         </div>
-        <div class="click-me-box">Click Me</div>
     </div>
 
     <script>
@@ -211,14 +213,15 @@ createPopoutButtons();
     
 <script>
         const profilePicture = document.querySelector('.profile-picture');
-        const clickMeBox = document.getElementById('clickMeBox');
+        const clickMeBox = document.querySelector('.click-me-box');
 
         profilePicture.addEventListener('touchstart', () => {
-            clickMeBox.style.display = 'inline';
+            profilePicture.classList.add('expanded');
+            clickMeBox.style.display = 'none'; // Hide the click-me box when tapping the profile picture
         });
 
-        profilePicture.addEventListener('click', () => {
-            clickMeBox.style.display = 'none';
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
         });
     </script>
     
