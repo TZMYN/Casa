@@ -133,40 +133,45 @@ function createPopoutButtons() {
     const xOffset = 55; // Adjust this value to control horizontal spacing
     const yOffset = -135; // Adjust this value to shift the buttons upwards
 
-
-    
-    
-
-    // Function to apply the playful animation
-    function animatePopoutButtons(timestamp) {
-        const buttons = popoutButtonContainer.querySelectorAll('.popout-button');
-
-        buttons.forEach((button, index) => {
-            // Calculate the scale based on the sine wave for enlargement and shrinkage
-            const scale = 1 + Math.sin((timestamp / 500 + index * 100) * 0.05) * 0.5; // Adjust the values for the desired animation effect
-            button.style.transform = `translate(${x}px, ${y}px) scale(${scale})`; // Maintain the position and animate scale
-        });
-
-        requestAnimationFrame(animatePopoutButtons); // Continue the animation loop
-    }
-
-    // Start the animation loop
-    requestAnimationFrame(animatePopoutButtons);
+    const animations = []; // Array to store animation IDs
 
     for (let i = 0; i < numButtons; i++) {
         const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
-        const x = radius * Math.cos(angle); // X-coordinate
-        const y = radius * Math.sin(angle); // Y-coordinate
+        const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
+        const y = yOffset + radius * Math.sin(angle); // Y-coordinate (adjusted to shift upwards)
 
         const button = document.createElement('div');
         button.className = 'popout-button';
         button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
         button.innerHTML = `<img src="POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
         popoutButtonContainer.appendChild(button);
+
+        // Add animation function to the array
+        animations.push(() => {
+            const scaleFactor = 1.05; // Scale factor for animation
+            button.style.transform = `translate(${x}px, ${y}px) scale(${scaleFactor})`;
+
+            // Use setTimeout to reverse the animation after a short delay
+            setTimeout(() => {
+                button.style.transform = `translate(${x}px, ${y}px) scale(1)`;
+            }, 100); // Adjust the delay as needed
+        });
     }
 
     // Set a high z-index for the popout button container
     popoutButtonContainer.style.zIndex = '9999';
+
+    // Function to start the animation loop
+    function startAnimationLoop() {
+        let currentIndex = 0;
+
+        setInterval(() => {
+            animations[currentIndex](); // Execute the animation function
+            currentIndex = (currentIndex + 1) % numButtons; // Cycle through buttons
+        }, 300); // Adjust the animation speed as needed
+    }
+
+    startAnimationLoop();
 }
 
 createPopoutButtons();
