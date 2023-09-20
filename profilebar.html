@@ -152,7 +152,7 @@ function createPopoutButtons() {
 
         buttons.forEach((button, index) => {
             // Apply a scale transformation to each button
-            const scale = 1 + Math.sin(Date.now() / 800 + index * 100) * 0.05; // Adjust the values for desired animation effect
+            const scale = 1 + Math.sin(Date.now() / 500 + index * 100) * 0.5; // Adjust the values for desired animation effect
             button.style.transform = `translate(${x}px, ${y}px) scale(${scale})`; // Maintain the position and animate scale
         });
     }
