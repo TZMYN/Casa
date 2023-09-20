@@ -213,28 +213,28 @@ createPopoutButtons();
 <script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
-        let speechBubble = null; // Initialize speechBubble variable
-        let isSpeechBubbleVisible = false; // Track if speech bubble is visible
+
+        let speechBubbleVisible = true;
 
         profilePicture.addEventListener('touchstart', () => {
-            if (isSpeechBubbleVisible) {
-                // If speechBubble is visible, remove it
-                topContainer.removeChild(speechBubble);
-                isSpeechBubbleVisible = false;
+            if (speechBubbleVisible) {
+                // When you tap on the profile picture and the speech bubble is visible, remove it
+                const speechBubble = document.querySelector('.speech-bubble');
+                if (speechBubble) {
+                    topContainer.removeChild(speechBubble);
+                }
+                speechBubbleVisible = false;
             } else {
-                // If speechBubble is not visible, create and append it
-                speechBubble = document.createElement('img');
+                // When you tap on the profile picture and the speech bubble is not visible, create it
+                const speechBubble = document.createElement('img');
                 speechBubble.src = 'CLICKME.png';
                 speechBubble.alt = 'Click Me';
                 speechBubble.classList.add('speech-bubble');
                 topContainer.appendChild(speechBubble);
-                isSpeechBubbleVisible = true;
+                speechBubbleVisible = true;
             }
-            profilePicture.classList.add('expanded');
-        });
 
-        profilePicture.addEventListener('touchend', () => {
-            profilePicture.classList.remove('expanded');
+            profilePicture.classList.toggle('expanded');
         });
     </script>
     
