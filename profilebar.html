@@ -25,26 +25,16 @@
             padding: 10px;
             background-color: white; /* Add white background color */
             border-radius: 15px; /* Add border radius for curved edges */
+
+            position: relative; /* Set relative positioning for the container */
+        
         }
 
         .profile-picture-container {
             position: relative; /* Needed for absolute positioning */
         }
 
-        .click-me-box {
-            position: absolute;
-            top: 50%; /* Adjust the top position as needed */
-            left: 20%; /* Center horizontally */
-            transform: translateX(-50%); /* Center horizontally */
-            background-color: #ffb6c1;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: none; /* Initially hidden */
-            animation: fadeInOut 2s infinite; /* Add fade-in and fade-out animation */
-            z-index: 99999; /* Set a high z-index */
-        }
-
+       
         .profile-picture {
             border-radius: 50%;
             width: 130px;
@@ -79,6 +69,7 @@
                 opacity: 1;
             }
         }
+        
         .video-container {
             width: 1500px;
             height: 200px;
