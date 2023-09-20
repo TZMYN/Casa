@@ -214,6 +214,7 @@ createPopoutButtons();
 <script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
+        let speechBubbleVisible = true;
 
         // Function to create the speech bubble element
         function createSpeechBubble() {
@@ -229,12 +230,15 @@ createPopoutButtons();
 
         // Function to toggle the speech bubble visibility
         function toggleSpeechBubbleVisibility() {
-            const speechBubble = document.querySelector('.speech-bubble');
-            if (speechBubble) {
-                speechBubble.remove();
-                profilePicture.removeEventListener('click', toggleSpeechBubbleVisibility);
+            if (speechBubbleVisible) {
+                const speechBubble = document.querySelector('.speech-bubble');
+                if (speechBubble) {
+                    speechBubble.style.opacity = '0';
+                    speechBubbleVisible = false;
+                }
+            } else {
                 createSpeechBubble(); // Recreate the speech bubble
-                profilePicture.addEventListener('click', toggleSpeechBubbleVisibility);
+                speechBubbleVisible = true;
             }
         }
 
