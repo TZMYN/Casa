@@ -211,6 +211,27 @@ function createPopoutButtons() {
 createPopoutButtons();
     </script>
     
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (previous code) ... -->
+</head>
+<body>
+    <h1 class="username" id="profileUsername">FunkeOfLagos</h1>
+
+    <div class="top-container">
+        <div class="profile-picture-container">
+            <img class="profile-picture" src="PTIMG.jpeg" alt="Profile Picture">
+            <!-- JavaScript will create the speech bubble here -->
+        </div>
+        <div class="video-container" onclick="playVideo()">
+            <video id="video" style="width: 100%; height: 100%; object-fit: cover;" controls>
+                <!-- Dummy Video Source (Replace with actual video file) -->
+                <source src="PTVID2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
     <script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
@@ -224,27 +245,30 @@ createPopoutButtons();
 
         let isSpeechBubbleVisible = true;
 
-        profilePicture.addEventListener('touchstart', () => {
+        profilePicture.addEventListener('click', () => {
             if (isSpeechBubbleVisible) {
-                // When you tap on the profile picture, remove the speech bubble
+                // When you click on the profile picture, remove the speech bubble
                 topContainer.removeChild(speechBubble);
                 isSpeechBubbleVisible = false;
             }
             profilePicture.classList.add('expanded');
         });
 
-        profilePicture.addEventListener('touchend', () => {
+        profilePicture.addEventListener('transitionend', () => {
             profilePicture.classList.remove('expanded');
         });
 
         profilePicture.addEventListener('click', () => {
             if (!isSpeechBubbleVisible) {
-                // When you click on the profile picture, re-add the speech bubble
+                // When you click on the profile picture again, re-add the speech bubble
                 topContainer.appendChild(speechBubble);
                 isSpeechBubbleVisible = true;
             }
         });
     </script>
+</body>
+</html>
+
     
 </body>
 </html>
