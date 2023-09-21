@@ -212,7 +212,8 @@ function createPopoutButtons() {
 createPopoutButtons();
     </script>
     
-    <script>
+    
+<script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
 
@@ -229,17 +230,6 @@ createPopoutButtons();
                 topContainer.removeChild(speechBubble);
                 speechBubble = null; // Remove reference to speech bubble
             }
-            profilePicture.classList.add('expanded');
-        });
-
-        profilePicture.addEventListener('touchend', () => {
-            profilePicture.classList.remove('expanded');
-        });
-    </script>
-    <script>
-        const profilePicture = document.querySelector('.profile-picture');
-
-        profilePicture.addEventListener('touchstart', () => {
             profilePicture.classList.add('expanded');
         });
 
