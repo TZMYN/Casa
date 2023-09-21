@@ -216,7 +216,8 @@ createPopoutButtons();
 <script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
-        let touchStart = false;
+        let touchStartTimestamp = null;
+        let touchEndTimestamp = null;
 
         // Create the speech bubble element
         const speechBubble = document.createElement('img');
@@ -225,17 +226,19 @@ createPopoutButtons();
         speechBubble.classList.add('speech-bubble');
         topContainer.appendChild(speechBubble);
 
-        profilePicture.addEventListener('touchstart', () => {
-            touchStart = true;
-            setTimeout(() => {
-                if (touchStart) {
-                    profilePicture.classList.add('expanded');
-                }
-            }, 300); // Adjust the delay as needed
+        profilePicture.addEventListener('touchstart', (event) => {
+            touchStartTimestamp = event.timeStamp;
+            profilePicture.classList.add('expanded');
         });
 
-        profilePicture.addEventListener('touchend', () => {
-            touchStart = false;
+        profilePicture.addEventListener('touchend', (event) => {
+            touchEndTimestamp = event.timeStamp;
+            if (touchEndTimestamp - touchStartTimestamp < 300) {
+                // If the touch duration is less than 300ms, it's considered a tap
+                if (speechBubble) {
+                    topContainer.removeChild(speechBubble);
+                }
+            }
             profilePicture.classList.remove('expanded');
         });
     </script>
