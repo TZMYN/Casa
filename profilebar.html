@@ -227,6 +227,43 @@
     createPopoutButtons();
 </script>
 
+
+<script>
+        const profilePicture = document.querySelector('.profile-picture');
+        const topContainer = document.querySelector('.top-container');
+
+        // Create the speech bubble element
+        const speechBubble = document.createElement('img');
+        speechBubble.src = 'CLICKME.png';
+        speechBubble.alt = 'Click Me';
+        speechBubble.classList.add('speech-bubble');
+        topContainer.appendChild(speechBubble);
+
+        profilePicture.addEventListener('touchstart', () => {
+            // When you tap on the profile picture, remove the speech bubble permanently
+            if (speechBubble) {
+                topContainer.removeChild(speechBubble);
+                speechBubble = null; // Remove reference to speech bubble
+            }
+            profilePicture.classList.add('expanded');
+        });
+
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
+        });
+    </script>
+
+    <!-- Touch Expand Function -->
+    <script>
+        profilePicture.addEventListener('touchstart', () => {
+            profilePicture.classList.add('expanded');
+        });
+
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
+        });
+    </script>
+    
     
 </body>
 </html>
