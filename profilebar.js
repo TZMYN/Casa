@@ -1,4 +1,4 @@
-    <script>
+    
         let popoutButtonsVisible = false;
 
         function togglePopoutButtons() {
@@ -80,10 +80,8 @@
     popoutButtonContainer.style.transform = 'scale(0)';
 
     createPopoutButtons();
-</script>
 
 
-<script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
 
@@ -106,10 +104,8 @@
         profilePicture.addEventListener('touchend', () => {
             profilePicture.classList.remove('expanded');
         });
-    </script>
+   
 
-    <!-- Touch Expand Function -->
-    <script>
         profilePicture.addEventListener('touchstart', () => {
             profilePicture.classList.add('expanded');
         });
@@ -117,4 +113,4 @@
         profilePicture.addEventListener('touchend', () => {
             profilePicture.classList.remove('expanded');
         });
-    </script>
+
