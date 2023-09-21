@@ -216,6 +216,7 @@ createPopoutButtons();
 <script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
+        let touchStart = false;
 
         // Create the speech bubble element
         const speechBubble = document.createElement('img');
@@ -225,15 +226,16 @@ createPopoutButtons();
         topContainer.appendChild(speechBubble);
 
         profilePicture.addEventListener('touchstart', () => {
-            // When you tap on the profile picture, remove the speech bubble permanently
-            if (speechBubble) {
-                topContainer.removeChild(speechBubble);
-                speechBubble = null; // Remove reference to speech bubble
-            }
-            profilePicture.classList.add('expanded');
+            touchStart = true;
+            setTimeout(() => {
+                if (touchStart) {
+                    profilePicture.classList.add('expanded');
+                }
+            }, 300); // Adjust the delay as needed
         });
 
         profilePicture.addEventListener('touchend', () => {
+            touchStart = false;
             profilePicture.classList.remove('expanded');
         });
     </script>
