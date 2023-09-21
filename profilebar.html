@@ -222,27 +222,17 @@ createPopoutButtons();
         speechBubble.classList.add('speech-bubble');
         topContainer.appendChild(speechBubble);
 
-        let isSpeechBubbleVisible = true;
-
-        profilePicture.addEventListener('click', () => {
-            if (isSpeechBubbleVisible) {
-                // When you click on the profile picture, remove the speech bubble
+        profilePicture.addEventListener('touchstart', () => {
+            // When you tap on the profile picture, remove the speech bubble permanently
+            if (speechBubble) {
                 topContainer.removeChild(speechBubble);
-                isSpeechBubbleVisible = false;
+                speechBubble = null; // Remove reference to speech bubble
             }
             profilePicture.classList.add('expanded');
         });
 
-        profilePicture.addEventListener('transitionend', () => {
+        profilePicture.addEventListener('touchend', () => {
             profilePicture.classList.remove('expanded');
-        });
-
-        profilePicture.addEventListener('click', () => {
-            if (!isSpeechBubbleVisible) {
-                // When you click on the profile picture again, re-add the speech bubble
-                topContainer.appendChild(speechBubble);
-                isSpeechBubbleVisible = true;
-            }
         });
     </script>
     
