@@ -216,7 +216,6 @@ createPopoutButtons();
 <script>
         const profilePicture = document.querySelector('.profile-picture');
         const topContainer = document.querySelector('.top-container');
-        let touchStartTimestamp = 0;
 
         // Create the speech bubble element
         const speechBubble = document.createElement('img');
@@ -225,24 +224,28 @@ createPopoutButtons();
         speechBubble.classList.add('speech-bubble');
         topContainer.appendChild(speechBubble);
 
-        profilePicture.addEventListener('touchstart', (event) => {
-            touchStartTimestamp = event.timeStamp;
+        profilePicture.addEventListener('touchstart', () => {
+            // When you tap on the profile picture, remove the speech bubble permanently
+            if (speechBubble) {
+                topContainer.removeChild(speechBubble);
+                speechBubble = null; // Remove reference to speech bubble
+            }
+            profilePicture.classList.add('expanded');
         });
 
-        profilePicture.addEventListener('touchend', (event) => {
-            const touchEndTimestamp = event.timeStamp;
-            const touchDuration = touchEndTimestamp - touchStartTimestamp;
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
+        });
+    </script>
 
-            if (touchDuration < 500) {
-                // When you click (not long-press) the profile picture, remove the speech bubble permanently
-                if (speechBubble) {
-                    topContainer.removeChild(speechBubble);
-                    speechBubble = null; // Remove reference to speech bubble
-                }
+    <!-- Touch Expand Function -->
+    <script>
+        profilePicture.addEventListener('touchstart', () => {
+            profilePicture.classList.add('expanded');
+        });
 
-                // Toggle the expanded class to enlarge or contract the picture
-                profilePicture.classList.toggle('expanded');
-            }
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
         });
     </script>
     
