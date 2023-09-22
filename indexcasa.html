@@ -2,60 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        body {
+    <style>
+
+body {
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
 }
 
-.logo-container {
+.container {
+    text-align: center;
+}
+
+.logo {
     display: none;
-}
-
-.casalogo, .casalettered {
     max-width: 100%;
-    animation: fadeInOut 5s ease-in-out infinite;
 }
 
-@keyframes fadeInOut {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-}
 
-    </script>
-    <title>Homepage</title>
+        
+    </style>
 </head>
 <body>
-    <div class="logo-container">
-        <img src="casalogo.png" class="casalogo">
-        <img src="casalettered.png" class="casalettered">
+    <div class="container">
+        <img src="casalogo.png" alt="Logo" id="logo" class="logo">
+        <img src="casalettered.png" alt="Lettering" id="lettering" class="logo">
     </div>
+
+    // Wait for the document to load
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the logo and lettering elements
+    const logo = document.getElementById("logo");
+    const lettering = document.getElementById("lettering");
+
+    // Fade in the logo
+    setTimeout(function() {
+        logo.style.display = "block";
+        fadeIn(logo);
+    }, 0);
+
+    // After 5 seconds, stop fading the logo and fade in the lettering
+    setTimeout(function() {
+        clearInterval(logoFadeInterval);
+        setTimeout(function() {
+            lettering.style.display = "block";
+            fadeIn(lettering);
+        }, 0);
+    }, 5000);
+
+    // After 3 seconds, redirect to homepage.html
+    setTimeout(function() {
+        window.location.href = "homepage.html";
+    }, 8000);
+});
+
+// Function to fade in an element
+function fadeIn(element) {
+    element.style.opacity = 0;
+    var opacity = 0;
+    var logoFadeInterval = setInterval(function() {
+        if (opacity < 1) {
+            opacity += 0.01;
+            element.style.opacity = opacity;
+        } else {
+            clearInterval(logoFadeInterval);
+        }
+    }, 50);
+}
+
+
 </body>
 </html>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const logoContainer = document.querySelector(".logo-container");
-    
-    // Display the logo container after a delay of 1 second
-    setTimeout(function() {
-        logoContainer.style.display = "block";
-    }, 1000);
-
-    // Fade out the logo container after 5 seconds
-    setTimeout(function() {
-        logoContainer.style.animation = "fadeOut 2s";
-        logoContainer.style.opacity = 0;
-    }, 5000);
-});
- </script>
