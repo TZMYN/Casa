@@ -2,70 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
     <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
 
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffffff;
-}
+        #logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
 
-.center {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.fade-in-out {
-    animation: fade 5s infinite alternate;
-}
-
-@keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
+        #lettered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
-    <div id="stage-one">
-        <img id="casalogo" src="casalogo.png" alt="Logo" class="center fade-in-out">
-        <img id="casalettered" src="casalettered.png" alt="Casa Lettered" class="center">
+    <div id="logo">
+        <img src="casalogo.png" alt="Logo" width="200" height="200">
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+    <div id="lettered">
+        <img src="casalettered.png" alt="Letter Logo" width="200" height="200">
+    </div>
 
     <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-    // Stage One: Fading in and out the logo for 5 seconds
-    const casalogo = document.getElementById('casalogo');
-    casalogo.style.display = 'block';
+        // Stage One: Fade in and out the logo for 5 seconds
+        setTimeout(() => {
+            const logo = document.getElementById("logo");
+            logo.style.animation = "fadeInOut 5s ease-in-out forwards";
+        }, 0);
 
-    // Stage Two: Fading in the casalettered.png after Stage One is complete
-    setTimeout(() => {
-        const casalettered = document.getElementById('casalettered');
-        casalettered.style.display = 'block';
-    }, 5000);
+        // Stage Two: Wait for Stage One to complete, then fade in the lettered logo
+        setTimeout(() => {
+            const lettered = document.getElementById("lettered");
+            lettered.style.animation = "fadeIn 2s ease-in-out forwards";
+        }, 5000);
 
-    // Stage Three: Wait for 2 seconds
-    setTimeout(() => {
+        // Stage Three: Wait for 2 seconds
+        setTimeout(() => {
+            // Add any additional actions here
+        }, 7000);
+
         // Stage Four: Redirect to index.html
-        window.location.href = 'index.html';
-    }, 2000);
-});
-
-
-         </script>
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 9000);
+    </script>
 </body>
 </html>
