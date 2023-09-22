@@ -23,12 +23,15 @@ img {
     max-height: 100%;
 }
 
+/* ... (previous CSS code) */
+
 .fade-in-out {
-    animation: fade 1s infinite;
+    animation: fade 5s infinite;
 }
 
-.hidden {
-    display: none;
+/* Add a new animation for the lettered logo */
+.fade-in {
+    animation: fade-in 3s ease-in-out;
 }
 
 @keyframes fade {
@@ -39,6 +42,19 @@ img {
         opacity: 1;
     }
 }
+
+/* Define a fade-in animation for the lettered logo */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
         
     </style>
@@ -56,16 +72,19 @@ window.onload = function() {
         document.getElementById('logo').classList.remove('fade-in-out');
     }, 5000);
 
-    // Wait for 5 seconds and then show the lettered logo
+    // Wait for 5 seconds and then show the lettered logo with fade-in animation
     setTimeout(function() {
-        document.getElementById('lettered-logo').classList.remove('hidden');
+        const letteredLogo = document.getElementById('lettered-logo');
+        letteredLogo.classList.remove('hidden');
+        letteredLogo.classList.add('fade-in');
     }, 8000);
 
-    // Wait for 3 seconds and then redirect to index.html
+    // Wait for 8 seconds (5s for logo fade out + 3s for lettered logo fade in) and then redirect to index.html
     setTimeout(function() {
         window.location.href = 'index.html';
-    }, 11000);
+    }, 13000);
 };
+
 </script>
         
 </body>
