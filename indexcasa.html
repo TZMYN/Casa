@@ -3,177 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> <!-- You can link your CSS file here -->
-  
-    <title>Your Page Title</title>
-
-<style>
-
-  .logo {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 20px; /* Add padding for spacing */
-  animation: fadeInOut 2s infinite;
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
-
-
-      display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    
-}
-
-.icon {
-    height: 100px;
-    width: auto;
-    margin-right: 20px;
-    margin-left: 60px;
-}
-.findicon {
-    margin-left: 80px;
-}
-    
-.question {
-    margin-left:40px;
-}
-
-.app-button {
-    display: flex; /* Allow alignment of icon and text */
-    align-items: center; /* Center items vertically */
-    height: 150px;
-    width: 600px;
-    padding: 60px 30px;
-    border-radius: 300px;
-   background-color: linear-gradient(45deg, #ff4d4d, #ffb6c1);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s;
-    font-size: 45px;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Cursive', cursive;
-}
-
-
-.app-button:hover {
-    background-color: #ff3333;
-}
-    
-.button-container.hidden {
-    display: none;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Align content to the left */
-    gap: 10px;
-}
-
-.find {
-padding-right: 20px;
-    }
-    
-  
-</style>
-
-
-  
-</head>
-<body style="background-color: white; margin: 0; overflow: hidden; position: relative;">
-
-    <!-- Loading Animation for 7 cycles -->
-    <div class="loading-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        <div class="loader">
-            <img src="casalogo.png" alt="Harem Logo" class="logo">
-        </div>
-    </div>
-
-    <!-- Contents of the Page -->
-<img src="casalogo.png" alt="Harem Logo" class="logo">
-  
-    <div class="button-container hidden">
-        <a href="https://jumia-ng-electronics-category-nig.github.io/jumia.com.ng/platformtest3.2.html" class="app-button find">
-            <img src="MAGNIFIER.png" alt="Magnifier Icon" class="icon findicon">
-            FIND "HER"
-        </a>
-        <a href="https://t.me/HaremIsABot" class="app-button">
-            <img src="PERSON.png" alt="Person Icon" class="icon">
-            CREATE PROFILE
-        </a>
-        <a href="https://chatbot.hellotars.com/conv/fEJ061" class="app-button">
-            <img src="QUESTION.png" alt="Question Icon" class="icon question">
-            FAQBot (INQUIRIES)
-        </a>
-    </div>
-
-    <script>
-        const backgroundMedia = [
-            { type: 'gif', source: 'PTGIF1.gif', duration: 5000 }, // Add the first GIF here
-            { type: 'image', source: 'CYCLE1.jpg', repeat: 'repeat' }, // Add images here
-            { type: 'image', source: 'CYCLE7.jpg', repeat: 'repeat' },
-            { type: 'image', source: 'CYCLE10.jpg', repeat: 'repeat' },
-            { type: 'image', source: 'CYCLE11.jpg', repeat: 'repeat' },
-            { type: 'image', source: 'CYCLE12.jpg', repeat: 'repeat' },
-            { type: 'image', source: 'CYCLE3.jpg', repeat: 'repeat' }, // Repeat these images
-            { type: 'image', source: 'CYCLE4.jpg', repeat: 'repeat' }, // to cover uncovered space
-            { type: 'gif', source: 'PTGIF3.gif', duration: 3000 } // Add the second GIF here
-        ];
-
-        let currentMediaIndex = 0;
-        const bodyElement = document.querySelector("body");
-
-        function setMediaProperties(media) {
-            bodyElement.style.backgroundImage = `url('${media.source}'), url('black.jpg')`;
-            bodyElement.style.backgroundSize = 'cover';
-            bodyElement.style.backgroundPosition = 'center';
-            bodyElement.style.backgroundRepeat = `${media.repeat}, repeat`;
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        function cycleBackgroundMedia() {
-            const currentMedia = backgroundMedia[currentMediaIndex];
+        .logo-container {
+            display: none;
+            text-align: center;
+        }
 
-            if (currentMedia.type === 'gif') {
-                setMediaProperties(currentMedia);
-                setTimeout(() => {
-                    currentMediaIndex = (currentMediaIndex + 1) % backgroundMedia.length;
-                    cycleBackgroundMedia();
-                }, currentMedia.duration);
-            } else if (currentMedia.type === 'image') {
-                setMediaProperties(currentMedia);
-                setTimeout(() => {
-                    currentMediaIndex = (currentMediaIndex + 1) % backgroundMedia.length;
-                    cycleBackgroundMedia();
-                }, 1000); // 1 second for images
+        .casalogo {
+            width: 150px; /* Adjust the size as needed */
+        }
+
+        .casalettered {
+            width: 150px; /* Adjust the size as needed */
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
             }
         }
 
-        // Start with a blank white page and loading animation for 7 cycles
-        setTimeout(() => {
-            document.querySelector(".loading-animation").style.display = "none";
-            document.querySelector(".button-container").style.display = "block";
-            cycleBackgroundMedia(); // Start cycling background
-        }, 7 * 5000); // 7 cycles of 5000 milliseconds each
-    </script>
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fade-in-out {
+            animation: fadeInOut 3s;
+        }
+
+        .fade-out {
+            animation: fadeOut 2s;
+            animation-delay: 3s; /* Delay the fade-out animation by 3 seconds */
+        }
+    </style>
+</head>
+<body>
+    <div class="fade-in-out">
+        <img src="casalogo.png" alt="Logo" class="casalogo">
+    </div>
+    <div class="fade-out logo-container">
+        <img src="casalogo.png" alt="Logo" class="casalogo">
+        <img src="casalettered.png" alt="Casa Lettered" class="casalettered">
+    </div>
 </body>
 </html>
