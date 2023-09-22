@@ -55,6 +55,14 @@ img {
     }
 }
 
+        
+/* ... Existing CSS ... */
+
+.fade-in {
+    animation: fade 2s ease-in-out;
+}
+
+/* ... Rest of the CSS ... */
 
         
     </style>
@@ -64,28 +72,30 @@ img {
         <img id="logo" src="casalogo.png" alt="Logo" class="fade-in-out">
         <img id="lettered-logo" src="casalettered.png" alt="Letter Logo" class="hidden">
     </div>
-    <script> 
-// Wait for the page to load
+
+    <script>
+    // Wait for the page to load
 window.onload = function() {
     // Wait for 5 seconds before fading out the logo
     setTimeout(function() {
-        document.getElementById('logo').classList.remove('fade-in-out');
+        const logo = document.getElementById('logo');
+        logo.classList.remove('fade-in-out');
+        logo.style.opacity = 1; // Stop fading in and out by setting opacity to 1
     }, 5000);
 
-    // Wait for 5 seconds and then show the lettered logo with fade-in animation
+    // Wait for 5 seconds and then show and fade in the lettered logo
     setTimeout(function() {
         const letteredLogo = document.getElementById('lettered-logo');
         letteredLogo.classList.remove('hidden');
-        letteredLogo.classList.add('fade-in');
+        letteredLogo.classList.add('fade-in'); // Add a fade-in animation class
     }, 8000);
 
-    // Wait for 8 seconds (5s for logo fade out + 3s for lettered logo fade in) and then redirect to index.html
+    // Wait for 3 seconds and then redirect to index.html
     setTimeout(function() {
         window.location.href = 'index.html';
-    }, 13000);
+    }, 11000);
 };
 
-</script>
-        
+         </script>
 </body>
 </html>
