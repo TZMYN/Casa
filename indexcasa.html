@@ -3,68 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In and Out</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             overflow: hidden;
         }
 
         .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: none;
-            text-align: center;
         }
 
-        .casalogo {
-            width: 150px; /* Adjust the size as needed */
-        }
-
-        .casalettered {
-            width: 150px; /* Adjust the size as needed */
-        }
-
-        @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        .fade-in-out {
-            animation: fadeInOut 3s;
-        }
-
-        .fade-out {
-            animation: fadeOut 2s;
-            animation-delay: 3s; /* Delay the fade-out animation by 3 seconds */
+        .casalogo, .casalettered {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="fade-in-out">
-        <img src="casalogo.png" alt="Logo" class="casalogo">
+    <div id="start-page">
+        <img src="casalogo.png" class="casalogo" id="casalogo">
     </div>
-    <div class="fade-out logo-container">
-        <img src="casalogo.png" alt="Logo" class="casalogo">
-        <img src="casalettered.png" alt="Casa Lettered" class="casalettered">
+
+    <div class="logo-container" id="logo-container">
+        <img src="casalogo.png" class="casalogo">
+        <img src="casalettered.png" class="casalettered">
     </div>
+
+    <script>
+        // Initial animation: fade in casalogo.png for 3 seconds
+        setTimeout(() => {
+            const startPage = document.getElementById('start-page');
+            startPage.style.transition = 'opacity 3s ease-in-out';
+            startPage.style.opacity = '0';
+        }, 0);
+
+        // Show the logo-container and fade it out after 2 seconds
+        setTimeout(() => {
+            const logoContainer = document.getElementById('logo-container');
+            logoContainer.style.display = 'block';
+            logoContainer.style.transition = 'opacity 2s ease-in-out';
+            logoContainer.style.opacity = '1';
+
+            setTimeout(() => {
+                logoContainer.style.opacity = '0';
+            }, 2000);
+        }, 3000);
+    </script>
 </body>
 </html>
