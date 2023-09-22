@@ -11,93 +11,59 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: white;
+    background-color: #ffffff;
 }
 
-.logo-container {
-    text-align: center;
+.center {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-/* ... (previous CSS code) */
 
 .fade-in-out {
-    animation: fade 2s infinite;
-}
-
-/* Add a new animation for the lettered logo */
-.fade-in {
-    animation: fade-in 2s ease-in-out;
+    animation: fade 5s infinite alternate;
 }
 
 @keyframes fade {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-}
-
-/* Define a fade-in animation for the lettered logo */
-@keyframes fade-in {
     0% {
         opacity: 0;
-        transform: translateY(-20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
-        
-/* ... Existing CSS ... */
-
-.fade-in {
-    animation: fade 2s ease-in-out;
-}
-
-/* ... Rest of the CSS ... */
-
-        
     </style>
 </head>
 <body>
-    <div class="logo-container">
-        <img id="logo" src="casalogo.png" alt="Logo" class="fade-in-out">
-        <img id="lettered-logo" src="casalettered.png" alt="Letter Logo" class="hidden">
+    <div id="stage-one">
+        <img id="casalogo" src="casalogo.png" alt="Logo" class="center fade-in-out">
+        <img id="casalettered" src="casalettered.png" alt="Casa Lettered" class="center">
     </div>
+    <script src="script.js"></script>
+</body>
+</html>
 
     <script>
-    // Wait for the page to load
-window.onload = function() {
-    // Wait for 5 seconds before fading out the logo
-    setTimeout(function() {
-        const logo = document.getElementById('logo');
-        logo.classList.remove('fade-in-out');
-        logo.style.opacity = 1; // Stop fading in and out by setting opacity to 1
+    window.addEventListener('DOMContentLoaded', (event) => {
+    // Stage One: Fading in and out the logo for 5 seconds
+    const casalogo = document.getElementById('casalogo');
+    casalogo.style.display = 'block';
+
+    // Stage Two: Fading in the casalettered.png after Stage One is complete
+    setTimeout(() => {
+        const casalettered = document.getElementById('casalettered');
+        casalettered.style.display = 'block';
     }, 5000);
 
-    // Wait for 5 seconds and then show and fade in the lettered logo
-    setTimeout(function() {
-        const letteredLogo = document.getElementById('lettered-logo');
-        letteredLogo.style.opacity = 0; // Start with opacity set to 0
-        letteredLogo.classList.remove('hidden');
-        setTimeout(function() {
-            letteredLogo.style.opacity = 1; // Fade in the lettered logo
-        }, 8000); // Set the fade-in timeout to 0 to start immediately
-    }, 8000);
-
-    // Wait for 3 seconds and then redirect to index.html
-    setTimeout(function() {
+    // Stage Three: Wait for 2 seconds
+    setTimeout(() => {
+        // Stage Four: Redirect to index.html
         window.location.href = 'index.html';
-    }, 11000);
-};
+    }, 2000);
+});
 
 
          </script>
