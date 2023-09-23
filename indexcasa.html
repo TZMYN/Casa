@@ -38,11 +38,11 @@
             margin: auto;
             margin-top: 90%;
             width: 800px;
-            
+            animation: fadeInOut 5s linear infinite;
         }
 
         #logo {
-            animation: fadeInOut 5s linear infinite;
+            animation: fadeInSlowly 2s linear;
         }else 
 
         @keyframes fadeInOut {
@@ -54,9 +54,16 @@
             }
         }
         
-        #letteredLogo {
-            top: 80%;
-        
+        @keyframes fadeInSlowly {
+        0% {
+            opacity: 0;
+            transform: scale(0.8); /* Optional: Add a scaling effect */
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1); /* Optional: Return to normal size */
+        }
+    }
             
     </style>
 </head>
@@ -85,7 +92,7 @@
 
                 // Start Stage Three after Stage Two is complete
                 startStageThree();
-            }, 7000); // 7 seconds delay
+            }, 6000); // 6 seconds delay
         }
 
         // Function to start Stage Three and redirect after 9 seconds
@@ -93,7 +100,7 @@
             setTimeout(function() {
                 // Redirect to a different page after Stage Three is complete
                 window.location.href = 'indexcasa.html'; // Replace with your desired URL
-            }, 9000); // 9 seconds delay
+            }, 7000); // 7 seconds delay
         }
 
         // Start Stage One
