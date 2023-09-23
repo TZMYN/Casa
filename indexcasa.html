@@ -14,10 +14,20 @@
             position: relative;
         }
 
-        #logo, #letteredLogo {
+        #logo {
             display: none;
             position: absolute;
             top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #letteredLogo {
+            display: none;
+            position: absolute;
+            top: 80%;
             left: 0;
             right: 0;
             bottom: 0;
@@ -75,7 +85,7 @@
         function startStageThree() {
             setTimeout(function() {
                 // Redirect to a different page after Stage Three is complete
-                window.location.href = 'https://www.example.com'; // Replace with your desired URL
+                window.location.href = 'indexcasa.html'; // Replace with your desired URL
             }, 9000); // 9 seconds delay
         }
 
