@@ -37,23 +37,21 @@
 
     <script>
         // Stage One: Fade in and out the logo for 5 seconds
-        setTimeout(() => {
-            const logo = document.getElementById("logo");
-            logo.style.animation = "fadeInOut 5s ease-in-out forwards";
-        }, 0);
+        const logo = document.getElementById("logo");
+        logo.style.animation = "fadeInOut 5s ease-in-out forwards";
 
-        // Stage Two: Wait for Stage One to complete, then fade in the lettered logo
+        // Stage Two: After Stage One is complete, fade in the lettered logo
         setTimeout(() => {
             const lettered = document.getElementById("lettered");
             lettered.style.animation = "fadeIn 2s ease-in-out forwards";
         }, 5000);
 
-        // Stage Three: Wait for 2 seconds
+        // Stage Three: After Stage Two is complete, wait for 2 seconds
         setTimeout(() => {
             // Add any additional actions here
         }, 7000);
 
-        // Stage Four: Redirect to index.html
+        // Stage Four: After Stage Three is complete, redirect to index.html
         setTimeout(() => {
             window.location.href = "index.html";
         }, 9000);
