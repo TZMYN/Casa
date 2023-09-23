@@ -3,58 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
+    <title>Stage One</title>
     <style>
         body {
             margin: 0;
-            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
 
-        #logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
+        #logo, #casalettered {
+            display: none;
         }
 
-        #lettered {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="logo">
-        <img src="casalogo.png" alt="Logo" width="200" height="200">
-    </div>
-    <div id="lettered">
-        <img src="casalettered.png" alt="Letter Logo" width="200" height="200">
-    </div>
-
+    <img id="logo" src="casalogo.png" alt="Logo">
+    <img id="casalettered" src="casalettered.png" alt="Casa Lettered">
     <script>
-        // Stage One: Fade in and out the logo for 5 seconds
-        const logo = document.getElementById("logo");
-        logo.style.animation = "fadeInOut 5s ease-in-out forwards";
+        // Function to stop the logo animation after 5 seconds
+        function stopAnimation() {
+            const logo = document.getElementById('logo');
+            logo.style.animation = 'none'; // Remove the animation
+            const casalettered = document.getElementById('casalettered');
+            casalettered.style.animation = 'fadeIn 2s ease-in'; // Fade in casalettered after Stage One
+            casalettered.style.display = 'block'; // Display casalettered
 
-        // Stage Two: After Stage One is complete, fade in the lettered logo
-        setTimeout(() => {
-            const lettered = document.getElementById("lettered");
-            lettered.style.animation = "fadeIn 2s ease-in-out forwards";
-        }, 5000);
+            // Wait for 2 seconds and then redirect to index.html
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        }
 
-        // Stage Three: After Stage Two is complete, wait for 2 seconds
-        setTimeout(() => {
-            // Add any additional actions here
-        }, 7000);
-
-        // Stage Four: After Stage Three is complete, redirect to index.html
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 9000);
+        // Start the animation
+        const logo = document.getElementById('logo');
+        logo.style.display = 'block'; // Display the logo
+        setTimeout(stopAnimation, 5000); // Stop the animation after 5 seconds
     </script>
 </body>
 </html>
