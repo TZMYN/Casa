@@ -3,55 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stage One</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+            overflow: hidden;
+            background-color: #000; /* Set background color to black */
         }
 
-        #logo, #casalettered {
-            display: none;
+        #casalogo, #casalettered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0; /* Initially hidden */
         }
 
-        @keyframes fadeInOut {
-            0%, 100% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
+        #casalogo img, #casalettered img {
+            width: 300px; /* Adjust the width as needed */
         }
     </style>
 </head>
 <body>
-    <img id="logo" src="casalogo.png" alt="Logo">
-    <img id="casalettered" src="casalettered.png" alt="Casa Lettered">
-    <script>
-        // Function to stop the logo animation after 5 seconds
-        function stopAnimation() {
-            const logo = document.getElementById('logo');
-            logo.style.animation = 'none'; // Remove the animation
-            const casalettered = document.getElementById('casalettered');
-            casalettered.style.animation = 'fadeIn 2s ease-in'; // Fade in casalettered after Stage One
-            casalettered.style.display = 'block'; // Display casalettered
+    <div id="casalogo">
+        <img src="casalogo.png" alt="Casa Logo">
+    </div>
+    <div id="casalettered">
+        <img src="casalettered.png" alt="Casa Lettered">
+    </div>
 
-            // Wait for 2 seconds and then redirect to index.html
+    <script>
+        // Function to fade in and out the logo
+        function fadeInAndOutLogo() {
+            const casalogo = document.getElementById('casalogo');
+            casalogo.style.opacity = '1'; // Fade in
             setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 2000);
+                casalogo.style.opacity = '0'; // Fade out
+                // After Stage One is complete, start Stage Two
+                fadeInCasaLettered();
+            }, 5000); // 5000 milliseconds (5 seconds)
         }
 
-        // Start the animation
-        const logo = document.getElementById('logo');
-        logo.style.display = 'block'; // Display the logo
-        setTimeout(stopAnimation, 5000); // Stop the animation after 5 seconds
+        // Function to fade in the "casalettered.png" image
+        function fadeInCasaLettered() {
+            const casalettered = document.getElementById('casalettered');
+            casalettered.style.opacity = '1'; // Fade in
+            // After Stage Two is complete, wait for 2 seconds and redirect to index.html
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000); // 2000 milliseconds (2 seconds)
+        }
+
+        // Trigger the Stage One animation on page load
+        window.onload = function () {
+            fadeInAndOutLogo();
+        };
     </script>
 </body>
 </html>
