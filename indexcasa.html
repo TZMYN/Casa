@@ -16,13 +16,16 @@
 
         #logo, #letteredLogo {
             display: none;
+            position: absolute;
+            top: 0;
             left: 0;
             right: 0;
-            
+            bottom: 0;
+            margin: auto;
         }
 
         #logo {
-            animation: fadeInOut 2s linear infinite;
+            animation: fadeInOut 5s linear infinite;
         }
 
         @keyframes fadeInOut {
@@ -33,22 +36,6 @@
                 opacity: 1;
             }
         }
-
-        #logo {
-            margin-top: 10%;
-            
-            width: 100%;
-            display: block;
-        }
-        
-        
-        #letteredLogo {
-            top: 50%;
-            width: 100%;
-            display: block;
-            }
-
-        
     </style>
 </head>
 <body>
@@ -60,7 +47,7 @@
             setTimeout(function() {
                 const logo = document.getElementById('logo');
                 logo.style.display = 'block';
-                logo.style.animation = 'fadeInOut 2s linear infinite';
+                logo.style.animation = 'fadeInOut 5s linear infinite';
 
                 // Start Stage Two after Stage One is complete
                 startStageTwo();
@@ -76,15 +63,15 @@
 
                 // Start Stage Three after Stage Two is complete
                 startStageThree();
-            }, 5000); // 5 seconds delay
+            }, 7000); // 7 seconds delay
         }
 
         // Function to start Stage Three and redirect after 9 seconds
         function startStageThree() {
             setTimeout(function() {
                 // Redirect to a different page after Stage Three is complete
-                window.location.href = 'indexcasa.html'; // Replace with your desired URL
-            }, 7000); // 7 seconds delay
+                window.location.href = 'https://www.example.com'; // Replace with your desired URL
+            }, 9000); // 9 seconds delay
         }
 
         // Start Stage One
