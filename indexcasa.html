@@ -5,58 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #000; /* Set background color to black */
-        }
+            margin: 0
+             background-color: white;
+        } 
+    
+            
+            #logo-container {
+    text-align: center;
+    position: relative;
+}
 
-        #casalogo, #casalettered {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0; /* Initially hidden */
-        }
+img {
+    max-width: 100%;
+}
 
-        #casalogo img, #casalettered img {
-            width: 300px; /* Adjust the width as needed */
-        }
+#casalogo {
+    display: block;
+    margin: 0 auto;
+}
+
+#casalettered {
+    display: block;
+    margin: 0 auto;
+}
+
     </style>
 </head>
-<body>
-    <div id="casalogo">
-        <img src="casalogo.png" alt="Casa Logo">
-    </div>
-    <div id="casalettered">
-        <img src="casalettered.png" alt="Casa Lettered">
+<body>    <div id="logo-container">
+        <img id="casalogo" src="casalogo.png" alt="Casa Logo">
+        <img id="casalettered" src="casalettered.png" alt="Casa Lettered" style="display: none;">
     </div>
 
     <script>
-        // Function to fade in and out the logo
-        function fadeInAndOutLogo() {
-            const casalogo = document.getElementById('casalogo');
-            casalogo.style.opacity = '1'; // Fade in
-            setTimeout(() => {
-                casalogo.style.opacity = '0'; // Fade out
-                // After Stage One is complete, start Stage Two
-                fadeInCasaLettered();
-            }, 5000); // 5000 milliseconds (5 seconds)
-        }
+        // Stage One Function
+function stageOne() {
+    const casalogo = document.getElementById("casalogo");
 
-        // Function to fade in the "casalettered.png" image
-        function fadeInCasaLettered() {
-            const casalettered = document.getElementById('casalettered');
-            casalettered.style.opacity = '1'; // Fade in
-            // After Stage Two is complete, wait for 2 seconds and redirect to index.html
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 2000); // 2000 milliseconds (2 seconds)
-        }
+    casalogo.style.opacity = 0; // Initially hidden
 
-        // Trigger the Stage One animation on page load
-        window.onload = function () {
-            fadeInAndOutLogo();
-        };
+    setTimeout(() => {
+        casalogo.style.opacity = 1; // Fade in
+    }, 0); // Change this to your desired duration in milliseconds
+
+    setTimeout(() => {
+        casalogo.style.opacity = 0; // Fade out
+    }, 2000); // Change this to your desired duration in milliseconds
+
+    setTimeout(() => {
+        casalogo.style.opacity = 1; // Stop fading
+    }, 4000); // Change this to your desired duration in milliseconds
+}
+
+// Stage Two Function
+function stageTwo() {
+    const casalettered = document.getElementById("casalettered");
+
+    setTimeout(() => {
+        casalettered.style.display = "block"; // Make it visible
+        casalettered.style.opacity = 0; // Initially hidden
+
+        setTimeout(() => {
+            casalettered.style.opacity = 1; // Fade in
+        }, 0); // Change this to your desired duration in milliseconds
+    }, 7000); // Delayed by 7 seconds after page load
+}
+
+// Stage Three Function
+function stageThree() {
+    setTimeout(() => {
+        window.location.href = "your-destination-url.html"; // Redirect after 9 seconds
+    }, 9000); // Delayed by 9 seconds after page load
+}
+
+// Call Stage One
+stageOne();
+
+// Call Stage Two
+setTimeout(() => {
+    stageTwo();
+}, 7000); // Delayed by 7 seconds after page load
+
+// Call Stage Three
+setTimeout(() => {
+    stageThree();
+}, 16000); // Delayed by 16 seconds after page load (9 seconds after Stage One completion)
+
     </script>
 </body>
 </html>
