@@ -20,12 +20,16 @@ body {
 
 
 .logo-container {
-    margin-bottom: 50px;
+    margin: 0 auto 50px; /* Center horizontally and add margin at the bottom */
     z-index: 2; /* Place the logo above the overlay */
     display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     width: 300px;
-    color: linear-gradient(45deg, #ff4d4d, #ffb6c1); 
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Apply the gradient as the background */
+    color: white; /* Set the text color to white */
 }
+
 
 .logo {
     width: 300px;
