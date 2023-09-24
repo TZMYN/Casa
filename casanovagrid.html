@@ -184,31 +184,46 @@ h1 {
 }
         
         
+
 /* Style the navigation button */
 .menu-button {
     position: fixed;
-    top: 50px;
-    left: 30px;
+    top: 0px;
+    left: 0px;
     cursor: pointer;
     z-index: 1000;
-    width: 45px;
-    height: 45px;
-    background-color: white; /* Set the button color to black */
-    display: flex;
-    flex-direction: column;
+    width: 90px;
+    height: 160px;
+    background: white; /* Set the button color to black */
+    display: grid-column;
+    margin-right: 20px;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
     border-radius: 5px;
 }
 
-.bar {
-    width: 65px;
+.firstbar {
+    width: 75px;
     height: 15px;
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
     margin: 3px 0; /* Adjust spacing between the bars */
     transition: 0.4s;
+    margin-top: 35px;
+    margin-left: 10px;
 }
+        
+        
+.bar {
+    width: 75px;
+    height: 15px;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    margin: 3px 0; /* Adjust spacing between the bars */
+    transition: 0.4s;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+        
         
 
 /* Style the sidebar pop-out box */
