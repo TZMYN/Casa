@@ -117,9 +117,37 @@ body {
     background-color: #128c7e;
 }
 
+
+
+.logo-container {
+    margin: 0 auto; /* Center horizontally and add margin at the bottom */
+    z-index: 2; /* Place the logo above the overlay */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 600px;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Apply the gradient as the background */
+    padding: 0% 300px; /* Vertically shorter, horizontally wider padding */
+    opacity: 0.6;
+}
+
+
+.logo {
+    width: 300px;
+    background-color: linear-gradient(45deg, #ff4d4d, #ffb6c1); /*  rgba(255, 255, 255, 0.8); /* Translucent white background */
+    border-radius: 100000000000000000px; /* Rounded corners */
+        
+}
+            
+
     </style>
 </head>
 <body>
+  <div class="logo-container">
+        <img src="casalogo.png" alt="Harem Logo" class="logo">
+    </div>
+
+    
     <div class="whatsapp-container">
         <h2>Verify Your Phone Number</h2>
         <p>Input phone number to receive otp verification:</p>
