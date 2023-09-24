@@ -19,7 +19,10 @@ body {
     background-size: cover; /* Scale the image to cover the entire viewport */
     background-repeat: no-repeat; /* Prevent image repetition */
     background-position: center center; /* Center the image */
-    display: flex;
+} 
+
+  .inputform {
+       display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -118,15 +121,41 @@ body {
 }
 
 
+            
 
+.logo-container {
+    margin: 0 auto; /* Center horizontally and add margin at the bottom */
+    z-index: 2; /* Place the logo above the overlay */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 80px;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Apply the gradient as the background */
+    padding: 0% 10px; /* Vertically shorter, horizontally wider padding */
+    opacity: 0.6;
+    display: block;
+}
+
+
+.logo {
+    width: 50px;
+    background-color: linear-gradient(45deg, #ff4d4d, #ffb6c1); /*  rgba(255, 255, 255, 0.8); /* Translucent white background */
+    border-radius: 100000000000000000px; /* Rounded corners */
+    
+}
 
             
 
     </style>
 </head>
 <body>
-  
 
+<div class="logo-container">
+        <img src="casalogo.png" alt="Harem Logo" class="logo">
+    </div>
+    
+  
+        <div class="inputform">
     
     <div class="whatsapp-container">
         <h2>Verify Your Phone Number</h2>
@@ -155,6 +184,9 @@ body {
     <button id="otpButton" type="submit">OTP VERIFICATION</button>
             </form>
     </div>
+        
+    </div>
+        
     <script>
         // JavaScript to handle the OTP button click event
         const otpButton = document.getElementById('otpButton');
