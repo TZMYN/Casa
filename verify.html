@@ -41,10 +41,13 @@ body {
 
         /* Style the page title */
         h2 {
-            font-size: 18px;
-            background-color: linear-gradient(45deg, #ff4d4d, #ffb6c1);
-            margin-bottom: 15px;
-        }
+    font-size: 18px;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Background gradient */
+    margin-bottom: 15px;
+    -webkit-background-clip: text; /* Clip text to background */
+    color: transparent; /* Make text transparent */
+}
+
 
         /* Style the message */
         p {
