@@ -115,6 +115,14 @@
        .byline-container {
     display: flex; /* Display bylines in a row */
     overflow: hidden;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    padding: 0; /* Remove padding to make it as tall as its contents */
+    align-items: flex-start; /* Align contents to the top */
+}
+
+        .byline-container2 {
+    display: flex; /* Display bylines in a row */
+    overflow: hidden;
     background: black; /*linear-gradient(45deg, #ff4d4d, #ffb6c1);*/
     padding: 0; /* Remove padding to make it as tall as its contents */
     align-items: flex-start; /* Align contents to the top */
@@ -135,6 +143,15 @@
     
 }
 
+        .header-container2 {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%; /* Ensure each byline takes up the full width */
+    
+}
+
+
 h1 {
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
     text-align: center;
@@ -146,6 +163,12 @@ h1 {
     font-weight: 1500;
     
 }
+        
+.username {
+    background: white;
+    color: black;
+
+} 
 
 /* Animation for moving the text */
 @keyframes moveText {
@@ -750,17 +773,17 @@ h1 {
 <div class="profilebar">
     
 
-    <div class="byline-container" id="ladiesbyline">
+    <div class="byline-container2" id="ladiesbyline">
         
-    <div class="header-container"> 
+    <div class="header-container2"> 
         <h1 class="username" id="profileUsername">BalOn FlyBoy</h1>
     </div>
         
-    <div class="header-container">      
+    <div class="header-container2">      
         <h1 class="username" id="profileUsername">BalOn FlyBoy</h1>
     </div>
 
-        <div class="header-container">        
+        <div class="header-container2">        
         <h1 class="username" id="profileUsername">BalOn FlyBoy</h1>
     </div>
         
