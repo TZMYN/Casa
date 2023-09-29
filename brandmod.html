@@ -327,13 +327,20 @@ h1 {
 
         .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 400px); /* Set a fixed width of 400px for each grid item */
+    grid-template-columns: repeat(2, 1fr); /* Two columns by default */
     grid-gap: 35px;
     margin: 50px auto;
     max-width: 1600px;
     white-space: nowrap;
     overflow: hidden;
 }
+
+@media (min-width: 800px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* Three columns when the viewport width is at least 800px */
+    }
+}
+
 
 
         .grid-item {
