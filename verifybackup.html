@@ -237,15 +237,19 @@ otpButton.addEventListener('click', function () {
     </script>
 
 <script>
+  <script>
   document.getElementById("contactform").addEventListener("submit", function (event) {
     const countryCode = document.querySelector(".country-code").value;
     const phoneNumber = document.querySelector("input[name='phoneNumber']").value;
 
-    if (countryCode === "" || phoneNumber === "") {
-      alert("Please fill in all required fields.");
+    // Check if either countryCode or phoneNumber is empty, or if phoneNumber is not exactly 10 digits
+    if (countryCode === "" || phoneNumber === "" || phoneNumber.length !== 10 || !(/^\d+$/.test(phoneNumber))) {
+      alert("Please fill in all required fields and ensure the phone number is exactly 10 digits.");
       event.preventDefault(); // Prevent form submission
     }
   });
+</script>
+
 </script>
     
 </body>
