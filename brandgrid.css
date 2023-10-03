@@ -116,6 +116,11 @@
     padding: 0; /* Remove padding to make it as tall as its contents */
     align-items: flex-start; /* Align contents to the top */
 }
+
+#profilebyline {
+    margin-top:200px;
+    margin-bottom: 200px;
+}
         
 #ladiesbyline {
     margin-top:200px;
