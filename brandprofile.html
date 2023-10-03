@@ -145,6 +145,85 @@
     margin-top:200px;
     margin-bottom: 200px;
 }
+
+
+        .byline-container2 {
+    display: flex; /* Display bylines in a row */
+    overflow: hidden;
+   background: linear-gradient(to right, black, white);
+/*linear-gradient(45deg, #ff4d4d, #ffb6c1);*/
+    padding: 0; /* Remove padding to make it as tall as its contents */
+    align-items: flex-start; /* Align contents to the top */
+}
+
+    
+        .header-container2 {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%; /* Ensure each byline takes up the full width */
+    
+}
+
+
+h1 {
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    text-align: center;
+    color: #ffb6c1;
+    font-size: 75px;
+    font-family: 'Cursive', cursive;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    font-weight: 1500;
+    
+}
+        
+.username {
+    background: linear-gradient(to right, black, white);
+    background-clip: text;
+    color: white;
+}
+
+/* Animation for moving the text */
+@keyframes moveText {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move off-screen to the left */
+    }
+}
+
+h1 {
+    animation: moveText 10s linear infinite; /* Adjust the animation duration as needed */
+    display: inline-block; /* Make the text behave like an inline-block element */
+    position: relative; /* Position relative for z-index */
+    z-index: 1; /* Ensure the text is above the background */
+    
+}
+
+    
+.header-container h1 {
+    animation: moveText 10s linear infinite;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    
+}
+
+/* Style adjustments for additional bylines */
+.header-container + .header-container {
+    margin-left: 20px; /* Adjust spacing between bylines */
+} 
+
+.byline-container:before {
+    content: ''; /* Create a separator between bylines */
+    display: inline-block;
+    width: 10px; /* Adjust the separator width as needed */
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+}
+        
+
         
     </style>
 
