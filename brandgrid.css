@@ -107,6 +107,8 @@
     background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
     padding: 0; /* Remove padding to make it as tall as its contents */
     align-items: flex-start; /* Align contents to the top */
+margin-top:200px;
+    margin-bottom: 200px;
 }
 
         .byline-container2 {
@@ -116,17 +118,12 @@
 /*linear-gradient(45deg, #ff4d4d, #ffb6c1);*/
     padding: 0; /* Remove padding to make it as tall as its contents */
     align-items: flex-start; /* Align contents to the top */
-}
-
-#profilebyline {
     margin-top:200px;
     margin-bottom: 200px;
 }
         
-#ladiesbyline {
-    margin-top:200px;
-    margin-bottom: 200px;
-}
+
+    
     
 
 /* Keyframes for horizontal movement */
@@ -400,7 +397,7 @@ h1 {
     width: 1200px;
     padding: 20px;
     margin: 10px;
-    background: linear-gradient(45deg, #ff4d4d 50%, #ffb6c1 50%);
+    background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
