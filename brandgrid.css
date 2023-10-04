@@ -493,7 +493,7 @@ h1 {
     position: absolute; /* Position the icon absolutely within the container */
     left: 64px; /* Adjust the left position as needed */
     font-size: 50px; /* Adjust the font size for the icon */
-    color: #ff4d4d;
+    color: silver;
     top: 50%;
     transform: translateY(-50%); /* Center the icon vertically */
 }
@@ -509,7 +509,7 @@ h1 {
     outline: none; /* Remove the outline */
     color: #ff4d4d; /* Placeholder text color */
     font-style: italic; /* Set the font style to italic */
-    opacity: 0.5
+    opacity: 0.55;
   
 } 
 
