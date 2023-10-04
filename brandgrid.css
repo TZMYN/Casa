@@ -134,14 +134,13 @@ margin-top:200px;
 }
         
 
-    .byline-container4 {
+    .byline-container4{
     display: flex; /* Display bylines in a row */
     overflow: hidden;
-   background: linear-gradient(to right, black, white);
-/*linear-gradient(45deg, #ff4d4d, #ffb6c1);*/
+    background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
     padding: 0; /* Remove padding to make it as tall as its contents */
     align-items: flex-start; /* Align contents to the top */
-    margin-top: 50px;
+margin-top: 100px;
     margin-bottom: 100px;
 }
 
