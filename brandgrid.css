@@ -400,7 +400,7 @@ h1 {
     width: 1200px;
     padding: 20px;
     margin: 10px;
-    background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
+    background: linear-gradient(45deg, #ff4d4d 50%, #ffb6c1 50%);
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
