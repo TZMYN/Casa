@@ -67,7 +67,7 @@
             cursor: pointer;
             border-radius: 600px;
             margin-top: 40px;
-            margin-left:1900px;                            
+            margin-left:1700px;                            
         }
 
         .question-icon {
@@ -361,8 +361,9 @@ h1 {
             display: inline-block;
         vertical-align: top;
         transition: transform 1s linear;
+          width: 850px;
+        }
           
-}
         
 
         .grid-item a {
