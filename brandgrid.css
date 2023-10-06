@@ -105,7 +105,7 @@
     display: flex; /* Display bylines in a row */
     overflow: hidden;
     background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
-    padding: 0; /* Remove padding to make it as tall as its contents */
+    padding: 15px 0; /* Remove padding to make it as tall as its contents */
     align-items: flex-start; /* Align contents to the top */
     margin-top:200px;
     margin-bottom: 200px;
