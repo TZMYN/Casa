@@ -1,6 +1,6 @@
   body {
     font-family: Arial, sans-serif;
-        background-color: silver;
+        background: linear-gradient(135deg, #e0e0e0, #ffffff);
     background-repeat: no-repeat;
  <!--   background-image: url('PTIMG.jpeg'); /* Set the background image */ -->
     background-size: cover; /* Adjust the background size */
