@@ -336,8 +336,8 @@ h1 {
         .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns by default */
-    grid-gap: 70px;
-    margin: 50px 10px;
+    grid-gap: 20px;
+    margin: 50px auto;
     
     max-width: 1600px;
     white-space: nowrap;
@@ -362,7 +362,6 @@ h1 {
             display: inline-block;
         vertical-align: top;
         transition: transform 1s linear;
-          width: 785px;
         }
           
         
