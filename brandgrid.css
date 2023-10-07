@@ -337,8 +337,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns by default */
     grid-gap: 70px;
-    margin: 50px auto;
-    
+    margin: 30px auto;
     max-width: 1600px;
     white-space: nowrap;
     overflow: hidden;
@@ -399,7 +398,7 @@ h1 {
 
         .grid-item .parameters p {
             margin: 0;
-            font-size: 26px;
+            font-size: 28px;
             line-height: 1.5;
             font-weight: bold;
         }
