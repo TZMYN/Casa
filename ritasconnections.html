@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Sans+MS&display=swap">
+    <title> Rita's Connections Ladies' Profiles</title>
+    
+
+<script src="validation.js"></script>
+<link rel="stylesheet" type="text/css" href="">
+
+
+    
+    <style>    
+
+        
+       
+body {
+    font-family: Arial, sans-serif;
+    background: white; /* Adjusted gradient angle */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    zoom: 0.55;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 250px;
+}
+
+
+    
+.profilebar {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+        
+        
+
+.top-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: white; /* Add white background color */
+            border-radius: 15px; /* Add border radius for curved edges */
+            position: relative; /* Set relative positioning for the container */  
+        
+        }
+
+        .profile-picture-container {
+            position: relative; /* Needed for absolute positioning */
+        }
+
+       
+        .profile-picture {
+            border-radius: 50%;
+            width: 470px;
+            height: 470px;
+            object-fit: cover;
+            margin-top: 35%;
+            margin-left: 34.5%;
+            margin-bottom: 8px;
+            object-position: top; /* Show the top of the image */
+            margin-right: 300px;
+            transition: transform 0.3s ease; /* Add a transition for the transform property */
+            border: 7px solid white; /* Add a border with the specified color */
+            background:linear-gradient(45deg, #9C762D, #000000);
+            background-width: 100%;
+            padding: 2% 2%;
+        }
+
+        .profile-picture.expanded {
+            transform: scale(1.5); /* Enlarge the picture when expanded */
+        }
+
+
+       
+        /* Style for the speech bubble */
+        .speech-bubble {
+            width: 300px;
+            position: absolute;
+            top: -145%; /* 3px above the profile picture */
+            left: 41.8%; /* To the right of the profile picture with 10px spacing */
+            opacity: 0; /* Initially hidden */
+            animation: fade 1s infinite alternate; /* Fade in and out infinitely */
+            z-index: 500; /* Layer above other elements */
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+.popout-button {
+    width: 300px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+ 
+}
+
+        
+        
+        .video-container {
+            width: 1680px;
+            height: 750px;
+            position: relative;
+            cursor: pointer;
+            margin-left: 40px;
+            margin-bottom: 5px;
+            border-radius: 1500px;
+            z-index: 3;
+        }
+
+
+        #whiteBox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 7px;
+            background-color: white;
+            z-index: 9;
+        }
+
+        .popout-button-container {
+            position: relative;
+        }
+
+        
+        .popout-button {
+            width: 180px;
+            height: 180px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            z-index: 9999;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .popout-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 9999;
+        }
+
+
+        li {
+            font-size: 36px;
+        }
+
+       .popout-button {
+    width: 227px;  /* Adjust the width as needed */
+    height: 227px; /* Adjust the height as needed */
+    /* Other CSS styles for your buttons */
+}
+
+.popout-button img {
+    width: 100%; /* Makes the image fill the button */
+    height: 100%; /* Makes the image fill the button */
+}
+
+ .topbar {
+     margin-top: 160px;
+ }
+
+
+
+
+
+
+
+  body {
+    font-family: font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0e0e0, #ffffff);
+    background-size: 100% 100%; /* Adjust the background size */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    zoom: 0.55;
+    margin: 0; /* Reset default margin for the body element */
+    padding: 0; /* Reset default padding for the body element */
+    
+}
+
+
+.logo-container {
+    top: 0px;
+    left: -15px; /* Adjust the left position as needed */
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+     margin-bottom: 0px;
+    margin-left: 30px;
+    position: fixed;
+    background-color: white;
+    background: white;
+    z-index: 600;
+    width: 1600px;
+    align-items: center;
+    justify-content: center;
+    padding-right: 200px;
+    padding-left: 20px;
+}
+        
+
+/* Style for casalogo.png */
+.casalogo {
+    width: 210px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add margin to separate from the navigation button */
+    /* animation: fadeInOut 2s infinite; */
+}
+
+/* Style for casalettered.png */
+.casalettered {
+    width: 640px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Add some basic styles for the button container */
+        .button-container {
+            position: fixed;
+            top: 210px; /* Adjust the top position as needed */
+            right: 10px; /* Adjust the right position as needed */
+            display: flex;
+            background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
+            width: 120%;
+            border-radius:100px;
+            z-index: 8;
+            padding-bottom: 65px;
+                         }
+
+        /* Style for individual button icons */
+        .person-icon {
+            width: 120px; /* Adjust the width as needed */
+            height: 120px; /* Adjust the height as needed */
+            margin-left: 50px; /* Adjust the margin between icons as needed */
+            cursor: pointer;
+            border-radius: 600px;
+            margin-top: 43.5px;
+            margin-left: 1820px;                            
+        }
+
+        
+        .question-icon {
+            width: 120px; /* Adjust the width as needed */
+            height: 120px; /* Adjust the height as needed */
+            margin-left: 55px; /* Adjust the margin between icons as needed */
+            cursor: pointer;
+            border-radius: 600px;
+            margin-top: 43.5px;
+          
+        }
+        
+        
+
+@keyframes disco {
+    0% { background-color: rgba(255, 0, 0, 0.5); color: #ffb6c1; }
+    25% { background-color: rgba(255, 0, 0, 0.5); color: #ffb6c1; }
+    50% { background-color: rgba(255, 0, 0, 0.5); color: #ffb6c1; }
+    75% { background-color: rgba(255, 0, 0, 0.5); color: #ffb6c1; }
+    100% { background-color: rgba(255, 0, 0, 0.5); color: #ffb6c1; }
+}
+
+@keyframes fadeInOut2 {
+  50% {
+    opacity: 0.5;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+       .byline-container {
+    display: flex; /* Display bylines in a row */
+    overflow: hidden;
+    background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
+    padding: 25px 0; /* Remove padding to make it as tall as its contents */
+    align-items: flex-start; /* Align contents to the top */
+    margin-top: 85px;
+    margin-bottom: 200px;
+}
+
+        .byline-container2 {
+    display: flex; /* Display bylines in a row */
+    overflow: hidden;
+   background:linear-gradient(45deg, #9C762D, #000000);
+/*linear-gradient(45deg, #ff4d4d, #ffb6c1);*/
+    padding: 0; /* Remove padding to make it as tall as its contents */
+    align-items: flex-start; /* Align contents to the top */
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+.byline-container3 {
+    display: flex; /* Display bylines in a row */
+    overflow: hidden;
+   background:linear-gradient(45deg, #9C762D, #000000);
+/*linear-gradient(45deg, #ff4d4d, #ffb6c1);*/
+    padding: 0; /* Remove padding to make it as tall as its contents */
+    align-items: flex-start; /* Align contents to the top */
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+        
+    .byline-container4 {
+    display: flex; /* Display bylines in a row */
+    overflow: hidden;
+    background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
+    padding: 0; /* Remove padding to make it as tall as its contents */
+    align-items: flex-start; /* Align contents to the top */
+margin-top: 250px;
+    margin-bottom: 100px;
+}
+
+/* Keyframes for horizontal movement */
+.header-container {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%; /* Ensure each byline takes up the full width */
+    
+}
+
+        .header-container2 {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%; /* Ensure each byline takes up the full width */
+    
+}
+
+
+h1 {
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    text-align: center;
+    color: white;
+    font-size: 72px;
+    font-family: 'Roboto', Arial, sans-serif;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-weight: 1500;
+    
+}
+        
+.username {
+    background:linear-gradient(45deg, #9C762D, #000000);
+    background-clip: text;
+    color: white;
+}
+
+/* Animation for moving the text */
+@keyframes moveText {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move off-screen to the left */
+    }
+}
+
+h1 {
+    
+    animation: moveText 10s linear infinite; /* Adjust the animation duration as needed */
+    display: inline-block; /* Make the text behave like an inline-block element */
+    position: relative; /* Position relative for z-index */
+    z-index: 1; /* Ensure the text is above the background */
+    
+}
+
+    #headertwo {
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+        
+.header-container h1 {
+    animation: moveText 10s linear infinite;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    
+}
+
+/* Style adjustments for additional bylines */
+.header-container + .header-container {
+    margin-left: 20px; /* Adjust spacing between bylines */
+} 
+
+.byline-container:before {
+    content: ''; /* Create a separator between bylines */
+    display: inline-block;
+    width: 10px; /* Adjust the separator width as needed */
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+}
+        
+        
+/* Style the navigation button */
+.menu-button {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 195px;
+    height: 169px;
+    background: white; /* Set the button color to black */
+    display: grid-column;
+    margin-right: 30px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.firstbar {
+    width: 128px;
+    height: 26px;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    margin: 3px 0; /* Adjust spacing between the bars */
+    transition: 0.4s;
+    margin-top: 48px;
+    margin-left: 64px;
+}
+        
+        
+.bar {
+    width: 128px;
+    height: 26px;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+    margin: 3px 0; /* Adjust spacing between the bars */
+    transition: 0.4s;
+    margin-top: 15px;
+    margin-left: 64px;
+}
+        
+
+/* Style the sidebar pop-out box */
+
+        .sidebar {
+    position: fixed;
+    top: 0;
+    left: -900px; /* Initially hide the sidebar off-screen to the left */
+    width: 900px; /* Adjust the width to 600px */
+    height: 100%;
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1); /* Use the same gradient as grid parameters */
+        
+        
+        
+    
+      /*  rgba(0, 0, 0, 0.7); */
+    
+    z-index: 999;
+    overflow-y: auto; /* Enable vertical scrolling if the content overflows */
+    transition: left 0.4s;
+}
+
+/* Show the sidebar when it's open */
+.sidebar.open {
+    left: 0;
+}
+
+
+/* Style the NovaSeek™ text */
+.sidebar h2 {
+    font-size: 80px; /* Adjust the font size as needed */
+    font-weight: bold;
+    margin: 20px 0; /* Add margin for spacing */
+    text-align: center; /* Center the text horizontally */
+    color: #ff4d4d;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-top: 70px;
+}
+        
+
+/* Style the search form selections in a vertical row */
+.search-form {
+    padding: 20px; /* Add padding as needed */
+    display: flex;
+    flex-direction: column; /* Display the selections in a vertical row */
+    align-items: flex-start; /* Align items to the left */
+   
+}
+       
+
+/* Style the search form selections */
+.search-form select {
+    width: 110%;
+    padding: 35px 10px; /* Increase vertical padding while keeping horizontal padding the same */
+    font-size: 45px;
+    border-radius: 65px;
+    background-color: #ff4d4d; /* Red background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    margin-top: 7px;
+    margin-right: 12px;
+    margin-bottom: 40px;
+}
+
+
+/* Add margin-bottom to create space between select elements */
+.search-form select + select {
+    margin-bottom: 600px;
+}
+
+        .search-form label {
+            font-size: 66px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: 'Roboto', Arial, sans-serif;
+            color: white;
+            
+        }
+
+
+        .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+    grid-gap: 0px;
+    margin: 20px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    
+          
+}
+
+@media (min-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* Three columns when the viewport width is at least 800px */
+    }
+}
+
+
+
+        .grid-item {
+            background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+            padding: 0px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            position: relative; /* Add position: relative; to the grid-item */
+            display: inline-block;
+        vertical-align: top;
+        transition: transform 1s linear;
+          
+        }
+          
+        
+
+        .grid-item a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        
+/* Styles for the grid-item img */
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+
+ /* Existing styles for the parameters */
+.grid-item .parameters {
+    text-align: left;
+    padding: 10px; /* Adjust padding for better visibility */
+    position: absolute; /* Change position to absolute */
+    bottom: 0px; /* Position at the bottom of the grid-item */
+    left: 4.5px; /* Position at the left of the grid-item */
+    background: linear-gradient(45deg, #ff4d4d, #ffb6c1);
+/* Add a semi-transparent background color */
+    border-bottom-left-radius: 5px; /* Add border radius to the bottom left corner */
+    color: white;
+    z-index: 2; /* Increase z-index to layer parameters over the image */
+    border-radius: 25px;
+  font-family: "Comic Sans MS", "Arial", sans-serif;
+  width: 97%;
+    opacity: 0.85;
+  
+        
+}
+
+
+
+    .grid-item .parameters p {
+            margin: 0;
+            font-size: 45px;
+            line-height: 1;
+            font-weight: bold;
+            margin-right: 70px;
+        }
+        
+  /* Additional styles for the pop-up box */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500%;
+    width: 1350px;
+    padding: 20px;
+    margin: 10px;
+    background: linear-gradient(45deg, #ff4d4d 40%, #ffb6c1 60%);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    color: white;
+    font-size: 50px;
+    line-height: 1.5;
+    overflow: auto;
+    word-wrap: break-word;
+    white-space: normal; /* Allow text to wrap */
+}
+
+
+
+.popup-close {
+    float: right;
+    cursor: pointer;
+    font-size: 150px;
+    line-height: 1;
+}
+
+
+  /* Styles for the floating emojis container */
+.floating-emojis {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Styles for each individual emoji */
+.emoji {
+    position: absolute;
+    font-size: 50px;
+    pointer-events: none;
+    animation: floatEmoji 10s infinite linear;
+}
+
+/* Define the "floatEmoji" animation */
+@keyframes floatEmoji {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-100px, -100px);
+    }
+    50% {
+        transform: translate(100px, -200px);
+    }
+    75% {
+        transform: translate(-150px, 150px);
+    }
+    100% {
+        transform: translate(200px, 200px);
+    }
+}
+
+        
+        /* Define the styles for the playing state */
+.playing {
+  animation: none; /* This disables any animation applied to the image */
+  filter: none; /* This clears any filters applied to the image */
+  /* Add any other styles you want to apply to the playing GIF */
+}
+
+ .section-label {
+     position: fixed ;
+     top: 1%;
+     margin-top: 220px;
+     z-index: 505;
+    
+ } 
+ 
+
+.section-label-icon {
+    position: absolute; /* Position the icon absolutely within the container */
+    left: 64px; /* Adjust the left position as needed */
+    font-size: 50px; /* Adjust the font size for the icon */
+    color: silver;
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
+}
+
+.search-bar {
+    width: 1300px; /* Adjust the width as needed */
+    height: 143px;
+    padding: 5px 5px 5px 75px; /* Adjust the left padding to make space for the icon */
+    border: 12px solid #ffb6c1;
+    border-radius: 100px;
+    margin-left: 35px; /* Add spacing between the text and the search bar */
+    font-size: 40px; /* Adjust font size */
+    outline: none; /* Remove the outline */
+    color: #ff4d4d; /* Placeholder text color */
+    font-style: italic; /* Set the font style to italic */
+    opacity: 0.55;
+  
+} 
+
+
+
+        
+#username-search::placeholder {
+    color: #ff4d4d; /* Placeholder text color */
+    font-style: italic; /* Set the font style to italic */
+    
+}
+
+        
+
+        /* Center the logo image horizontally and align it at the top of the page */
+.logo {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px; /* Add padding for spacing */
+  animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.5;     
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+        @keyframes fadeInOut2 {
+  0% {
+    opacity: 0.8;   
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+        
+/* Add or modify the styles for the featured items */
+.featured-items {
+  display: flex;
+  flex-direction: row; /* Display items horizontally */
+  overflow: hidden; /* Hide overflowing items */
+  max-width: 850px; /* Set the maximum width */
+  height: auto; /* Let the height adjust automatically based on content */
+}
+
+/* Adjust the styles for each featured item */
+.featured-items .grid-item {
+  max-width: 100%; /* Set the maximum width to allow responsiveness */
+  margin-right: 20px; /* Add some spacing between items */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.5s; /* Add a smooth transition effect */
+  overflow: hidden; /* Hide overflowing content */
+  position: relative; /* Create a positioning context for the image */
+}
+
+/* Style for the last featured item (no margin-right) */
+.featured-items .grid-item:last-child {
+  margin-right: 0;
+}
+
+/* When hovering over a featured item, scale it slightly */
+.featured-items .grid-item:hover {
+  transform: scale(1.05);
+}
+
+/* Style the GIF images to fit within their container, maintaining aspect ratio */
+.featured-items .grid-item img {
+  max-width: 100%; /* Set the maximum width for responsiveness */
+  max-height: 100%; /* Set the maximum height for responsiveness */
+  width: auto; /* Ensure the width adjusts automatically based on max-width */
+  height: auto; /* Ensure the height adjusts automatically based on max-height */
+}
+
+
+/* Add or modify the styles for the featured items */
+.featured-items-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.featured-items-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Display 2 grids side by side */
+  grid-gap: 20px; /* Add grid gap between grids */
+  overflow: hidden; /* Hide overflowing items */
+  max-width: 100%; /* Ensure the grids don't exceed the container width */
+  transition: transform 0.5s; /* Add a smooth transition effect */
+}
+
+/* Style for each featured grid item */
+.featured-items-wrapper .grid-item {
+  width: 100%; /* Ensure each grid item takes up the full width of its cell */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* When hovering over a featured grid item, scale it slightly */
+.featured-items-wrapper .grid-item:hover {
+  transform: scale(1.05);
+}
+
+
+.b {
+    display: inline-block;
+    margin-right: 800px;
+}
+   .bk {
+display: inline-block;
+    } 
+
+        
+    </style>
+</head>
+<body>
+
+<div class="logo-container">
+    <img src="images/casalogo.png" class="casalogo">
+    <img src="images/casalettered.png" class="casalettered">
+</div>
+    
+    
+
+    <div class="topbar">
+        
+<!-- Navigation button -->
+<div id="menu-button" class="menu-button">
+    <div class="firstbar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+    
+    
+<div class="section-label">
+    <span class="section-label-icon">
+        <i class="fas fa-search"></i>
+    </span>
+    <input type="text" class="search-bar" id="username-search" placeholder="Search for a username, location, size etc...">
+</div>
+    
+
+    <!-- Button Container for Icons -->
+    <div class="button-container">
+        <!-- Icon for PERSON.png (Replace with your actual image path) -->
+        <a href= "createprofile.html">
+        <img src="images/PERSON.png" alt="Person Icon" class="person-icon">
+        </a>
+        
+        <!-- Icon for QUESTION.png (Replace with your actual image path) -->
+        <a href="https://t.me/CasanovaIsABot">
+        <img src="images/QUESTION.png" alt="Question Icon" class="question-icon" id="question-button">
+        </a>
+    </div>
+    
+    </div>
+    
+
+<div class="profile-picture-container">
+            <img class="profile-picture" src="rtcimages/rtc.jpg" alt="Profile Picture" onclick="togglePopoutButtons()">
+            <div class="popout-button-container" id="popoutButtonContainer">
+                <!-- Popout buttons will be created here dynamically -->
+            </div>
+        </div>
+
+    
+<div class="profilebar">
+
+    <div class="byline-container2" id="profilebyline"> 
+    <div class="header-container2"> 
+        <h1 class="username" id="profileUsername">Rita's Connections</h1>
+    </div>
+        
+    <div class="header-container2">      
+        <h1 class="username" id="profileUsername">Rita's Connections</h1>
+    </div>
+
+        <div class="header-container2">        
+        <h1 class="username" id="profileUsername">Rita's Connections</h1>
+    </div>
+        
+</div>
+    
+    <div class="top-container">
+        
+
+
+        
+            
+        <div class="video-container" onclick="playVideo()">
+            <video id="video" style="width: 100%; height: 100%; object-fit: cover;" controls>
+                <source src="videos/rtcbrandvid.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+    </div>
+    
+
+<div class="profilebar">
+
+    <div class="byline-container3" id="profilebyline">
+        
+    <div class="header-container2"> 
+        <h1 class="username" id="profileUsername">Rita's Connections</h1>
+    </div>
+        
+    <div class="header-container2">      
+        <h1 class="username" id="profileUsername">Rita's Connections </h1>
+    </div>
+
+        <div class="header-container2">        
+        <h1 class="username" id="profileUsername">Rita's Connections</h1>
+    </div>
+        
+</div>
+    
+  
+    
+<div class="featured-items-container">
+
+    <div class="byline-container4">
+        
+  <div class="header-container">
+    <h1>Today's Featureds</h1>
+  </div>    
+        
+    <div class="header-container">
+        <h1>Today's Featureds</h1>    
+    </div>
+        
+    <div class="header-container">
+        <h1>Today's Featureds</h1>    
+    </div>
+    
+        
+</div>
+
+
+  <div class="featured-items-wrapper">
+    <!-- The featured items will be added dynamically here -->
+  </div>
+
+
+
+    <div class="byline-container" id="ladiesbyline">
+        
+    <div class="header-container"> 
+        <h1 id="headertwo">Ladies' Profiles</h1>
+    </div>
+        
+    <div class="header-container">      
+        <h1 id="headertwo">Ladies' Profiles</h1>
+    </div>
+
+        <div class="header-container">        
+        <h1 id="headertwo">Ladies' Profiles</h1>
+    </div>
+        
+</div>
+
+
+    
+    <!-- New section label for the search form -->
+
+
+
+    
+<!-- Sidebar pop-out box -->
+    
+<div id="sidebar" class="sidebar">
+    <h2>NovaSeek™</h2>
+    
+   <div class="search-form">
+       
+        <div>
+            <label for="location">Location:</label>
+            <select id="location" onchange="searchProfiles()">
+                <option value="all">All</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Akure">Akure</option>
+                  <option value="Anambra">Anambra</option>
+                <option value="Ibadan">Ibadan</option>
+                  <option value="Lagos">Lagos</option>
+                    <option value="Ogun">Ogun</option>
+                      <option value="Osun">Osun</option>
+                        <option value="Port Harcourt">Port Harcourt</option>
+                          <option value="Plateau">Plateau</option>
+                <!-- Add more Nigerian states here -->
+            </select>
+        </div>
+
+       <div>
+           <label for="face-game">Face Game:</label>
+            <select id="face-game" onchange="searchProfiles()">
+                <option value="all">All</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+   
+       
+        <div>
+            <label for="complexion">Complexion:</label>
+            <select id="complexion" onchange="searchProfiles()">
+                <option value="all">All</option>
+                <option value="Cocoa">Cocoa</option>
+                <option value="Caramel">Caramel</option>
+                <option value="Vanilla">Vanilla</option>
+            </select>
+        </div>
+       
+        <div>
+            <label for="bust">Bust:</label>
+            <select id="bust" onchange="searchProfiles()">
+                <option value="all">All</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+        </div>
+       
+        <div>
+            <label for="backside">Backside:</label>
+            <select id="backside" onchange="searchProfiles()">
+                <option value="all">All</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+        </div>
+
+        
+       
+        
+        
+        
+       
+   </div>
+</div>
+    
+
+    <div class="grid-container">
+    
+        <div class="grid-item">
+            <a href="rtcprofiles/ajoke.html">
+    <div class="gif-container">
+     <img src="https://img.gs/kqqdrfzkhp/full/https://pronoon.github.io/Casa/rtcimages/AJOKE.gif" alt="Animated GIF" class="playing" loading="lazy">
+    </div>         
+        <div class="parameters">
+            <p><strong>Username: Ajoke</strong></p>
+            <p><strong>Location: Lagos</strong></p>
+            <p><strong>Face Game: 7</strong></p>
+            <p><strong>Complexion: Caramel</strong></p>
+            <p class="b"><strong>Bust: L</strong></p>
+            <p class="bk"> <strong>Backside: L</strong></p>
+        </div>
+    </a> 
+</div>
+
+
+
+        <div class="grid-item">
+            <a href="rtcprofiles/baddie.html">
+    <div class="gif-container">
+        <img src="https://img.gs/kqqdrfzkhp/full/https://pronoon.github.io/Casa/rtcimages/BADDIE.jpg" alt="Animated GIF" class="playing" loading="lazy">
+    </div>
+   
+            <div class="parameters">
+             <p>Username: OnceUponABaddie</p>
+            <p>Location: Lagos</p>
+            <p>Face Game: 8</p>
+            <p>Complexion: Caramel</p>
+            <p class="b">Bust: M</p>
+            <p class="bk">Backside: M</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="grid-item">
+            <a href="rtcprofiles/holyangel.html">
+    <div class="gif-container">
+     <img src="https://img.gs/kqqdrfzkhp/full/https://pronoon.github.io/Casa/rtcimages/HOLYANGEL.jpg" alt="Animated GIF" class="playing" loading="lazy">
+    </div>
+   
+        <div class="parameters">
+            <p> <strong>Username: Holy Angel</strong></p>
+            <p><strong>Location: Ibadan</strong></p>
+            <p> <strong>Face Game: 7</strong></p>
+            <p> <strong>Complexion: Cocoa</strong></p>
+            <p class="b"><strong>Bust: L</strong></p>
+            <p class="bk"> <strong>Backside: M</strong></p>
+        </div>
+            </a>
+        </div>
+        
+        <div class="grid-item">
+          <a href="rtcprofiles/oma.html">
+    <div class="gif-container">
+     <img src="https://img.gs/kqqdrfzkhp/full/https://pronoon.github.io/Casa/rtcimages/OMA.gif" alt="Animated GIF" class="playing" loading="lazy">
+    </div>
+   
+        <div class="parameters">
+                    <p> <strong>Username: Oma</strong></p>
+            <p> <strong>Location: Accra, Ghana.</strong></p>
+            <p> <strong>Face Game: 8</strong></p>
+            <p> <strong>Complexion: Vanilla</strong></p>
+            <p class="b"><strong>Bust: M</strong></p>
+            <p class="bk"> <strong>Backside: M</strong></p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="grid-item">
+           <a href="rtcprofiles/shasha.html">
+    <div class="gif-container">
+     <img src="https://img.gs/kqqdrfzkhp/full/https://pronoon.github.io/Casa/rtcimages/SHASHA.jpg" alt="Animated GIF" class="playing" loading="lazy">
+    </div>
+
+        <div class="parameters">
+                    <p> <strong>Username: Shasha</strong></p>
+            <p><strong>Location: Lagos</strong></p>
+            <p> <strong>Face Game: 7</strong></p>
+            <p> <strong>Complexion: Cocoa</strong></p>
+            <p class="b"><strong>Bust: M</strong></p>
+            <p class="bk"><strong>Backside: M</strong></p>
+                </div>
+            </a>
+        </div>
+
+       
+        <!-- Add more grid items here -->
+
+
+<div class="floating-emojis">
+    <div class="emoji">🥒</div>
+    <div class="emoji">🍑</div>
+    <div class="emoji">😛</div>
+    <div class="emoji">💦</div>
+</div>
+
+
+        <!-- Pop-up box content -->
+    <div class="popup" id="popupBox">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <h2>HOW TO USE THE SEARCH INTERFACE</h2>
+        <ol>
+            <li>For an EASY, QUALITY and PRECISE SEARCH, use <strong>NovaSeek™</strong>.<br><br> Tap on THE RED NAVIGATION BUTTON in the TOP LEFT CORNER of the page and the page autoscrolls down to "Ladies' Profiles" for you. So, select your criteria in any or all of the boxes and the search results grid will fetch profiles that match your selection to the top of the results Immediately. <br><br> So just go back to Profiles once you're done selecting.</li>
+            <p></p>
+            <li>Profiles that match 4 of your WANTS will be listed first before profiles that match 3 are. And then 2, 1, and 0.</li>
+            <p></p>
+            <li>Any result that doesn't match your LOCATION SELECTION will not be displayed. To get all results, keep it in ALL.</li>
+            <p></p>
+            <li>For BASIC SEARCH use the search bar.</li>
+            <p></p>
+            <li>Final Tip: HAVE FUN.</li>
+           
+        </ol>
+    </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("menu-button");
+    const sidebar = document.getElementById("sidebar");
+
+    menuButton.addEventListener("click", function () {
+        sidebar.classList.toggle("open");
+    });
+
+    // Add a click event listener to the document body
+    document.body.addEventListener("click", function (event) {
+        // Check if the clicked element is not inside the sidebar
+        if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+            // If the click occurred outside the sidebar and menu button, close the sidebar
+            sidebar.classList.remove("open");
+        }
+    });
+});
+
+        
+// Get the search bar element
+const searchBar = document.getElementById('username-search');
+
+// Get all the grid items
+const gridItems = document.querySelectorAll('.grid-item');
+
+// Add an event listener to the search bar
+searchBar.addEventListener('input', () => {
+    const searchTerm = searchBar.value.toLowerCase(); // Get the lowercase search term
+
+    // Loop through grid items and hide/show based on the search term
+    gridItems.forEach((item) => {
+        const itemText = item.textContent.toLowerCase(); // Get the lowercase text content of the grid item
+
+        // Check if any part of the grid item contains the search term
+        if (itemText.includes(searchTerm)) {
+            item.style.display = 'block'; // Show the grid item
+        } else {
+            item.style.display = 'none'; // Hide the grid item
+        }
+    });
+});        
+    </script>
+
+    
+<script src="rtcsearchsystem.js"></script>
+
+
+    
+    <script>
+        
+// Function to move multiple grids side by side like a conveyor belt
+function moveGrids() {
+  const gridContainer = document.querySelector('.grid-container');
+  const gridItems = Array.from(document.querySelectorAll('.grid-item'));
+  const featuredContainer = document.querySelector('.featured-items-wrapper');
+
+  // Number of grids to display side by side
+  const numGridsToShow = 2;
+  let currentIndex = 0;
+
+  // Function to display the next set of grid items
+  function displayNextGridItems() {
+    // Clear the featured items wrapper
+    featuredContainer.innerHTML = '';
+
+    for (let i = 0; i < numGridsToShow; i++) {
+      // Get the next grid item
+      const currentItem = gridItems[currentIndex].cloneNode(true);
+      featuredContainer.appendChild(currentItem);
+
+      // Increment the current index or reset to 0 if reached the end
+      currentIndex = (currentIndex + 1) % gridItems.length;
+    }
+  }
+
+  // Display the initial set of grid items
+  displayNextGridItems();
+
+  // Set an interval to display grid items continuously
+  const interval = setInterval(() => {
+    // Create a sliding effect by moving the featured items wrapper to the left
+    featuredContainer.style.transition = 'transform 0.5s';
+    featuredContainer.style.transform = 'translateX(-100%)';
+
+    // After the transition, reset the position and display the next set of grid items
+    setTimeout(() => {
+      featuredContainer.style.transition = 'none';
+      featuredContainer.style.transform = 'translateX(0)';
+      displayNextGridItems();
+    }, 500); // Adjust the timing as needed
+
+  }, 5000); // Change the interval duration as needed (e.g., 5000 milliseconds)
+
+  // Stop the interval when the page is unloaded (optional)
+  window.addEventListener('beforeunload', () => {
+    clearInterval(interval);
+  });
+}
+
+// Call the function to start moving grids side by side
+moveGrids();
+
+</script>
+
+
+<script>
+
+    let popoutButtonsVisible = false;
+
+        function togglePopoutButtons() {
+            const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+
+            if (popoutButtonsVisible) {
+                // Hide the popout buttons
+                popoutButtonContainer.style.transform = 'scale(0)';
+                popoutButtonsVisible = false;
+            } else {
+                // Show the popout buttons
+                popoutButtonContainer.style.transform = 'scale(1)';
+                popoutButtonsVisible = true;
+            }
+        }
+
+    // Function to create and append popout buttons in a semi-circle
+    function createPopoutButtons() {
+        const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+        const numButtons = 3; // Number of buttons
+        const radius = 185; // Radius of the semi-circle
+        const xOffset = 865; // Adjust this value to control horizontal spacing
+        const yOffset = -410; // Adjust this value to shift the buttons upwards
+
+        const animations = []; // Array to store animation IDs
+
+        const buttonRedirects = [
+            'rtcprofiles/rtcprofile.html', // Redirect URL for POPOUT1.png
+            'https://t.me/+w6rsvQZzugVjYWI0', // Redirect URL for POPOUT2.png
+            'https://wa.me/2348038587878'  // Redirect URL for POPOUT3.png
+        ];
+
+        for (let i = 0; i < numButtons; i++) {
+            const angle = (Math.PI / numButtons) * i - Math.PI / 2; // Calculate angle for positioning
+            const x = xOffset + radius * Math.cos(angle); // X-coordinate (adjusted for horizontal spacing)
+            const y = yOffset + radius * Math.sin(angle); // Y-coordinate (adjusted to shift upwards)
+
+            const button = document.createElement('div');
+            button.className = 'popout-button';
+            button.style.transform = `translate(${x}px, ${y}px)`; // Position along the semi-circle
+            button.innerHTML = `<img src="rtcimages/POPOUT${i + 1}.png" alt="Popout Button ${i + 1}">`;
+            popoutButtonContainer.appendChild(button);
+
+            // Add click event listener to redirect when clicked
+            button.addEventListener('click', () => {
+                window.location.href = buttonRedirects[i];
+            });
+
+            // Add animation function to the array
+            animations.push(() => {
+                const scaleFactor = 2.0; // Scale factor for animation
+                button.style.transform = `translate(${x}px, ${y}px) scale(${scaleFactor})`;
+
+                // Use setTimeout to reverse the animation after a short delay
+                setTimeout(() => {
+                    button.style.transform = `translate(${x}px, ${y}px) scale(1)`;
+                }, 100); // Adjust the delay as needed
+            });
+        }
+
+        // Set a high z-index for the popout button container
+        popoutButtonContainer.style.zIndex = '500';
+
+        // Function to start the animation loop
+        function startAnimationLoop() {
+            let currentIndex = 0;
+
+            setInterval(() => {
+                animations[currentIndex](); // Execute the animation function
+                currentIndex = (currentIndex + 1) % numButtons; // Cycle through buttons
+            }, 300); // Adjust the animation speed as needed
+        }
+
+        startAnimationLoop();
+    }
+
+    // Hide popout buttons initially
+    const popoutButtonContainer = document.getElementById('popoutButtonContainer');
+    popoutButtonContainer.style.transform = 'scale(0)';
+
+    createPopoutButtons();
+</script>
+
+    
+
+    <script>
+        document.getElementById("menu-button").addEventListener("click", function() {
+            const headerTwo = document.getElementById("headertwo");
+            
+            // Scroll to the "Ladies' Profiles" section smoothly
+            headerTwo.scrollIntoView({ behavior: "smooth" });
+        });         
+    </script>
+
+        <script>
+        const profilePicture = document.querySelector('.profile-picture');
+        const topContainer = document.querySelector('.top-container');
+
+        // Create the speech bubble element
+        const speechBubble = document.createElement('img');
+        speechBubble.src = 'rtcimages/CLICKME.png';
+        speechBubble.alt = 'Click Me';
+        speechBubble.classList.add('speech-bubble');
+        topContainer.appendChild(speechBubble);
+
+        profilePicture.addEventListener('touchstart', () => {
+            // When you tap on the profile picture, remove the speech bubble permanently
+            if (speechBubble) {
+                topContainer.removeChild(speechBubble);
+                speechBubble = null; // Remove reference to speech bubble
+            }
+            profilePicture.classList.add('expanded');
+        });
+
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
+        });
+    </script>
+
+    <!-- Touch Expand Function -->
+    <script>
+        profilePicture.addEventListener('touchstart', () => {
+            profilePicture.classList.add('expanded');
+        });
+
+        profilePicture.addEventListener('touchend', () => {
+            profilePicture.classList.remove('expanded');
+        });
+    </script>
+    
+</body>
+</html>
+ 
